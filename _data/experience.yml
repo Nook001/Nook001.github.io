@@ -1,6 +1,11 @@
+- company: HKUST(GZ)
+  logo: /assets/images/organizations/hkust-gz.png
+  role: Research Assistant
+  dates: 2026-09 - Present
+  current: true
 - company: Tencent
   logo: /assets/images/organizations/tencent.png
-  role: SA
+  role: Solution Architect
   dates: 2026-04 - 08
 - company: CAS
   logo: /assets/images/organizations/cas.png

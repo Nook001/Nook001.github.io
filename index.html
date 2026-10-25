@@ -27,7 +27,7 @@ page_class: home-page
   <section class="section" aria-labelledby="experience-title">
     <div class="section-heading"><h2 id="experience-title">Experience</h2></div>
     <ol class="timeline">{% for item in site.data.experience %}
-      <li>
+      <li{% if item.current %} class="is-current"{% endif %}>
         <span class="timeline-node" aria-hidden="true"></span>
         <div class="experience-card">
           <span class="organization-mark"><img src="{{ item.logo | relative_url }}" alt="" aria-hidden="true" width="24" height="24"></span>

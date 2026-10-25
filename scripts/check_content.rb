@@ -21,7 +21,7 @@ Dir.chdir(ROOT) do
   profile = read_yaml("_data/profile.yml")
   experience = read_yaml("_data/experience.yml")
   assert(config["future"] == false && config["show_drafts"] == false, "production must exclude drafts/future posts")
-  assert(experience.map { |e| e["company"] } == %w[Tencent CAS Shopee OPPO], "preserve the agreed experience order")
+  assert(experience.map { |e| e["company"] } == ["HKUST(GZ)", "Tencent", "CAS", "Shopee", "OPPO"], "preserve the agreed experience order")
   assert(File.file?(profile.fetch("avatar").sub(%r{^/}, "")), "avatar file missing")
   profile.fetch("education").each do |item|
     assert(item["label"].is_a?(String) && !item["label"].empty?, "education label missing")

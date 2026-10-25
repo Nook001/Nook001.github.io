@@ -8,7 +8,7 @@
 
 用户要求暂不公开 CV。保持 `cv` 为空，首页不显示 CV 入口或待补充提示；原 CV 页面已删除。发布检查会阻止 CV 链接及生成的 CV 页面。只有用户明确要求恢复时才能修改该规则并添加经过审阅的公开版本。原始 DOCX 不入库。
 
-经历在 `_data/experience.yml`，保留 Tencent → CAS → Shopee → OPPO 顺序。日期由用户确认，不推测月份、职位性质或 SA 全称。
+经历在 `_data/experience.yml`，保留 HKUST(GZ) → Tencent → CAS → Shopee → OPPO 顺序。用户确认 HKUST(GZ) Research Assistant 从 2026-09 持续至今，用 `current: true` 显示实心节点，日期为 `2026-09 - Present`；Tencent 职位为 Solution Architect。日期由用户确认，不推测月份或职位性质。日期位于卡片右上角；窄屏上独占首行，避免与公司名称重叠。
 
 学历现在使用 `label` / `logo` 条目：`label` 保留已确认的文字，`logo` 是本地图片路径。经历条目同样使用 `logo` 指定标识。文件放在 `assets/images/organizations/`，来源记录在 LOGO_SOURCES.md；替换时保持原始比例，不用外部图标服务。标识旁已有学校/公司文字，因此图片按装饰处理，避免读屏重复播报。
 
