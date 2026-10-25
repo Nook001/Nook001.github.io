@@ -139,3 +139,9 @@ The user confirmed HKUST(GZ) Research Assistant from September 2026 to the prese
 Axis extensions increase from 20px to 36px, retaining faded ends and clearances. Dates occupy the top-right header cell on desktop. At 420px and below, dates occupy a separate top row so long ranges cannot collide with company names; the event anchor moves with the company heading. Roles remain on their own line, logos stay inside the cards, and backgrounds remain transparent.
 
 Normal/release content checks, the production build, eight-page generated-site validation and whitespace checks pass. Browser checks at 1440px and 320px confirm five entries, one current node, all logos loaded, separated company/role lines and no horizontal overflow. Desktop title/date cells retain a 10px gap; phone dates are above the company line. The local preview screenshot is timeline-current-role-preview.png in the chat outputs. No remote push or deployment was performed.
+
+## Public display name and role labels
+
+The user requested Nook as the display name and preferred occupation-based role labels. The profile, greeting, site title/description, footer, header monogram and favicon now use Nook/N. Shopee and OPPO display Backend Engineer and Android Engineer. CAS remains Distributed Systems until a specific position title is confirmed. Experience dates and overall layout remain unchanged while their presentation is discussed.
+
+Normal/release content checks, production build, eight-page output checks and whitespace checks pass. Browser verification confirms Home | Nook, Nook as the main heading, both Engineer labels and no horizontal overflow at desktop width. The local screenshot is nook-name-roles-preview.png in the chat outputs. No deployment was performed.

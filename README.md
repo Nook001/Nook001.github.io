@@ -1,4 +1,4 @@
-# Yuanzhi Liu — personal website
+# Nook — personal website
 
 A Jekyll site for `Nook001/Nook001.github.io`. Plain Markdown, Liquid and CSS; no JavaScript, Node build, remote fonts, paid services or theme dependency. The remote is connected; website deployment remains a separate manual action.
 
