@@ -107,3 +107,9 @@ The user requested a first version of the proposed light-card timeline. Four exp
 Browser checks cover 1440, 1024, 768, 390 and 320px. There is no horizontal overflow, all four cards render, and dates remain below their title groups. Desktop and mobile captures are saved as experience-cards-desktop.png and experience-cards-mobile.png in this chat's outputs. Local production build, release content validation and the eight-page generated-site check pass; degree labels, logos, ordering and CV omission are preserved.
 
 The first live check exposed cached CSS from the preceding release: new HTML had four card wrappers, but the browser still applied old timeline rules. The shared layout now includes a build timestamp in the stylesheet URL, preventing a fresh page from mixing template and CSS versions. The generated-site checker already resolves query-bearing local asset URLs against their file path.
+
+## Compact transparent experience cards
+
+The user rejected full-width tinted cards and requested internal logos plus numeric YYYY-MM dates. The timeline now takes its width from the longest entry, capped at the available space. Cards have transparent backgrounds; logos sit inside their upper-left corner, with short connectors between cards. Existing dates were reformatted without changing their values.
+
+Local normal/release content checks, the production Jekyll build, eight-page generated-site validation and whitespace checks pass. Browser checks at 1440px and 320px confirm four transparent cards, internal logos, numeric date ranges and no horizontal overflow. Desktop card width is approximately 231px within the 836px content column.

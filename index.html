@@ -28,10 +28,12 @@ page_class: home-page
     <div class="section-heading"><h2 id="experience-title">Experience</h2></div>
     <ol class="timeline">{% for item in site.data.experience %}
       <li>
-        <span class="organization-mark"><img src="{{ item.logo | relative_url }}" alt="" aria-hidden="true" width="24" height="24"></span>
         <div class="experience-card">
+          <span class="organization-mark"><img src="{{ item.logo | relative_url }}" alt="" aria-hidden="true" width="24" height="24"></span>
+          <div class="experience-copy">
           <div class="experience-main"><h3>{{ item.company | escape }}</h3><p>{{ item.role | escape }}</p></div>
           <p class="dates">{{ item.dates | escape }}</p>
+          </div>
         </div>
       </li>
     {% endfor %}</ol>
