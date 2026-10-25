@@ -155,3 +155,9 @@ Normal/release content checks, production build, eight-page output checks and wh
 ## Experience/Publications edge alignment preview
 
 The user requested a larger separation or opposite-edge alignment for the two columns. Each desktop column is now capped at 340px, with spare horizontal space distributed between them and a 40px minimum gap. Internal text remains left-aligned; phone stacking is unchanged. At 1440px the actual gap is 156px, with both columns flush to their respective content edges. Browser checks at 1024px and 320px also show no horizontal overflow. Normal/release content checks, production build, eight-page output validation and whitespace checks pass. The screenshot is columns-spaced-preview.png in the chat outputs. This change is local and has not been deployed.
+
+## Section heading icons only
+
+The user requested only heading icons, explicitly retaining all other styling. Five local Lucide SVGs now precede About, Experience, Publications, Selected projects and Writing. They render at 18px in the secondary text color with a 9px label gap. Visible labels remain intact; SVGs are decorative, aria-hidden and non-focusable. Provenance is in docs/ICON_SOURCES.md and the ISC notice is distributed at assets/icons/lucide-LICENSE.txt. No remote icon dependency or JavaScript is added.
+
+Normal/release content checks, production build, eight-page output validation and whitespace checks pass. Browser checks at 1440px and 320px confirm five 18px icons and no horizontal overflow. Dates remain 11px; the empty publication rail and column spacing are unchanged. Screenshot: section-icons-preview.png in the chat outputs. This remains a local preview without deployment.

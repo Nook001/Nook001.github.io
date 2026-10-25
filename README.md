@@ -62,6 +62,8 @@ Experience and Publications occupy opposite edges of the content area, each up t
 
 The stylesheet URL includes a build timestamp so that a newly published page does not reuse cached CSS from a previous layout. All pages in one build share the same stylesheet version; no JavaScript is involved.
 
+Five homepage section headings have decorative 18px Lucide line icons. The SVGs are local includes; provenance and the distributed licence location are documented in docs/ICON_SOURCES.md.
+
 ## References
 
 - [GitHub Pages dependency versions](https://pages.github.com/versions/)
