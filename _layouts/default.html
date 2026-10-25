@@ -9,7 +9,7 @@
   <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}" type="image/svg+xml">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
-<body>
+<body{% if page.page_class %} class="{{ page.page_class | escape }}"{% endif %}>
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="shell">
     <header class="site-header">
