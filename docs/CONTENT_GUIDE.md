@@ -10,6 +10,8 @@
 
 经历在 `_data/experience.yml`，保留 Tencent → CAS → Shopee → OPPO 顺序。日期由用户确认，不推测月份、职位性质或 SA 全称。
 
+学历现在使用 `label` / `logo` 条目：`label` 保留已确认的文字，`logo` 是本地图片路径。经历条目同样使用 `logo` 指定标识。文件放在 `assets/images/organizations/`，来源记录在 LOGO_SOURCES.md；替换时保持原始比例，不用外部图标服务。标识旁已有学校/公司文字，因此图片按装饰处理，避免读屏重复播报。
+
 ## 文章
 
 1. 从 `templates/post.md` 复制到 `_drafts/slug.md`，写标题、摘要、语言和正文。

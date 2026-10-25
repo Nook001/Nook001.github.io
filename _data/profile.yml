@@ -1,8 +1,10 @@
 name: Yuanzhi Liu
 greeting: "Hi, I’m Yuanzhi. Welcome to my corner of the web."
 education:
-  - "HKUST · CSE"
-  - "University of Warwick · CS ’27"
+  - label: "HKUST · CSE"
+    logo: /assets/images/organizations/hkust.ico
+  - label: "University of Warwick · CS ’27"
+    logo: /assets/images/organizations/warwick.svg
 education_pending: false
 # Empty values render as visible, non-clickable placeholders. Never guess URLs.
 github: "https://github.com/Nook001"

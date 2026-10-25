@@ -89,3 +89,13 @@ The user supplied a two-column reference and requested a fixed profile area on t
 - Browser checks at 1440, 1024, 768, 390 and 320px showed no horizontal overflow. A 360px-high desktop viewport limits the sidebar height and allows its contents to scroll, keeping contact links reachable.
 - After a 360px page scroll at desktop width, the sidebar remained at y=36px. The mobile sidebar is static. Desktop and mobile screenshots are saved in this chat's outputs folder as sidebar-layout-desktop.png and sidebar-layout-mobile.png.
 - Existing content, approved education labels and the CV privacy preference remain intact. Production build, normal/release content checks, generated-site checks and Git whitespace checks are run for this release; no custom JavaScript or animation is introduced.
+
+## Organization marks and text hierarchy
+
+The user requested the proposed education/company marks, slightly larger supporting text and clearer font-color hierarchy. The existing approved layout and publishing workflow are retained.
+
+- Six local organization marks were obtained from official site/media resources, with exact source links recorded in docs/LOGO_SOURCES.md. They render successfully as two education marks and four timeline nodes. Source files are unmodified; CSS preserves their aspect ratios.
+- Education labels now use a `label`/`logo` data structure, and experience entries include a local `logo` path. Content validation checks these paths. Adjacent visible organization names make image alternatives redundant, so the marks are decorative for assistive technology.
+- Text palette contrast was calculated using the WCAG relative-luminance formula. On the paper background: heading 11.71:1, body 8.41:1, secondary 6.11:1, muted 4.72:1 and accent 6.23:1. All also exceed 4.5:1 on the card background.
+- Browser checks at 1440, 1024, 768, 390 and 320px confirmed all six images loaded and no horizontal overflow. Desktop and 390px screenshots are retained in the chat outputs as organization-marks-desktop.png and organization-marks-mobile.png.
+- The rendered pages retain the approved degree labels and experience order. CV remains disabled. Local release content checks, production build and the eight-page generated-site checks pass.

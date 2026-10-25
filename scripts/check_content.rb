@@ -23,6 +23,13 @@ Dir.chdir(ROOT) do
   assert(config["future"] == false && config["show_drafts"] == false, "production must exclude drafts/future posts")
   assert(experience.map { |e| e["company"] } == %w[Tencent CAS Shopee OPPO], "preserve the agreed experience order")
   assert(File.file?(profile.fetch("avatar").sub(%r{^/}, "")), "avatar file missing")
+  profile.fetch("education").each do |item|
+    assert(item["label"].is_a?(String) && !item["label"].empty?, "education label missing")
+  end
+  (profile.fetch("education") + experience).each do |item|
+    assert(item["logo"].is_a?(String) && item["logo"].start_with?("/assets/images/organizations/"), "use a local organization logo")
+    assert(File.file?(item["logo"].sub(%r{^/}, "")), "organization logo missing: #{item['logo']}")
+  end
   paths = Dir["_posts/*.md", "_drafts/*.md", "_projects/*.md"]
   documents = paths.map do |path|
     data = front_matter(path)
