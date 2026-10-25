@@ -1,0 +1,7 @@
+{% assign heading = include.heading_level | default: 3 %}
+<article class="project-card">
+  <p class="eyebrow">{{ project.area | escape }}</p>
+  <h{{ heading }}><a href="{{ project.url | relative_url }}">{{ project.title | escape }} <span aria-hidden="true">↗</span></a></h{{ heading }}>
+  <p>{{ project.description | escape }}</p>
+  {% if project.sample %}<span class="annotation">Example · details pending review</span>{% endif %}
+</article>

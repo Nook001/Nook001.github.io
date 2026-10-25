@@ -1,0 +1,30 @@
+# 内容维护指南
+
+日常操作可直接交给 Codex：说明要增加、修改或删除的文章/项目，以及已确认的事实。Markdown 负责内容，模板负责排版。
+
+## 个人资料
+
+`_data/profile.yml` 管理姓名、两行教育经历、问候语、头像、GitHub、Email 和 CV。空链接会显示待补充文字，不会生成无效按钮。GitHub 填完整 HTTPS 个人主页；Email 只填地址；CV 放在 `assets/files/`，填 `/assets/files/cv.pdf`。公开前检查 PDF 的私人信息。头像用本人授权照片替换占位 SVG，同时更新 alt。教育措辞经本人确认后才设 `education_pending: false`。
+
+经历在 `_data/experience.yml`，保留 Tencent → CAS → Shopee → OPPO 顺序。日期由用户确认，不推测月份、职位性质或 SA 全称。
+
+## 文章
+
+1. 从 `templates/post.md` 复制到 `_drafts/slug.md`，写标题、摘要、语言和正文。
+2. 在本地草稿预览中审阅。不要添加未经证实的履历或成果；技术结论应给出前提和证据。
+3. 内容确认后移到 `_posts/YYYY-MM-DD-slug.md`，日期代表真实计划发布日期。删除 `published: false` 或设为 true。确认不是示例后明确设 `sample: false`。
+4. 运行检查、看桌面和手机宽度，再准备 PR。移入 posts 只代表可构建，不授权发布。
+
+中文文章用 `lang: zh-CN`，模板会在正文页面设置对应语言。代码块写明语言；图片提供 alt，放 `assets/images/`，路径使用 Liquid `relative_url`，例如 `![说明]({{ '/assets/images/example.png' | relative_url }})`。避免大图和外链追踪资源。
+
+## 项目
+
+从 `templates/project.md` 复制到 `_projects/slug.md`。`featured: true` 才会出现在首页；`order` 数值越小越靠前。`area` 只是一条简短分类，不堆砌技能标签。`published: false` 的条目不进入生产站点。
+
+只写能确认的问题、本人贡献、实现选择和证据。项目名称不等于已确认的所有权或上线状态。`source_url` 不确定时留空；不要凭名称猜仓库。当前三张卡片均为示例，必须审阅或移除后才能发布。
+
+## 删除与安全
+
+删除文章/项目 Markdown 文件会同步移除列表项；发布前检查是否需要兼容旧链接。本次从空仓库开始，没有承诺任何旧 URL 重定向。内部链接检查会发现本站残留引用。
+
+不要把联系方式、CV 或草稿中不希望公开的信息提交到未来的公开仓库。`published: false` 只控制网页输出，不能隐藏 GitHub 仓库中的源文件。

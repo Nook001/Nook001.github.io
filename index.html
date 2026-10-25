@@ -1,0 +1,34 @@
+---
+layout: default
+title: Home
+---
+{% assign profile = site.data.profile %}
+<section class="intro" aria-labelledby="intro-title">
+  <img class="portrait" src="{{ profile.avatar | relative_url }}" alt="{{ profile.avatar_alt | escape }}" width="100" height="100">
+  <div>
+    <p class="eyebrow">Personal website / technical notes</p>
+    <h1 id="intro-title">{{ profile.name | escape }}<span class="accent">.</span></h1>
+    <div class="education">{% for line in profile.education %}<p>{{ line | escape }}</p>{% endfor %}</div>
+    {% if profile.education_pending %}<p class="annotation">Education wording pending review.</p>{% endif %}
+    <p class="greeting">{{ profile.greeting | escape }}</p>
+    <ul class="contact-links" aria-label="Contact and CV">
+      <li>{% if profile.github != '' %}<a href="{{ profile.github | escape }}">GitHub ↗</a>{% else %}<span class="pending">GitHub <small>link pending</small></span>{% endif %}</li>
+      <li>{% if profile.email != '' %}<a href="mailto:{{ profile.email | escape }}">Email ↗</a>{% else %}<span class="pending">Email <small>address pending</small></span>{% endif %}</li>
+      <li>{% if profile.cv != '' %}<a href="{{ profile.cv | relative_url }}">CV ↗</a>{% else %}<span class="pending">CV <small>file pending</small></span>{% endif %}</li>
+    </ul>
+  </div>
+</section>
+<section class="section" aria-labelledby="experience-title">
+  <div class="section-heading"><h2 id="experience-title">Experience</h2><span class="section-note">Selected experience</span></div>
+  <ol class="timeline">{% for item in site.data.experience %}
+    <li><div class="experience-main"><h3>{{ item.company | escape }}</h3><p>{{ item.role | escape }}</p></div><span class="dates">{{ item.dates | escape }}</span></li>
+  {% endfor %}</ol>
+</section>
+<section class="section" aria-labelledby="projects-title">
+  <div class="section-heading"><h2 id="projects-title">Selected projects</h2><a href="{{ '/projects/' | relative_url }}">All projects ↗</a></div>
+  <div class="project-grid">{% assign selected = site.projects | where: 'featured', true | sort: 'order' %}{% for project in selected %}{% include project-card.html %}{% endfor %}</div>
+</section>
+<section class="section" aria-labelledby="writing-title">
+  <div class="section-heading"><h2 id="writing-title">Writing</h2><a href="{{ '/blog/' | relative_url }}">All notes ↗</a></div>
+  <ul class="post-list">{% for post in site.posts limit: 5 %}{% include post-row.html %}{% endfor %}</ul>
+</section>

@@ -1,0 +1,9 @@
+---
+layout: default
+---
+<article class="article">
+  <header class="page-heading"><a class="eyebrow" href="{{ '/projects/' | relative_url }}">← Projects</a><h1>{{ page.title | escape }}</h1><p>{{ page.description | escape }}</p></header>
+  {% if page.sample %}<aside class="notice">Example project entry. Description, ownership, links and outcomes need review before publication.</aside>{% endif %}
+  {% if page.source_url and page.source_url != '' %}<p><a href="{{ page.source_url | escape }}">Source code ↗</a></p>{% endif %}
+  <div class="prose">{{ content }}</div>
+</article>

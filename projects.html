@@ -1,0 +1,6 @@
+---
+title: Projects
+description: A small collection of software projects.
+permalink: /projects/
+---
+<div class="project-grid">{% assign projects = site.projects | sort: 'order' %}{% for project in projects %}{% include project-card.html heading_level=2 %}{% endfor %}</div>

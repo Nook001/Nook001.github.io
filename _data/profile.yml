@@ -1,0 +1,12 @@
+name: Yuanzhi Liu
+greeting: "Hi, I’m Yuanzhi. Welcome to my corner of the web."
+education:
+  - "HKUST · Joint degree"
+  - "University of Warwick · BSc Computer Science"
+education_pending: true
+# Empty values render as visible, non-clickable placeholders. Never guess URLs.
+github: ""
+email: ""
+cv: ""
+avatar: /assets/images/avatar-placeholder.svg
+avatar_alt: "YL monogram — portrait placeholder"

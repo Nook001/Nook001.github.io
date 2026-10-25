@@ -1,0 +1,14 @@
+# Agent instructions
+
+This is Yuanzhi Liu's personal homepage and technical blog. Keep Jekyll 3.10-compatible Liquid, Markdown and native CSS. No Node build, JS framework, external font or analytics is needed.
+
+- Read README.md and docs/CONTENT_GUIDE.md before editing content; inspect git status first. Preserve unrelated work.
+- Maintain the homepage hierarchy: portrait/name/education/brief greeting/contact links → Tencent, CAS, Shopee, OPPO timeline → project grid → compact writing list.
+- Do not invent degree details, dates, job expansions (including SA), project ownership, metrics, source links or email addresses. Preserve visible placeholders until confirmed by the user.
+- Keep sample content labeled. Do not clear `sample` or `education_pending` simply to make release validation pass. Confirm claims first or remove unpublished examples with user agreement.
+- New content starts in `_drafts/` or with `published: false`. Draft review and publication are separate decisions.
+- Keep layouts restrained, readable and responsive. Preserve keyboard focus, semantic headings, alt text, skip link and sufficient contrast. No unnecessary animations or skills badges.
+- Run `ruby scripts/check_content.rb`, the production build, and `python scripts/check_site.py`. Report runtime/browser checks separately from static checks. Do not claim unrun checks.
+- Use a topic branch and PR for ongoing changes once a remote exists. Do not push, create a remote/repository, merge, enable Pages, change deployment protections or run deployment without explicit user authorization. Local commits are allowed; never change global Git identity.
+- PR validation must never deploy. Deployment stays manual on main, with release content checks. Do not add push-triggered deployment or bypass the release checks.
+- Never publish docs, templates, drafts, validation records, credentials or private personal data. Keep development files in the Jekyll exclude list.
