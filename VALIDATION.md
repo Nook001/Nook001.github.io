@@ -41,7 +41,7 @@ Windows tooling initially required additional setup: native dependencies compile
 
 Sources: https://github.com/oneclick/rubyinstaller2, https://github.com/brechtsanders/winlibs_mingw, https://repo.msys2.org/msys/x86_64/.
 
-## Limits and pending review
+## Initial limits and pending review
 
 - No GitHub-hosted CI or deployment has run; the workflows were prepared locally. Linux dependencies were resolved, but execution on a Linux runner remains to be verified once a remote is authorized.
 - Browser checks cover representative pages and widths, not a full screen-reader or device audit. Visual approval remains with the user.

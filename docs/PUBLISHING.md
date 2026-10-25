@@ -12,11 +12,11 @@
 4. 检查通过并经审阅后合并（代理合并同样需要授权）。合并不等于授权发布。
 5. 用户明确要求发布当前版本后，执行下面的手动流程。
 
-## 首次远程设置（尚未执行）
+## 远程设置现状与发布准备
 
-- 在用户授权后建立 `Nook001/Nook001.github.io`，将本地仓库连接到该远程。不要再生成 README、许可证或其他初始化提交，避免无关历史。
-- 将本地 main 推送到远程。选择公开仓库前检查所有源文件，不仅是生成网页。
-- 仓库 Settings → Pages → Source 必须选择 **GitHub Actions**，不要选 Deploy from a branch。
+- `Nook001/Nook001.github.io` 已存在，本地已连接该远程，初始 main 已推送。不要再次生成初始化提交或替换仓库历史。
+- 仓库为公开仓库，后续推送前检查所有源文件，不仅是生成网页。新内容当前位于待审核分支。
+- 仓库 Settings → Pages → Source 已设为 **GitHub Actions**；保留该设置，不要改为 Deploy from a branch。站点已撤下，发布工作流尚未手动触发。
 - 对 `用户名.github.io` 仓库，不要把首次 API 404 当作“推送绝不会发布”的保证。首次推送后复查 Pages 配置和工作流记录；如平台自动启用分支发布，先停止意外发布，再继续内容维护。
 - 建议给 main 设置 PR 保护和 `Validate site / validate` 必须通过的规则；给 `github-pages` environment 限定 main，并在账号套餐允许时设置 required reviewers。不要假定这些保护已经存在。
 - 仓库中的部署文件只支持手动触发；不接受从 PR、push 或 workflow_run 自动部署的改动。
