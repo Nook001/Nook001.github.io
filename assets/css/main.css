@@ -1,82 +1,99 @@
-/* Cool charcoal surfaces with a slight blue cast and restrained sage accents. */
+/* Palette from v587su/v587su.github.io, revision recorded in docs/THEMES.md.
+   See assets/licenses/reference-site-BSD-2-Clause.txt for source notice. */
 :root {
   color-scheme:light dark;
-  --paper-light:#f8f7f3;
-  --paper-dark:#25282c;
+  --paper-light:#FAFAF7;
+  --paper-dark:#111110;
   --paper:var(--paper-light);
-  --ink-light:#22382e;
-  --ink-dark:#eeeae1;
+  --ink-light:#141414;
+  --ink-dark:#ECECE8;
   --ink:var(--ink-light);
-  --body-light:#3f4c44;
-  --body-dark:#d4d6d1;
+  --body-light:#141414;
+  --body-dark:#ECECE8;
   --body:var(--body-light);
-  --secondary-light:#526157;
-  --secondary-dark:#bfc2bb;
+  --secondary-light:#66665F;
+  --secondary-dark:#9B9B95;
   --secondary:var(--secondary-light);
-  --muted-light:#687169;
-  --muted-dark:#a4aaa1;
+  --muted-light:#66665F;
+  --muted-dark:#9B9B95;
   --muted:var(--muted-light);
-  --line-light:#dcded5;
-  --line-dark:#474e56;
+  --line-light:#E0E0DA;
+  --line-dark:#2C2C2A;
   --line:var(--line-light);
-  --accent-light:#486344;
-  --accent-dark:#aec59a;
+  --accent-light:#C2402A;
+  --accent-dark:#E8705A;
   --accent:var(--accent-light);
-  --card-light:#fdfcf9;
-  --card-dark:#2c3035;
+  --accent-strong-light:#962F1E;
+  --accent-strong-dark:#F09A88;
+  --accent-strong:var(--accent-strong-light);
+  --accent-soft-light:#F8E8E4;
+  --accent-soft-dark:#3A1F1A;
+  --accent-soft:var(--accent-soft-light);
+  --card-light:#FFFFFF;
+  --card-dark:#181817;
   --card:var(--card-light);
-  --code-bg-light:#efeee8;
-  --code-bg-dark:#30353b;
+  --code-bg-light:#F0F0EB;
+  --code-bg-dark:#212120;
   --code-bg:var(--code-bg-light);
-  --timeline-line-light:#c4cbbf;
-  --timeline-line-dark:#626d76;
+  --timeline-line-light:#E0E0DA;
+  --timeline-line-dark:#2C2C2A;
   --timeline-line:var(--timeline-line-light);
-  --timeline-node-light:#667260;
-  --timeline-node-dark:#b0baaa;
+  --timeline-node-light:#66665F;
+  --timeline-node-dark:#9B9B95;
   --timeline-node:var(--timeline-node-light);
-  --control-line-light:#7c8b75;
-  --control-line-dark:#8b9399;
+  --control-line-light:#8C8C83;
+  --control-line-dark:#696963;
   --control-line:var(--control-line-light);
-  --notice-bg-light:#eeefe7;
-  --notice-bg-dark:#333932;
+  --header-tint-light:rgba(250,250,247,0.70);
+  --header-tint-dark:rgba(17,17,16,0.70);
+  --header-tint:var(--header-tint-light);
+  --card-highlight-light:rgba(255,255,255,0.8);
+  --card-highlight-dark:rgba(255,255,255,0.03);
+  --card-highlight:var(--card-highlight-light);
+  --card-shadow-light:rgba(20,20,20,0.03);
+  --card-shadow-dark:rgba(0,0,0,0.18);
+  --card-shadow:var(--card-shadow-light);
+  --notice-bg-light:#F8E8E4;
+  --notice-bg-dark:#3A1F1A;
   --notice-bg:var(--notice-bg-light);
-  --notice-text-light:#4b5346;
-  --notice-text-dark:#d0d6c8;
+  --notice-text-light:#962F1E;
+  --notice-text-dark:#F09A88;
   --notice-text:var(--notice-text-light);
-  --code-comment-light:#61695e;
-  --code-comment-dark:#a5b29a;
+  --code-comment-light:#66665F;
+  --code-comment-dark:#9B9B95;
   --code-comment:var(--code-comment-light);
-  --code-keyword-light:#664678;
-  --code-keyword-dark:#cfb7d6;
+  --code-keyword-light:#962F1E;
+  --code-keyword-dark:#F09A88;
   --code-keyword:var(--code-keyword-light);
-  --code-string-light:#3b623e;
-  --code-string-dark:#b8cfa6;
+  --code-string-light:#3E6B45;
+  --code-string-dark:#93C7A0;
   --code-string:var(--code-string-light);
-  --code-number-light:#85512c;
-  --code-number-dark:#d8bb8f;
+  --code-number-light:#7D6A2A;
+  --code-number-dark:#D8C070;
   --code-number:var(--code-number-light);
-  --code-name-light:#315d74;
-  --code-name-dark:#accad0;
+  --code-name-light:#2E4A7A;
+  --code-name-dark:#9FB8E0;
   --code-name:var(--code-name-light);
-  --code-deleted-light:#8b3838;
-  --code-deleted-dark:#e2b1a5;
+  --code-deleted-light:#8E2E1E;
+  --code-deleted-dark:#E89A86;
   --code-deleted:var(--code-deleted-light);
-  --code-deleted-bg-light:#f4e8e3;
-  --code-deleted-bg-dark:#3b2927;
+  --code-deleted-bg-light:#F6E3DE;
+  --code-deleted-bg-dark:#3A1F1A;
   --code-deleted-bg:var(--code-deleted-bg-light);
-  --code-added-light:#355739;
-  --code-added-dark:#b7d2a6;
+  --code-added-light:#3E6B45;
+  --code-added-dark:#93C7A0;
   --code-added:var(--code-added-light);
-  --code-added-bg-light:#e7eee0;
-  --code-added-bg-dark:#253c2b;
+  --code-added-bg-light:#E3EEE4;
+  --code-added-bg-dark:#1C2F21;
   --code-added-bg:var(--code-added-bg-light);
   --timeline-width:340px;
+  --header-height:52px;
+  --sticky-top:calc(var(--header-height) + 32px);
 }
 
 :root[data-theme="light"] { color-scheme:light; }
 :root[data-theme="dark"] { color-scheme:dark; }
 
-/* Modern engines choose from each pair using the active color-scheme. */
 @supports (color:light-dark(white, black)) {
   :root {
     --paper:light-dark(var(--paper-light), var(--paper-dark));
@@ -86,11 +103,16 @@
     --muted:light-dark(var(--muted-light), var(--muted-dark));
     --line:light-dark(var(--line-light), var(--line-dark));
     --accent:light-dark(var(--accent-light), var(--accent-dark));
+    --accent-strong:light-dark(var(--accent-strong-light), var(--accent-strong-dark));
+    --accent-soft:light-dark(var(--accent-soft-light), var(--accent-soft-dark));
     --card:light-dark(var(--card-light), var(--card-dark));
     --code-bg:light-dark(var(--code-bg-light), var(--code-bg-dark));
     --timeline-line:light-dark(var(--timeline-line-light), var(--timeline-line-dark));
     --timeline-node:light-dark(var(--timeline-node-light), var(--timeline-node-dark));
     --control-line:light-dark(var(--control-line-light), var(--control-line-dark));
+    --header-tint:light-dark(var(--header-tint-light), var(--header-tint-dark));
+    --card-highlight:light-dark(var(--card-highlight-light), var(--card-highlight-dark));
+    --card-shadow:light-dark(var(--card-shadow-light), var(--card-shadow-dark));
     --notice-bg:light-dark(var(--notice-bg-light), var(--notice-bg-dark));
     --notice-text:light-dark(var(--notice-text-light), var(--notice-text-dark));
     --code-comment:light-dark(var(--code-comment-light), var(--code-comment-dark));
@@ -105,7 +127,7 @@
   }
 }
 
-/* Older engines: same palette, system preference and explicit overrides. */
+/* Screen-only fallback keeps print light even after a forced dark choice. */
 @supports not (color:light-dark(white, black)) {
   @media screen and (prefers-color-scheme:dark) {
     :root:not([data-theme="light"]) {
@@ -116,11 +138,16 @@
       --muted:var(--muted-dark);
       --line:var(--line-dark);
       --accent:var(--accent-dark);
+      --accent-strong:var(--accent-strong-dark);
+      --accent-soft:var(--accent-soft-dark);
       --card:var(--card-dark);
       --code-bg:var(--code-bg-dark);
       --timeline-line:var(--timeline-line-dark);
       --timeline-node:var(--timeline-node-dark);
       --control-line:var(--control-line-dark);
+      --header-tint:var(--header-tint-dark);
+      --card-highlight:var(--card-highlight-dark);
+      --card-shadow:var(--card-shadow-dark);
       --notice-bg:var(--notice-bg-dark);
       --notice-text:var(--notice-text-dark);
       --code-comment:var(--code-comment-dark);
@@ -143,11 +170,16 @@
       --muted:var(--muted-dark);
       --line:var(--line-dark);
       --accent:var(--accent-dark);
+      --accent-strong:var(--accent-strong-dark);
+      --accent-soft:var(--accent-soft-dark);
       --card:var(--card-dark);
       --code-bg:var(--code-bg-dark);
       --timeline-line:var(--timeline-line-dark);
       --timeline-node:var(--timeline-node-dark);
       --control-line:var(--control-line-dark);
+      --header-tint:var(--header-tint-dark);
+      --card-highlight:var(--card-highlight-dark);
+      --card-shadow:var(--card-shadow-dark);
       --notice-bg:var(--notice-bg-dark);
       --notice-text:var(--notice-text-dark);
       --code-comment:var(--code-comment-dark);
@@ -169,6 +201,7 @@
 
 html {
   scroll-behavior:auto;
+  scroll-padding-top:calc(var(--header-height) + 16px);
 }
 
 body {
@@ -186,7 +219,7 @@ a {
 }
 
 a:hover {
-  color:var(--accent);
+  color:var(--accent-strong);
   text-decoration:underline;
 }
 
@@ -207,12 +240,28 @@ img {
 }
 
 .site-header {
+  position:sticky;
+  top:0;
+  z-index:20;
+  border-bottom:1px solid var(--line);
+  background:var(--paper);
+}
+.header-inner {
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:27px 0;
-  border-bottom:1px solid var(--line);
+  gap:16px;
+  height:var(--header-height);
 }
+/* Opaque paper is the fallback when backdrop blur is unavailable. */
+@supports ((backdrop-filter:blur(10px)) or (-webkit-backdrop-filter:blur(10px))) {
+  .site-header {
+    background:var(--header-tint);
+    -webkit-backdrop-filter:blur(10px);
+    backdrop-filter:blur(10px);
+  }
+}
+::selection { background:var(--accent-soft); }
 
 /* Native controls inherit the active scheme; the compact header stays one row. */
 .header-tools {
@@ -283,7 +332,7 @@ nav a {
 }
 
 nav a[aria-current=page] {
-  color:var(--ink);
+  color:var(--accent);
   text-decoration:underline;
 }
 
@@ -302,8 +351,8 @@ nav a[aria-current=page] {
 
 .profile-sidebar {
   position:sticky;
-  top:36px;
-  max-height:calc(100svh - 72px);
+  top:var(--sticky-top);
+  max-height:calc(100svh - var(--sticky-top) - 24px);
   overflow-y:auto;
   scrollbar-width:thin;
   padding:0 6px 4px 0;
@@ -501,6 +550,7 @@ h2 {
 .section-heading a {
   text-decoration:none;
 }
+.section-heading a:hover, .post-list a:hover { color:var(--accent-strong); }
 
 /* Paired columns and the intentional empty publications rail. */
 .experience-publications {
@@ -688,6 +738,11 @@ h2 {
   border:1px solid var(--line);
   border-radius:4px;
   background:var(--card);
+  box-shadow:inset 0 1px 0 var(--card-highlight), 0 1px 2px var(--card-shadow);
+}
+
+.project-card:hover, .project-card:focus-within {
+  border-color:var(--accent);
 }
 
 .project-card .eyebrow {
@@ -833,6 +888,9 @@ h2 {
   font-size: 16px;
   line-height: 1.75;
 }
+
+.prose a { color:var(--accent); }
+.prose a:hover { color:var(--accent-strong); }
 
 .prose {
   min-width: 0;
@@ -1066,7 +1124,7 @@ h2 {
   top:-100px;
   background:var(--paper);
   padding:12px;
-  z-index:1;
+  z-index:40;
 }
 
 .skip-link:focus {
@@ -1227,6 +1285,8 @@ h2 {
 }
 
 @media print {
+  .site-header { position:static; background:transparent; -webkit-backdrop-filter:none; backdrop-filter:none; }
+  .project-card { box-shadow:none; }
   :root { color-scheme:light !important; --paper:#fff; --card:#fff; }
   .theme-toggle { display:none !important; }
   .prose pre { white-space:pre-wrap; overflow-wrap:anywhere; overflow:visible; }

@@ -1,7 +1,8 @@
 # Current validation
 
-Snapshot: 25 October 2026, local branch `site/warm-forest-dark`.
-No push, PR, merge, Pages-setting change or deployment was performed in this review.
+Snapshot: 25 October 2026, local branch `site/reference-palette-refinement`.
+The user authorized pushing, merging and deploying this version after requesting a
+more transparent header. Pages settings and workflow permissions remain unchanged.
 Earlier iteration records remain in Git history, outside the default reading path.
 
 ## Commands
@@ -39,8 +40,8 @@ RubyInstaller with Devkit; the retained runtime is sufficient for the installed 
   current is boolean and agrees with Present, and referenced local logos exist.
 - Review homepage and article at 1440, 1024, 768, 390 and 320 CSS px. No whole-page
   horizontal overflow; long code/tables scroll within their own containers.
-- Preserve homepage timeline/columns/project-grid geometry, approved facts, colors
-  and fonts. Compare before/after screenshots for CSS changes.
+- Preserve homepage timeline/columns/project-grid geometry, approved facts and
+  fonts. Keep the reference palette documented in docs/THEMES.md. Compare before/after screenshots for CSS changes.
 - Check skip link, keyboard focus, code/table keyboard scrolling, heading hierarchy,
   meaningful image alternatives and text contrast. Browser checks do not substitute
   for a full screen-reader/device audit.
@@ -54,7 +55,7 @@ RubyInstaller with Devkit; the retained runtime is sufficient for the installed 
 | Production build with strict front matter and trace | PASS: Jekyll 3.10.0 / Ruby 3.3.13 |
 | Generated site | PASS: seven HTML pages; links/fragments, semantics, XML and exclusions |
 | Isolated article regression suite | PASS: two bilingual fixture pages; nine HTML pages in the separate test site |
-| Workflow configuration inspection | PASS: only main push / PR-to-main validation, stale-run cancellation, read-only permissions |
+| Workflow configuration | Unchanged by this branch; validation and manual deployment policies retained |
 | Manual deployment workflow | Byte-for-byte unchanged from the starting commit |
 | Git whitespace check | PASS |
 
@@ -67,42 +68,48 @@ Fixture builds live under ignored `work/article-check-*/`; they are never deploy
 
 ## Browser and visual evidence
 
-- First visits without a stored choice follow the system. Browser checks passed
-  light/dark/light system changes, including the button's icon and pressed state.
-  A click chooses the opposite effective mode and persists across reloads and
-  Home / Projects / Writing navigation, overriding later system changes.
-- Header control is a 32x32px native sun/moon toggle, with a stable Dark mode label,
-  aria-pressed state, Tab/Enter/Space support and a 2px visible focus outline.
-  The three-state dropdown is removed; navigation stays one row at 320px.
-- Both themes passed at 1440, 768, 390 and 320px on the homepage and reading fixture.
-  No page overflow; logos/avatar loaded; reading tables retain native semantics.
-- Charcoal surfaces carry a subtle blue-gray cast. Semantic color pairs and the
-  light-dark()/media-query fallback architecture are unchanged. Forty contrast
-  pairs passed, with text >=4.72:1 and control/node boundaries >3:1.
-- The homepage's profile, cards, timeline, headings and empty publications rail
-  retain exact pre-theme geometry. Font sizes and weights are identical between themes; intended logo changes
-  are the only new light-theme visual edits.
-- Alpha audit: HKUST/Tencent/Shopee/OPPO already contain transparency; the added
-  universal CSS backing is removed. HKUST(GZ) reuses the transparent shared official
-  university crest. CAS is clipped to its circular seal, preserving internal white.
-  HKUST/OPPO retain their original colors in both themes. No logo, avatar or article
-  image receives a recoloring filter. Original files
-  remain intact, with provenance documented in docs/LOGO_SOURCES.md.
-- Sixteen isolated script cases passed: system detection, first-click direction,
-  manual preference priority, old preference compatibility, early restore,
-  blocked storage, tab sync, legacy media listener and history restoration.
-  The existing bundled JS runtime was used for local tests only, not a build dependency.
-- With JavaScript disabled, the button is hidden and CSS still follows the system.
-  Forced Dark prints white paper/light text and hides the button. No animation or
-  transition was added; the existing reduced-motion behavior remains unchanged.
-- Content/release/build/output/article/whitespace checks passed. No test article is
-  published. Current screenshots: blue-grey-light/dark-1440.png and -390.png in the
-  chat outputs; blue-grey-logo-preview.png shows the revised header and surfaces.
+- Reference source: v587su/v587su.github.io at
+  `8c406ea2e273a5037a671a75a7035aa55c1a0353`; live computed colors match the
+  source. All fourteen requested core palette values are preserved exactly.
+- Homepage and isolated article passed Light / Dark at 1440, 1024, 768, 390 and
+  320 CSS px without whole-page horizontal overflow. Code and tables keep their
+  own scroll containers. Images and logos load; no image recoloring was added.
+- Homepage profile, headings, timeline cards, empty publications rail and project
+  cards retain their previous dimensions at all five widths. Font family, size,
+  weight and line height remain unchanged. Only the compact header changes the
+  main content's vertical starting position (previous header ~88px, now ~53px).
+- Sticky header uses a 70% background tint and 10px blur. At desktop
+  scroll, its bottom is ~53px and the profile starts at 84px: ~31px clearance.
+  At a 360px-tall viewport, profile scrolling keeps the Email link reachable.
+- Project hover and keyboard focus produce the accent border without movement;
+  inset highlight and small shadow remain subtle. Tab focus and the skip link
+  were checked; the skip link sits above the sticky header and focuses main.
+- Fresh-origin visits follow Light / Dark / Light system changes and update the
+  button. One click chooses the opposite effective mode and persists through
+  reload and Projects navigation. Sixteen isolated toggle-script cases pass.
+- Forty-four text contrast pairs pass, minimum 4.63:1, including syntax colors.
+  Control borders use a separate accessibility token: 3.39:1 light / 3.22:1 dark
+  against the surface. Decorative borders keep the reference's original values.
+- Article screenshots were inspected for comments, keywords, strings, numbers,
+  names, diffs and quotation hierarchy. Table headers and form fields use the
+  secondary surface / surface tokens in both themes. Bilingual fixture checks pass.
+- With scripts disabled, the control is hidden and system light/dark still works.
+  A manually forced Dark page prints white paper/dark text, static header and
+  wrapping code. Reduced-motion inspection found no animations or transitions.
+- Actual visual comparison: warm-neutral backgrounds and muted text closely match
+  the reference. Cards are only slightly lifted from the dark page; brick/coral
+  accents remain localized. Header tint/blur match, while its shadow is restrained.
+  Nook's existing fonts and compact information layout are intentionally retained.
+- Review outputs include refinement-light/dark-desktop.png (1440x1100),
+  refinement-light/dark-mobile.png (390x844), corresponding reference screenshots,
+  article screenshots and visual-refinement-review.md in the current chat outputs.
+  Physical image dimensions were verified. The reference's mobile page itself
+  uses a wider CSS viewport; it was captured unchanged, not restyled for comparison.
 
 ## Limits and follow-up
 
-- This theme branch is local only. No push, PR, merge, deployment or Pages change was
-  made; source resume, CV policy and confirmed personal/project content are unchanged.
+- Release follows the existing PR checks and manual main deployment workflow.
+  Source resume, CV policy, logo artwork and confirmed personal/project content are unchanged.
 - Browser checks cover the current Chromium browser, responsive layout and keyboard
   operation; a full screen-reader/physical-device or historical browser audit was not run.
 - Ruby dependencies still emit base64/bigdecimal migration warnings for future Ruby 3.4;
