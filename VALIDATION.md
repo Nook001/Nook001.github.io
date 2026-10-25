@@ -145,3 +145,9 @@ Normal/release content checks, the production build, eight-page generated-site v
 The user requested Nook as the display name and preferred occupation-based role labels. The profile, greeting, site title/description, footer, header monogram and favicon now use Nook/N. Shopee and OPPO display Backend Engineer and Android Engineer. CAS remains Distributed Systems until a specific position title is confirmed. Experience dates and overall layout remain unchanged while their presentation is discussed.
 
 Normal/release content checks, production build, eight-page output checks and whitespace checks pass. Browser verification confirms Home | Nook, Nook as the main heading, both Engineer labels and no horizontal overflow at desktop width. The local screenshot is nook-name-roles-preview.png in the chat outputs. No deployment was performed.
+
+## English month dates and Publications column
+
+The user requested abbreviated English months with full years and a separate column for future papers. All five experience ranges now use Mon YYYY - Mon YYYY, with Present for the current role. Experience and Publications share a two-column area (340px experience rail plus flexible publications column), while Projects and Writing remain below. Publications contains only its heading and an empty decorative vertical axis; there are no paper entries, event nodes, dates or placeholder claims. At 700px and below the pair stacks and the empty axis is shorter.
+
+Normal/release content checks, production build, eight-page output checks and whitespace checks pass. Browser verification at 1440, 1024 and 768px confirms the columns fit, with matching heading heights where checked; at 320px they stack with no overflow and dates remain above company titles. The empty paper area has no text or event nodes. Screenshots are publications-column-preview.png and publications-column-mobile.png in the chat outputs. This remains a local preview without a remote push or deployment.

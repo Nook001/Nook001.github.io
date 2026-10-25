@@ -8,7 +8,9 @@
 
 用户要求暂不公开 CV。保持 `cv` 为空，首页不显示 CV 入口或待补充提示；原 CV 页面已删除。发布检查会阻止 CV 链接及生成的 CV 页面。只有用户明确要求恢复时才能修改该规则并添加经过审阅的公开版本。原始 DOCX 不入库。
 
-经历在 `_data/experience.yml`，保留 HKUST(GZ) → Tencent → CAS → Shopee → OPPO 顺序。用户确认 HKUST(GZ) Research Assistant 从 2026-09 持续至今，用 `current: true` 显示实心节点，日期为 `2026-09 - Present`；Tencent 职位为 Solution Architect。日期由用户确认，不推测月份或职位性质。日期位于卡片右上角；窄屏上独占首行，避免与公司名称重叠。
+经历在 `_data/experience.yml`，保留 HKUST(GZ) → Tencent → CAS → Shopee → OPPO 顺序。用户确认 HKUST(GZ) Research Assistant 从 2026-09 持续至今，用 `current: true` 显示实心节点，日期为 `Sep 2026 - Present`；Tencent 职位为 Solution Architect，Shopee 为 Backend Engineer，OPPO 为 Android Engineer。日期统一为英文月份缩写加完整年份，例如 `Apr 2026 - Aug 2026`；日期由用户确认，不推测月份或职位性质。日期位于卡片右上角；窄屏上独占首行，避免与公司名称重叠。
+
+首页 Publications 位于 Experience 右侧，当前只有标题和装饰性的空时间轴。用户尚无论文，不添加示例论文、待发表声明或虚构节点。实际论文内容须待用户提供并审核后再加入。700px 以下两栏改为上下排列。
 
 学历现在使用 `label` / `logo` 条目：`label` 保留已确认的文字，`logo` 是本地图片路径。经历条目同样使用 `logo` 指定标识。文件放在 `assets/images/organizations/`，来源记录在 LOGO_SOURCES.md；替换时保持原始比例，不用外部图标服务。标识旁已有学校/公司文字，因此图片按装饰处理，避免读屏重复播报。
 
