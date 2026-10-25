@@ -69,3 +69,13 @@ The Pages DELETE API returned 422 because GitHub disallows deactivating this use
 No custom deployment workflow was dispatched. Future release remains manual, with the content gate. This correction is recorded rather than claiming that no deployment ever occurred.
 
 References: [official unpublishing guide](https://docs.github.com/en/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site), [Pages API build types](https://docs.github.com/en/rest/pages/pages#update-information-about-a-github-pages-site).
+
+## User-approved first official release
+
+On 25 October 2026 the user approved official publication after two changes: shorten education to CSE/CS with the Warwick year written as 27, and omit the CV for privacy.
+
+- Profile now displays **HKUST · CSE** and **University of Warwick · CS ’27**. The approved wording clears the education review marker.
+- The homepage CV item and its pending placeholder are omitted. The derived `cv.html` source page is removed from the current tree, and output checks reject both `/cv.html` and `/cv/` pages. The original DOCX was never committed. Existing Git history is not rewritten.
+- Release validation no longer requires a CV; it explicitly requires the CV link to remain empty unless the user later opts in.
+- Normal content validation, release content validation, production Jekyll build, generated-site checks and whitespace checks all passed locally. The output contains eight HTML pages, with no CV page or local CV links.
+- Merge and manual deployment are authorized for this reviewed version. The Actions deployment record provides the final published commit and deployment outcome; future releases still require authorization.

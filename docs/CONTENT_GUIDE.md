@@ -4,7 +4,9 @@
 
 ## 个人资料
 
-`_data/profile.yml` 管理姓名、两行教育经历、问候语、头像、GitHub、Email 和 CV。空链接会显示待补充文字，不会生成无效按钮。GitHub 填完整 HTTPS 个人主页；Email 只填地址。目前 CV 指向本地 `/cv.html` 摘要页。以后也可把审阅过的 PDF 放在 `assets/files/`，填 `/assets/files/cv.pdf`；不要直接上传含手机号或内部项目细节的原始简历。头像目前使用用户 GitHub 账号的公开头像，后续可替换为本人照片并更新 alt。教育措辞经本人确认后才设 `education_pending: false`。
+`_data/profile.yml` 管理姓名、两行教育经历、问候语、头像、GitHub 和 Email。GitHub 填完整 HTTPS 个人主页；Email 只填地址。用户已确认学历显示为 `HKUST · CSE` 和 `University of Warwick · CS ’27`，`education_pending` 为 false。头像使用用户 GitHub 账号的公开头像，后续可按要求替换并更新 alt。
+
+用户要求暂不公开 CV。保持 `cv` 为空，首页不显示 CV 入口或待补充提示；原 CV 页面已删除。发布检查会阻止 CV 链接及生成的 CV 页面。只有用户明确要求恢复时才能修改该规则并添加经过审阅的公开版本。原始 DOCX 不入库。
 
 经历在 `_data/experience.yml`，保留 Tencent → CAS → Shopee → OPPO 顺序。日期由用户确认，不推测月份、职位性质或 SA 全称。
 

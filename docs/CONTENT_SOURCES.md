@@ -6,7 +6,7 @@ Checked on 25 October 2026. This document is excluded from the generated website
 
 The user-supplied Chinese CV supports the professional email address, Warwick study dates and expected graduation, the HKUST Computer Engineering joint programme dates, the four selected internship date ranges and role summaries, and the brief current research interest.
 
-The site uses the user's established English name, Yuanzhi Liu. “Joint programme” is a conservative translation of 本科联培; the exact English award/programme wording remains flagged for review. The site does not imply that two degrees have already been awarded. The original CV is not committed. Phone number, GPA, university rankings, internal customer details and numerical performance claims have been omitted from the short public version.
+The site uses the user's established English name, Yuanzhi Liu. The user subsequently approved the concise labels “HKUST · CSE” and “University of Warwick · CS ’27” and explicitly requested CV removal before release. The original CV is not committed, and the derived CV page is removed from the current source and generated site. Phone number, GPA, university rankings, internal customer details and numerical performance claims are not included in the website.
 
 ## Profile
 
@@ -25,4 +25,4 @@ The short playback-events post is newly drafted from Qingyin's public implementa
 
 ## Review boundary
 
-The user requested simple completion of missing content. The edits remain on a review branch; they do not authorize merging or website deployment. `education_pending` remains true. Content/build checks validate structure and links, not the truth of a CV or final editorial approval.
+The user requested completion of missing content, reviewed the result and then explicitly authorized official publication after the education and CV changes. `education_pending` is false for the approved labels. Content/build checks validate structure and links; future publications still require explicit authorization.

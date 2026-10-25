@@ -40,10 +40,10 @@ Dir.chdir(ROOT) do
   end
   if ARGV.include?("--release")
     assert(profile["education_pending"] == false, "review education wording first")
-    %w[github email cv].each { |field| assert(!profile[field].to_s.strip.empty?, "confirm #{field} first") }
+    %w[github email].each { |field| assert(!profile[field].to_s.strip.empty?, "confirm #{field} first") }
     assert(profile["github"].match?(%r{\Ahttps://github\.com/[^/]+/?\z}), "use a confirmed GitHub profile URL")
     assert(profile["email"].match?(/\A[^@\s]+@[^@\s]+\.[^@\s]+\z/), "use a valid confirmed email")
-    assert(profile["cv"].start_with?("/") && File.file?(profile["cv"].sub(%r{^/}, "")), "add a local CV file")
+    assert(profile["cv"].to_s.empty?, "keep CV unpublished until the user explicitly opts in")
     assert(!profile["avatar"].include?("placeholder"), "replace placeholder portrait")
     assert(experience.none? { |e| e["dates"].to_s.match?(/confirm|pending|TODO/i) || e["dates"].to_s.empty? }, "confirm experience dates")
     documents.reject { |p, d| p.start_with?("_drafts/") || d["published"] == false }.each do |path, data|

@@ -2,7 +2,9 @@
 
 ## 当前状态
 
-用户已授权连接 `https://github.com/Nook001/Nook001.github.io.git` 并推送；初始 main 已成功推送。内容补充使用独立分支和 PR，未授权合并或部署。推送前 Pages API 返回 404，但首次推送随后触发了 GitHub 内置的 `legacy` 分支发布。发现后已撤下这次意外启用的 Pages 站点，以恢复用户要求的不发布状态。后续设置和发布仍需明确授权。
+用户已明确授权：学历改为 `HKUST · CSE` 和 `University of Warwick · CS ’27`，不公开 CV，完成后正式发布。本次可在检查通过后合并内容 PR 并手动部署。未来改动仍按 PR 和单独发布授权执行。
+
+此前首次推送意外触发过 GitHub 的 legacy 分支发布，现已改为 GitHub Actions 发布来源。保留手动触发配置，不恢复自动分支发布。
 
 ## 日常维护
 
@@ -15,8 +17,8 @@
 ## 远程设置现状与发布准备
 
 - `Nook001/Nook001.github.io` 已存在，本地已连接该远程，初始 main 已推送。不要再次生成初始化提交或替换仓库历史。
-- 仓库为公开仓库，后续推送前检查所有源文件，不仅是生成网页。新内容当前位于待审核分支。
-- 仓库 Settings → Pages → Source 已设为 **GitHub Actions**；保留该设置，不要改为 Deploy from a branch。站点已撤下，发布工作流尚未手动触发。
+- 仓库为公开仓库，后续推送前检查所有源文件，不仅是生成网页。CV 的历史摘要页已从当前版本移除，原始 DOCX 从未提交；不改写既有 Git 历史。
+- 仓库 Settings → Pages → Source 已设为 **GitHub Actions**；保留该设置，不要改为 Deploy from a branch。
 - 对 `用户名.github.io` 仓库，不要把首次 API 404 当作“推送绝不会发布”的保证。首次推送后复查 Pages 配置和工作流记录；如平台自动启用分支发布，先停止意外发布，再继续内容维护。
 - 建议给 main 设置 PR 保护和 `Validate site / validate` 必须通过的规则；给 `github-pages` environment 限定 main，并在账号套餐允许时设置 required reviewers。不要假定这些保护已经存在。
 - 仓库中的部署文件只支持手动触发；不接受从 PR、push 或 workflow_run 自动部署的改动。
@@ -29,7 +31,7 @@
 ruby scripts/check_content.rb --release
 ```
 
-该检查当前应失败。它是待补资料的发布阻断，不是普通构建失败。不能为通过检查编造内容或直接删除标记。通过后仍须人工审阅，因为程序无法判断履历是否真实。
+该检查必须通过。用户已确认简化学历措辞；CV 留空是明确的隐私偏好，不是待补资料。检查会阻止恢复 CV 入口或公开页面。不能为通过检查编造内容或直接删除标记。
 
 用户明确授权后，在 GitHub Actions 打开 **Publish site (manual approval)**，选择 main，输入 PUBLISH。工作流重新检查内容、生产构建与本地链接，再上传并部署同一产物。main 之外或输入错误不会发布。若设置了 environment 审批，完成该审批后才会部署。
 

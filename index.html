@@ -11,10 +11,10 @@ title: Home
     <div class="education">{% for line in profile.education %}<p>{{ line | escape }}</p>{% endfor %}</div>
     {% if profile.education_pending %}<p class="annotation">Education wording pending review.</p>{% endif %}
     <p class="greeting">{{ profile.greeting | escape }}</p>
-    <ul class="contact-links" aria-label="Contact and CV">
+    <ul class="contact-links" aria-label="Contact links">
       <li>{% if profile.github != '' %}<a href="{{ profile.github | escape }}">GitHub ↗</a>{% else %}<span class="pending">GitHub <small>link pending</small></span>{% endif %}</li>
       <li>{% if profile.email != '' %}<a href="mailto:{{ profile.email | escape }}">Email ↗</a>{% else %}<span class="pending">Email <small>address pending</small></span>{% endif %}</li>
-      <li>{% if profile.cv != '' %}<a href="{{ profile.cv | relative_url }}">CV ↗</a>{% else %}<span class="pending">CV <small>file pending</small></span>{% endif %}</li>
+      {% if profile.cv and profile.cv != '' %}<li><a href="{{ profile.cv | relative_url }}">CV ↗</a></li>{% endif %}
     </ul>
     {% if profile.currently %}<p class="annotation current-note"><strong>Currently</strong> · {{ profile.currently | escape }}</p>{% endif %}
   </div>
