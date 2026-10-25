@@ -24,10 +24,12 @@ page_class: home-page
     <p class="greeting">{{ profile.greeting | escape }}</p>
     {% if profile.currently %}<p class="annotation current-note"><strong>Currently</strong> · {{ profile.currently | escape }}</p>{% endif %}
   </section>
+  <div class="experience-publications">
   <section class="section" aria-labelledby="experience-title">
     <div class="section-heading"><h2 id="experience-title">Experience</h2></div>
     <ol class="timeline">{% for item in site.data.experience %}
-      <li>
+      <li{% if item.current %} class="is-current"{% endif %}>
+        <span class="timeline-node" aria-hidden="true"></span>
         <div class="experience-card">
           <span class="organization-mark"><img src="{{ item.logo | relative_url }}" alt="" aria-hidden="true" width="24" height="24"></span>
           <div class="experience-copy">
@@ -38,6 +40,11 @@ page_class: home-page
       </li>
     {% endfor %}</ol>
   </section>
+  <section class="section publications-section" aria-labelledby="publications-title">
+    <div class="section-heading"><h2 id="publications-title">Publications</h2></div>
+    <div class="publications-timeline" aria-hidden="true"></div>
+  </section>
+  </div>
   <section class="section" aria-labelledby="projects-title">
     <div class="section-heading"><h2 id="projects-title">Selected projects</h2><a href="{{ '/projects/' | relative_url }}">All projects ↗</a></div>
     <div class="project-grid">{% assign selected = site.projects | where: 'featured', true | sort: 'order' %}{% for project in selected %}{% include project-card.html %}{% endfor %}</div>

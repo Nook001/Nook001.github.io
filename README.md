@@ -1,4 +1,4 @@
-# Yuanzhi Liu — personal website
+# Nook — personal website
 
 A Jekyll site for `Nook001/Nook001.github.io`. Plain Markdown, Liquid and CSS; no JavaScript, Node build, remote fonts, paid services or theme dependency. The remote is connected; website deployment remains a separate manual action.
 
@@ -56,7 +56,9 @@ Warm off-white, restrained olive accents, system body fonts and a serif name/tit
 
 Local organization marks identify education and experience. Deep green headings, softer body text and muted dates establish the text hierarchy; every text palette color has at least 4.5:1 contrast against the paper and card backgrounds. Project descriptions and experience roles use slightly larger type for readability. Asset origins are documented in `docs/LOGO_SOURCES.md`.
 
-Experience uses content-sized transparent cards with a fine border. A left-hand vertical axis connects horizontally to each card. Logos sit inside the upper-left corner, beside separate company and role lines. Dates align to the bottom-right as YYYY-MM - MM; cross-year ranges retain the ending year. Cards share the width needed by the longest entry, capped by the available space.
+Experience uses transparent 300px cards with a fine border, shrinking to fit narrow screens. A quiet left-hand axis extends 36px beyond the first and last event centers, fading at its ends. The current HKUST(GZ) Research Assistant role (Sep 2026 - Present) has a filled node; previous roles have hollow nodes. All nodes are 10px and have a 3px paper-colored clearance. Short horizontal guides leave a 6px gap after each node and an 8px gap before each card. Logos sit inside the upper-left corner, beside separate company and role lines. Dates align to the top-right using abbreviated English months and full years at both ends, such as Apr 2026 - Aug 2026. On narrow phones, dates occupy the first row so they cannot collide with company names. Tencent's approved title is Solution Architect.
+
+Publications sits beside Experience, with aligned headings and an empty decorative timeline only. No papers, placeholder entries, dates or event nodes are shown. Below 700px the pair stacks; the empty timeline then uses a shorter 160px area. Projects remain below the pair, followed by Writing.
 
 The stylesheet URL includes a build timestamp so that a newly published page does not reuse cached CSS from a previous layout. All pages in one build share the same stylesheet version; no JavaScript is involved.
 

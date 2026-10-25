@@ -1,16 +1,21 @@
+- company: HKUST(GZ)
+  logo: /assets/images/organizations/hkust-gz.png
+  role: Research Assistant
+  dates: Sep 2026 - Present
+  current: true
 - company: Tencent
   logo: /assets/images/organizations/tencent.png
-  role: SA
-  dates: 2026-04 - 08
+  role: Solution Architect
+  dates: Apr 2026 - Aug 2026
 - company: CAS
   logo: /assets/images/organizations/cas.png
   role: Distributed Systems
-  dates: 2026-01 - 04
+  dates: Jan 2026 - Apr 2026
 - company: Shopee
   logo: /assets/images/organizations/shopee.png
-  role: Backend
-  dates: 2025-12 - 2026-04
+  role: Backend Engineer
+  dates: Dec 2025 - Apr 2026
 - company: OPPO
   logo: /assets/images/organizations/oppo.ico
-  role: Android
-  dates: 2025-06 - 09
+  role: Android Engineer
+  dates: Jun 2025 - Sep 2025
