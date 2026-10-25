@@ -1,21 +1,21 @@
 ---
 title: Qingyin
-description: Project overview to be added after review.
-area: Software
+description: A Chinese-first local music player for Linux, built with Rust and Qt.
+area: Desktop / Audio
 featured: true
 order: 3
-sample: true
-source_url: ""
+sample: false
+source_url: "https://github.com/Nook001/QingyinPlayer"
 ---
 
 ## Overview
 
-This is an example entry for **Qingyin**. Replace this text with a confirmed description of the project and your contribution.
+Qingyin (清音) is my native Linux music player, with Rust domain logic, a Qt Quick/QML interface, GStreamer playback and a SQLite music library.
 
-## Notes to add
+The player imports local music, supports pinyin search and sorting, browses artists and albums, and displays local lyrics. A compact lyrics capsule offers an alternative to the full library window.
 
-- The problem and why it matters.
-- One or two implementation decisions, with evidence where useful.
-- A confirmed repository link or screenshot.
+## Implementation
 
-No performance, adoption or delivery claims have been added.
+Playback runs on a dedicated GLib thread, while scanning and search work stay off the UI thread. Playback events carry a generation identifier so that results from a previous track cannot overwrite the current session.
+
+The project is in development. Desktop media controls through MPRIS are not connected yet.

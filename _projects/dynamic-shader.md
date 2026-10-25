@@ -1,21 +1,22 @@
 ---
 title: Dynamic Shader
-description: A space for notes on shaders and rendering.
+description: Dynamic lighting, shadows and water effects for Stardew Valley.
 area: Graphics
 featured: true
 order: 1
-sample: true
+sample: false
 source_url: ""
+project_url: "https://www.nexusmods.com/stardewvalley/mods/40775"
 ---
 
 ## Overview
 
-This is an example entry for **Dynamic Shader**. Replace this text with a confirmed description of the project and your contribution.
+Dynamic Shader is my rendering mod for Stardew Valley. It adds time-dependent shadows, bloom, vegetation wind, tilt-shift and custom water reflections through SMAPI, Harmony and HLSL effects.
 
-## Notes to add
+## Rendering work
 
-- The problem and why it matters.
-- One or two implementation decisions, with evidence where useful.
-- A confirmed repository link or screenshot.
+The rendering pipeline separates object collection, shadow preparation and post-processing. Water reflections use selected scene elements rather than mirroring the whole scene.
 
-No performance, adoption or delivery claims have been added.
+My work includes render-target management, cached static shadows, request batching and reducing unnecessary rendering work. Performance depends on the scene, resolution and configuration.
+
+The mod is available on Nexus Mods; the source repository is private.

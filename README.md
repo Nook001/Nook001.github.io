@@ -1,6 +1,6 @@
 # Yuanzhi Liu — personal website
 
-A new, local Jekyll site for `Nook001/Nook001.github.io`. Plain Markdown, Liquid and CSS; no JavaScript, Node build, remote fonts, paid services or theme dependency. Nothing is connected or published by initialization.
+A Jekyll site for `Nook001/Nook001.github.io`. Plain Markdown, Liquid and CSS; no JavaScript, Node build, remote fonts, paid services or theme dependency. The remote is connected; website deployment remains a separate manual action.
 
 ## Preview and validate
 
@@ -32,19 +32,20 @@ Open http://127.0.0.1:4000. Stop with Ctrl+C. For a draft review only, use `bund
 
 See [content guide](docs/CONTENT_GUIDE.md) and [publishing guide](docs/PUBLISHING.md). Codex can maintain all of these files directly; no UI development is required to add a post or project.
 
-## Content still requiring review
+## Content and remaining review
 
-- Portrait, GitHub profile URL, email and local CV file.
-- Exact education wording: “HKUST · Joint degree” and “University of Warwick · BSc Computer Science” are provisional.
-- Dates for Tencent — SA, CAS — Distributed Systems, Shopee — Backend, OPPO — Android. SA has not been expanded.
-- Project descriptions, ownership and links for Dynamic Shader, myWarwickPlus and Qingyin. All three entries are examples.
-- Replace/remove the example article; write and review real content.
+- Profile email and four internship date ranges come from the supplied CV. GitHub profile and account avatar were checked against Nook001.
+- The local `cv.html` is a concise public CV. The original DOCX, phone number and detailed internal company information are not included.
+- Education now says “HKUST · Computer Engineering joint programme” and “University of Warwick · BSc Computer Science (expected 2027)”. The precise English programme/award wording remains for user review, so `education_pending` stays true.
+- The three projects have short, sourced descriptions and verified public links. Dynamic Shader links to Nexus Mods rather than its private source repository. No benchmark, download or adoption figures were added.
+- The sample article was moved to `_drafts/`. A short technical note now explains stale-event handling in Qingyin, based on its public implementation and tests.
+- See [content sources](docs/CONTENT_SOURCES.md) for the basis of these edits. Review the resulting text before publication.
 
-The regular checks allow visibly marked examples so the UI can be reviewed. `ruby scripts/check_content.rb --release` deliberately fails until the review fields are resolved. Never remove a marker merely to pass a check.
+The regular checks allow draft-stage content so the UI can be reviewed. `ruby scripts/check_content.rb --release` still fails at the unresolved education wording. Never remove a marker merely to pass a check.
 
 ## Publishing policy
 
-No remote is configured. `main` is the local default branch. After explicit authorization to create/connect the remote, use topic branches and reviewed PRs. CI validates pushes and PRs without deploying. A merge does not publish when Pages is configured to use **GitHub Actions**.
+The remote is `https://github.com/Nook001/Nook001.github.io.git`; the initial main branch has been pushed with user authorization. Ongoing content changes use topic branches and reviewed PRs. CI validates pushes and PRs without deploying. GitHub automatically enabled legacy branch publishing after the first push despite a pre-push Pages API 404; the unintended Pages site was then removed to restore the requested unpublished state. Future publishing must explicitly use **GitHub Actions**, not branch publishing. See the publishing guide.
 
 Only the manual deployment workflow can publish this setup: main branch + exact PUBLISH confirmation + passing release/content/build checks. A separate user instruction is required before an agent runs it. Do not select branch-based Pages publishing, which would bypass this manual workflow. See the publishing guide for the final setup steps.
 

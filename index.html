@@ -16,6 +16,7 @@ title: Home
       <li>{% if profile.email != '' %}<a href="mailto:{{ profile.email | escape }}">Email ↗</a>{% else %}<span class="pending">Email <small>address pending</small></span>{% endif %}</li>
       <li>{% if profile.cv != '' %}<a href="{{ profile.cv | relative_url }}">CV ↗</a>{% else %}<span class="pending">CV <small>file pending</small></span>{% endif %}</li>
     </ul>
+    {% if profile.currently %}<p class="annotation current-note"><strong>Currently</strong> · {{ profile.currently | escape }}</p>{% endif %}
   </div>
 </section>
 <section class="section" aria-labelledby="experience-title">

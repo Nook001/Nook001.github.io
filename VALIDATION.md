@@ -27,7 +27,7 @@ The working build used portable RubyInstaller 3.3.13 and Bundler 2.5.22, with is
 
 ```powershell
 $runtimeRoot = 'C:\Users\Nook\Documents\Codex\2026-10-25\referenced-chatgpt-conversation-this-is-an\work'
-$env:PATH = "$runtimeRoot\rubyinstaller-3.3.13-1-x64\bin;$runtimeRoot\mingw64\bin;" + $env:PATH
+$env:PATH = "$runtimeRoot\rubyinstaller-3.3.13-1-x64\bin;" + $env:PATH
 Set-Location 'D:\Project\Nook001'
 ruby scripts/check_content.rb
 $env:JEKYLL_ENV = 'production'
@@ -35,9 +35,9 @@ bundle exec jekyll build --strict_front_matter --trace
 python scripts/check_site.py
 ```
 
-For another native-extension installation in this isolated environment, additionally set MSYS2_PATH to `D:\Project\Nook001\work\msys64`, add its `usr\bin` to the session PATH, and set MAKE to `make`. Ordinary future installations should use RubyInstaller with Devkit as described in README.
+The temporary compiler and MSYS environment were removed in the follow-up cleanup after a successful build without them. The retained Ruby runtime includes the DLLs needed by the installed native dependencies. Future native-extension rebuilds should use RubyInstaller with Devkit as described in README; the removed compiler paths are no longer usable.
 
-Windows tooling required additional setup: native dependencies compiled with a portable WinLibs UCRT compiler and MSYS make from official HTTPS sources. The default MSYS keyring initialization stalled; an attempted temporary-lock cleanup was rejected by automatic approval and was not executed. A portable Ruby 2.5 environment was downloaded as an exploratory fallback but was not used to build or validate the site. Temporary tools remain in ignored work folders, outside the tracked website. The final build used Ruby 3.3 exclusively.
+Windows tooling initially required additional setup: native dependencies compiled with a portable WinLibs UCRT compiler and MSYS make from official HTTPS sources. The default MSYS keyring initialization stalled; an attempted temporary-lock cleanup was rejected by automatic approval and was not executed. A portable Ruby 2.5 environment was downloaded as an exploratory fallback but was not used to build or validate the site. Those unused tools were removed during the follow-up cleanup below. The final build used Ruby 3.3 exclusively.
 
 Sources: https://github.com/oneclick/rubyinstaller2, https://github.com/brechtsanders/winlibs_mingw, https://repo.msys2.org/msys/x86_64/.
 
@@ -48,3 +48,24 @@ Sources: https://github.com/oneclick/rubyinstaller2, https://github.com/brechtsa
 - Jekyll's upstream dependencies print Ruby 3.4 migration warnings for base64/bigdecimal. The selected Ruby 3.3 build succeeds.
 - Education wording, portrait, contact/CV links, experience dates, all project details and example article content require review before release.
 - The preview server is local and temporary; rerun the README preview command to inspect later.
+
+## Follow-up content, push and cleanup
+
+On 25 October 2026 the user explicitly authorized connecting the named GitHub remote, attempting a push, retrying temporary-file cleanup and filling content from the supplied CV, public research and project code.
+
+- Initial main push succeeded, and its GitHub `Validate site` workflow passed on Linux.
+- Profile contact links, account avatar, CV summary, internship date ranges, three project entries and a source-based technical note were added on `content/resume-and-projects`. The original DOCX, phone number and detailed internal company information are not committed. See docs/CONTENT_SOURCES.md.
+- Content validation passes for six Markdown documents. Production build and generated-site checks pass for nine HTML pages including the new CV. The CV has an explicit permalink to avoid Jekyll changing its output URL.
+- The release gate still intentionally rejects the unreviewed education wording. This is not overridden to make the release pass.
+- Temporary-file cleanup removed all eight explicitly inventoried targets: downloaded archives, the unused Ruby 2.5 fallback, WinLibs compiler and MSYS tree. Removed file content totals **1,458,150,021 bytes** (about 1.46 GB, 1.36 GiB). Every target was verified absent. A build passed both before and after removal, with only the retained Ruby runtime on the session PATH.
+- Runtime and installed vendor dependencies are retained for future preview/builds. Source-generation scripts and cleanup inventory/results remain in ignored work folders as small execution records.
+
+### Unexpected GitHub Pages deployment and correction
+
+Immediately before the first push, GET Pages returned HTTP 404. After the first main push, GitHub automatically enabled legacy branch publishing and ran its built-in `pages build and deployment` workflow. This briefly published the initial placeholder site; the supplied CV content had not been pushed yet.
+
+The Pages DELETE API returned 422 because GitHub disallows deactivating this user-site repository. The publishing source was changed to `workflow` to prevent further automatic branch deployments. The existing deployment was then removed using **Unpublish site** in the authenticated GitHub settings page. The UI confirmed **GitHub Pages unpublished** and the public site returned HTTP 404. The repository and its code remain intact.
+
+No custom deployment workflow was dispatched. Future release remains manual, with the content gate. This correction is recorded rather than claiming that no deployment ever occurred.
+
+References: [official unpublishing guide](https://docs.github.com/en/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site), [Pages API build types](https://docs.github.com/en/rest/pages/pages#update-information-about-a-github-pages-site).

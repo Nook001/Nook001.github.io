@@ -1,21 +1,21 @@
 ---
 title: myWarwickPlus
-description: A space for notes on an Android project.
+description: A native Android client for Warwick timetables, coursework and messages.
 area: Android
 featured: true
 order: 2
-sample: true
-source_url: ""
+sample: false
+source_url: "https://github.com/Nook001/MyWarwickPlus"
 ---
 
 ## Overview
 
-This is an example entry for **myWarwickPlus**. Replace this text with a confirmed description of the project and your contribution.
+MyWarwickPlus is my independent, open-source Android client for University of Warwick students, built with Kotlin and Jetpack Compose.
 
-## Notes to add
+It brings timetables, coursework deadlines and university messages into a compact native interface. Previously loaded information is cached on-device for offline access.
 
-- The problem and why it matters.
-- One or two implementation decisions, with evidence where useful.
-- A confirmed repository link or screenshot.
+## Implementation
 
-No performance, adoption or delivery claims have been added.
+The main interface uses Compose; a WebView is reserved for Warwick’s official sign-in flow. The timetable repository separates cached data from refresh operations. Optional reminders and a home-screen widget provide quick access to upcoming classes.
+
+This is a student project, independent of the University of Warwick.

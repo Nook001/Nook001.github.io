@@ -2,7 +2,7 @@
 
 ## 当前状态
 
-本地初始化，无远程仓库、无推送、无部署。后续每一项远程操作需有用户明确授权。
+用户已授权连接 `https://github.com/Nook001/Nook001.github.io.git` 并推送；初始 main 已成功推送。内容补充使用独立分支和 PR，未授权合并或部署。推送前 Pages API 返回 404，但首次推送随后触发了 GitHub 内置的 `legacy` 分支发布。发现后已撤下这次意外启用的 Pages 站点，以恢复用户要求的不发布状态。后续设置和发布仍需明确授权。
 
 ## 日常维护
 
@@ -17,6 +17,7 @@
 - 在用户授权后建立 `Nook001/Nook001.github.io`，将本地仓库连接到该远程。不要再生成 README、许可证或其他初始化提交，避免无关历史。
 - 将本地 main 推送到远程。选择公开仓库前检查所有源文件，不仅是生成网页。
 - 仓库 Settings → Pages → Source 必须选择 **GitHub Actions**，不要选 Deploy from a branch。
+- 对 `用户名.github.io` 仓库，不要把首次 API 404 当作“推送绝不会发布”的保证。首次推送后复查 Pages 配置和工作流记录；如平台自动启用分支发布，先停止意外发布，再继续内容维护。
 - 建议给 main 设置 PR 保护和 `Validate site / validate` 必须通过的规则；给 `github-pages` environment 限定 main，并在账号套餐允许时设置 required reviewers。不要假定这些保护已经存在。
 - 仓库中的部署文件只支持手动触发；不接受从 PR、push 或 workflow_run 自动部署的改动。
 

@@ -4,7 +4,7 @@
 
 ## 个人资料
 
-`_data/profile.yml` 管理姓名、两行教育经历、问候语、头像、GitHub、Email 和 CV。空链接会显示待补充文字，不会生成无效按钮。GitHub 填完整 HTTPS 个人主页；Email 只填地址；CV 放在 `assets/files/`，填 `/assets/files/cv.pdf`。公开前检查 PDF 的私人信息。头像用本人授权照片替换占位 SVG，同时更新 alt。教育措辞经本人确认后才设 `education_pending: false`。
+`_data/profile.yml` 管理姓名、两行教育经历、问候语、头像、GitHub、Email 和 CV。空链接会显示待补充文字，不会生成无效按钮。GitHub 填完整 HTTPS 个人主页；Email 只填地址。目前 CV 指向本地 `/cv.html` 摘要页。以后也可把审阅过的 PDF 放在 `assets/files/`，填 `/assets/files/cv.pdf`；不要直接上传含手机号或内部项目细节的原始简历。头像目前使用用户 GitHub 账号的公开头像，后续可替换为本人照片并更新 alt。教育措辞经本人确认后才设 `education_pending: false`。
 
 经历在 `_data/experience.yml`，保留 Tencent → CAS → Shopee → OPPO 顺序。日期由用户确认，不推测月份、职位性质或 SA 全称。
 
@@ -21,7 +21,7 @@
 
 从 `templates/project.md` 复制到 `_projects/slug.md`。`featured: true` 才会出现在首页；`order` 数值越小越靠前。`area` 只是一条简短分类，不堆砌技能标签。`published: false` 的条目不进入生产站点。
 
-只写能确认的问题、本人贡献、实现选择和证据。项目名称不等于已确认的所有权或上线状态。`source_url` 不确定时留空；不要凭名称猜仓库。当前三张卡片均为示例，必须审阅或移除后才能发布。
+只写能确认的问题、本人贡献、实现选择和证据。项目名称不等于已确认的所有权或上线状态。`source_url` 不确定时留空；不要凭名称猜仓库。`project_url` 可链接到公开作品页。当前三张卡片已按代码、简历和公开资料补齐，来源见 CONTENT_SOURCES.md。私有仓库不要作为公众可访问的源码链接。
 
 ## 删除与安全
 
