@@ -113,3 +113,9 @@ The first live check exposed cached CSS from the preceding release: new HTML had
 The user rejected full-width tinted cards and requested internal logos plus numeric YYYY-MM dates. The timeline now takes its width from the longest entry, capped at the available space. Cards have transparent backgrounds; logos sit inside their upper-left corner, with short connectors between cards. Existing dates were reformatted without changing their values.
 
 Local normal/release content checks, the production Jekyll build, eight-page generated-site validation and whitespace checks pass. Browser checks at 1440px and 320px confirm four transparent cards, internal logos, numeric date ranges and no horizontal overflow. Desktop card width is approximately 231px within the 836px content column.
+
+## Left-axis experience layout
+
+The timeline now runs to the left of the cards and connects to each card with a short horizontal rule. Company and role use separate lines, while dates occupy the bottom-right of the card. Same-year ranges use YYYY-MM - MM; the cross-year Shopee range retains both years to avoid ambiguity. Cards remain content-sized and transparent, with internal logos.
+
+Normal and release content checks, the production build, eight-page output validation and whitespace checks pass. Browser checks at 1440px and 320px confirm company/role separation, right-aligned dates below the role, transparent cards and no horizontal overflow.
