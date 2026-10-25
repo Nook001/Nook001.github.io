@@ -119,3 +119,9 @@ Local normal/release content checks, the production Jekyll build, eight-page gen
 The timeline now runs to the left of the cards and connects to each card with a short horizontal rule. Company and role use separate lines, while dates occupy the bottom-right of the card. Same-year ranges use YYYY-MM - MM; the cross-year Shopee range retains both years to avoid ambiguity. Cards remain content-sized and transparent, with internal logos.
 
 Normal and release content checks, the production build, eight-page output validation and whitespace checks pass. Browser checks at 1440px and 320px confirm company/role separation, right-aligned dates below the role, transparent cards and no horizontal overflow.
+
+## Node-based timeline preview
+
+After reviewing the previous layout, the user requested implementation of a node-based timeline. This local preview uses a continuous axis between four hollow nodes, with short connectors and company-heading alignment. Desktop cards are 300px wide and transparent; narrower screens shrink them to fit. The card row gap is reduced to 4px, with 16px between cards. Existing two-line company/role text, internal logos and bottom-right date formatting remain intact.
+
+Normal/release content checks, production Jekyll build, eight-page generated-site validation and whitespace checks pass. Browser checks at 1440px and 320px confirm four nodes, loaded logos, separate title/role lines, right-aligned dates and no horizontal overflow. Desktop nodes align within 0.5px of company-heading centers. A cropped screenshot is saved in the chat outputs as timeline-nodes-preview.png. This iteration is a local visual review preview and has not been deployed.
