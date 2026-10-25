@@ -99,3 +99,9 @@ The user requested the proposed education/company marks, slightly larger support
 - Text palette contrast was calculated using the WCAG relative-luminance formula. On the paper background: heading 11.71:1, body 8.41:1, secondary 6.11:1, muted 4.72:1 and accent 6.23:1. All also exceed 4.5:1 on the card background.
 - Browser checks at 1440, 1024, 768, 390 and 320px confirmed all six images loaded and no horizontal overflow. Desktop and 390px screenshots are retained in the chat outputs as organization-marks-desktop.png and organization-marks-mobile.png.
 - The rendered pages retain the approved degree labels and experience order. CV remains disabled. Local release content checks, production build and the eight-page generated-site checks pass.
+
+## Experience card iteration
+
+The user requested a first version of the proposed light-card timeline. Four experience cards now group company/role on the first line with the date directly underneath. The external logo rail is retained; the right-aligned date column and fixed company-name width are removed. Cards use a subtle background, 1px border and 12px vertical gaps, without new copy, hover effects or JavaScript.
+
+Browser checks cover 1440, 1024, 768, 390 and 320px. There is no horizontal overflow, all four cards render, and dates remain below their title groups. Desktop and mobile captures are saved as experience-cards-desktop.png and experience-cards-mobile.png in this chat's outputs. Local production build, release content validation and the eight-page generated-site check pass; degree labels, logos, ordering and CV omission are preserved.

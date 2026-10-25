@@ -56,6 +56,8 @@ Warm off-white, restrained olive accents, system body fonts and a serif name/tit
 
 Local organization marks identify education and experience. Deep green headings, softer body text and muted dates establish the text hierarchy; every text palette color has at least 4.5:1 contrast against the paper and card backgrounds. Project descriptions and experience roles use slightly larger type for readability. Asset origins are documented in `docs/LOGO_SOURCES.md`.
 
+Experience uses compact two-line cards along a single logo rail: company and role share the first line, with the date directly below and aligned left. Cards have a subtle tinted background, fine border and 12px gaps; no extra descriptions or interactive effects are required.
+
 ## References
 
 - [GitHub Pages dependency versions](https://pages.github.com/versions/)
