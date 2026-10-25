@@ -1,12 +1,16 @@
 - company: Tencent
+  logo: /assets/images/organizations/tencent.png
   role: SA
   dates: Apr–Aug 2026
 - company: CAS
+  logo: /assets/images/organizations/cas.png
   role: Distributed Systems
   dates: Jan–Apr 2026
 - company: Shopee
+  logo: /assets/images/organizations/shopee.png
   role: Backend
   dates: Dec 2025–Apr 2026
 - company: OPPO
+  logo: /assets/images/organizations/oppo.ico
   role: Android
   dates: Jun–Sep 2025

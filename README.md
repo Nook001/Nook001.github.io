@@ -24,6 +24,7 @@ Open http://127.0.0.1:4000. Stop with Ctrl+C. For a draft review only, use `bund
 | --- | --- |
 | Name, degree wording, portrait and contact links | `_data/profile.yml` |
 | Ordered career timeline | `_data/experience.yml` |
+| School/company marks and their sources | `assets/images/organizations/`, `docs/LOGO_SOURCES.md` |
 | Blog posts | `_posts/YYYY-MM-DD-slug.md` |
 | Unpublished notes | `_drafts/` |
 | Project entries | `_projects/slug.md` |
@@ -52,6 +53,8 @@ Only the manual deployment workflow can publish this setup: main branch + exact 
 ## Design
 
 Warm off-white, restrained olive accents, system body fonts and a serif name/title. The homepage uses a sticky profile sidebar on desktop, with About, experience, projects and writing in the right column. Below 900px it becomes a single column; project cards also stack on phones. Short desktop viewports can scroll the profile itself so contact links stay reachable. Article and project-detail layouts retain their reading width. The site has no animation or JavaScript. SEO includes page titles/descriptions, canonical URLs, sitemap and RSS. The canonical site URL is `https://nook001.github.io`.
+
+Local organization marks identify education and experience. Deep green headings, softer body text and muted dates establish the text hierarchy; every text palette color has at least 4.5:1 contrast against the paper and card backgrounds. Project descriptions and experience roles use slightly larger type for readability. Asset origins are documented in `docs/LOGO_SOURCES.md`.
 
 ## References
 

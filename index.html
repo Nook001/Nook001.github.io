@@ -8,7 +8,9 @@ page_class: home-page
   <section class="profile-sidebar" aria-labelledby="intro-title">
     <img class="portrait" src="{{ profile.avatar | relative_url }}" alt="{{ profile.avatar_alt | escape }}" width="132" height="132">
     <h1 id="intro-title">{{ profile.name | escape }}<span class="accent">.</span></h1>
-    <div class="education">{% for line in profile.education %}<p>{{ line | escape }}</p>{% endfor %}</div>
+    <div class="education">{% for item in profile.education %}{% assign parts = item.label | split: ' · ' %}
+      <p class="education-row"><img src="{{ item.logo | relative_url }}" alt="" aria-hidden="true" width="20" height="20"><span class="education-copy"><span class="education-school">{{ parts[0] | escape }}</span><span class="education-degree"> · {{ parts[1] | escape }}</span></span></p>
+    {% endfor %}</div>
     {% if profile.education_pending %}<p class="annotation">Education wording pending review.</p>{% endif %}
     <ul class="contact-links" aria-label="Contact links">
       <li>{% if profile.github != '' %}<a href="{{ profile.github | escape }}">GitHub ↗</a>{% else %}<span class="pending">GitHub <small>link pending</small></span>{% endif %}</li>
@@ -25,7 +27,7 @@ page_class: home-page
   <section class="section" aria-labelledby="experience-title">
     <div class="section-heading"><h2 id="experience-title">Experience</h2><span class="section-note">Selected experience</span></div>
     <ol class="timeline">{% for item in site.data.experience %}
-      <li><div class="experience-main"><h3>{{ item.company | escape }}</h3><p>{{ item.role | escape }}</p></div><span class="dates">{{ item.dates | escape }}</span></li>
+      <li><span class="organization-mark"><img src="{{ item.logo | relative_url }}" alt="" aria-hidden="true" width="24" height="24"></span><div class="experience-main"><h3>{{ item.company | escape }}</h3><p>{{ item.role | escape }}</p></div><span class="dates">{{ item.dates | escape }}</span></li>
     {% endfor %}</ol>
   </section>
   <section class="section" aria-labelledby="projects-title">
