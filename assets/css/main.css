@@ -1,8 +1,8 @@
-/* Warm neutral dark: charcoal surfaces, with restrained sage accents. */
+/* Cool charcoal surfaces with a slight blue cast and restrained sage accents. */
 :root {
   color-scheme:light dark;
   --paper-light:#f8f7f3;
-  --paper-dark:#252626;
+  --paper-dark:#25282c;
   --paper:var(--paper-light);
   --ink-light:#22382e;
   --ink-dark:#eeeae1;
@@ -17,29 +17,26 @@
   --muted-dark:#a4aaa1;
   --muted:var(--muted-light);
   --line-light:#dcded5;
-  --line-dark:#484c49;
+  --line-dark:#474e56;
   --line:var(--line-light);
   --accent-light:#486344;
   --accent-dark:#aec59a;
   --accent:var(--accent-light);
   --card-light:#fdfcf9;
-  --card-dark:#2c2e2d;
+  --card-dark:#2c3035;
   --card:var(--card-light);
   --code-bg-light:#efeee8;
-  --code-bg-dark:#303231;
+  --code-bg-dark:#30353b;
   --code-bg:var(--code-bg-light);
   --timeline-line-light:#c4cbbf;
-  --timeline-line-dark:#626960;
+  --timeline-line-dark:#626d76;
   --timeline-line:var(--timeline-line-light);
   --timeline-node-light:#667260;
   --timeline-node-dark:#b0baaa;
   --timeline-node:var(--timeline-node-light);
   --control-line-light:#7c8b75;
-  --control-line-dark:#8b9385;
+  --control-line-dark:#8b9399;
   --control-line:var(--control-line-light);
-  --logo-surface-light:transparent;
-  --logo-surface-dark:#e8e7db;
-  --logo-surface:var(--logo-surface-light);
   --notice-bg-light:#eeefe7;
   --notice-bg-dark:#333932;
   --notice-bg:var(--notice-bg-light);
@@ -94,7 +91,6 @@
     --timeline-line:light-dark(var(--timeline-line-light), var(--timeline-line-dark));
     --timeline-node:light-dark(var(--timeline-node-light), var(--timeline-node-dark));
     --control-line:light-dark(var(--control-line-light), var(--control-line-dark));
-    --logo-surface:light-dark(var(--logo-surface-light), var(--logo-surface-dark));
     --notice-bg:light-dark(var(--notice-bg-light), var(--notice-bg-dark));
     --notice-text:light-dark(var(--notice-text-light), var(--notice-text-dark));
     --code-comment:light-dark(var(--code-comment-light), var(--code-comment-dark));
@@ -125,7 +121,6 @@
       --timeline-line:var(--timeline-line-dark);
       --timeline-node:var(--timeline-node-dark);
       --control-line:var(--control-line-dark);
-      --logo-surface:var(--logo-surface-dark);
       --notice-bg:var(--notice-bg-dark);
       --notice-text:var(--notice-text-dark);
       --code-comment:var(--code-comment-dark);
@@ -153,7 +148,6 @@
       --timeline-line:var(--timeline-line-dark);
       --timeline-node:var(--timeline-node-dark);
       --control-line:var(--control-line-dark);
-      --logo-surface:var(--logo-surface-dark);
       --notice-bg:var(--notice-bg-dark);
       --notice-text:var(--notice-text-dark);
       --code-comment:var(--code-comment-dark);
@@ -258,12 +252,21 @@ fieldset { min-width:0; border:1px solid var(--line); }
 .theme-toggle svg { width:18px; height:18px; }
 .theme-toggle[aria-pressed="false"] .theme-icon-sun,
 .theme-toggle[aria-pressed="true"] .theme-icon-moon { display:none; }
-.education-row img, .organization-mark img {
-  background:var(--logo-surface);
+/* The CAS seal is circular; clip only the outer white square, preserving
+   the original white details inside the seal. Other marks keep native alpha. */
+.organization-mark img[src$="/cas.png"] { clip-path:circle(46%); }
+
+/* Only these dark blue/green marks need a single-ink white rendition. Both
+   organizations supply white branding; preserve every other image's colors. */
+.education-row img[src$="/hkust.ico"],
+.organization-mark img[src$="/hkust.ico"],
+.organization-mark img[src$="/oppo.ico"] { filter:var(--single-ink-mark, none); }
+@media screen and (prefers-color-scheme:dark) {
+  :root:not([data-theme="light"]) { --single-ink-mark:brightness(0) invert(1); }
 }
-/* Warwick supplies scheme-aware artwork, so its white dark-mode crest needs
-   the page surface rather than the light backing used for bitmap logos. */
-.education-row img[src$="/warwick.svg"] { background:transparent; }
+@media screen {
+  :root[data-theme="dark"] { --single-ink-mark:brightness(0) invert(1); }
+}
 
 .wordmark {
   font:700 27px/1 Georgia,serif;

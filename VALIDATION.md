@@ -76,14 +76,18 @@ Fixture builds live under ignored `work/article-check-*/`; they are never deploy
   The three-state dropdown is removed; navigation stays one row at 320px.
 - Both themes passed at 1440, 768, 390 and 320px on the homepage and reading fixture.
   No page overflow; logos/avatar loaded; reading tables retain native semantics.
-- Neutral charcoal replaces forest-green surfaces. Semantic color pairs and the
+- Charcoal surfaces carry a subtle blue-gray cast. Semantic color pairs and the
   light-dark()/media-query fallback architecture are unchanged. Forty contrast
   pairs passed, with text >=4.72:1 and control/node boundaries >3:1.
 - The homepage's profile, cards, timeline, headings and empty publications rail
-  retain exact pre-theme geometry. Light screenshots below the header remain
-  pixel-identical to the original baseline at all four required widths.
-- Organization bitmaps retain their light backing. Warwick's responsive SVG supplies
-  its white crest in Dark without image inversion. Asset files are unchanged.
+  retain exact pre-theme geometry. Font sizes and weights are identical between themes; intended logo changes
+  are the only new light-theme visual edits.
+- Alpha audit: HKUST/Tencent/Shopee/OPPO already contain transparency; the added
+  universal CSS backing is removed. HKUST(GZ) reuses the transparent shared official
+  university crest. CAS is clipped to its circular seal, preserving internal white.
+  Only HKUST/OPPO use a scoped white rendition in Dark; Light/print preserve color.
+  Tencent/Shopee/CAS/Warwick/avatar/article images receive no filter. Original files
+  remain intact, with provenance documented in docs/LOGO_SOURCES.md.
 - Sixteen isolated script cases passed: system detection, first-click direction,
   manual preference priority, old preference compatibility, early restore,
   blocked storage, tab sync, legacy media listener and history restoration.
@@ -92,8 +96,8 @@ Fixture builds live under ignored `work/article-check-*/`; they are never deploy
   Forced Dark prints white paper/light text and hides the button. No animation or
   transition was added; the existing reduced-motion behavior remains unchanged.
 - Content/release/build/output/article/whitespace checks passed. No test article is
-  published. Current screenshots: charcoal-light/dark-1440.png and -390.png in the
-  chat outputs; charcoal-dark-preview.png shows the revised header and surfaces.
+  published. Current screenshots: blue-grey-light/dark-1440.png and -390.png in the
+  chat outputs; blue-grey-logo-preview.png shows the revised header and surfaces.
 
 ## Limits and follow-up
 

@@ -5,7 +5,7 @@ Retrieved on 25 October 2026 from the organizations' public websites. Files are 
 | Organization | Local file under assets/images/organizations/ | Source |
 | --- | --- | --- |
 | HKUST | hkust.ico | [Official homepage icon](https://hkust.edu.hk/themes/custom/hkust/favicon.ico), linked by [hkust.edu.hk](https://hkust.edu.hk/) |
-| HKUST(GZ) | hkust-gz.png | [192px site icon](https://material.hkust-gz.edu.cn/wp-content/uploads/2023/04/cropped-favicon-1-1-192x192.png), linked by [hkust-gz.edu.cn](https://www.hkust-gz.edu.cn/) |
+| HKUST(GZ) | hkust.ico (transparent shared university crest); original hkust-gz.png retained | [192px site icon](https://material.hkust-gz.edu.cn/wp-content/uploads/2023/04/cropped-favicon-1-1-192x192.png), linked by [hkust-gz.edu.cn](https://www.hkust-gz.edu.cn/) |
 | University of Warwick | warwick.svg | [Responsive crest](https://d36jn9qou1tztq.cloudfront.net/static_war/render/id7/images/crest-dynamic.svg.481631441674), linked by [warwick.ac.uk](https://warwick.ac.uk/) |
 | Tencent | tencent.png | [Tencent Icon Blue](https://www.tencent.com/wp-content/uploads/2024/05/04_Tencent_Graphics2-2.png), provided on the [media resources page](https://www.tencent.com/newsroom/media-resources/logos/) |
 | Chinese Academy of Sciences | cas.png | [Official website icon](https://www.cas.cn/lib/images/favicon.png), linked by [cas.cn](https://www.cas.cn/) |
@@ -18,7 +18,19 @@ Education uses small 20px marks (18px on narrow phones). Experience uses 24px ma
 
 Content validation checks each local source file, and the generated-site check verifies the image references. If an organization updates its assets, inspect its official site and replace the local file intentionally rather than adding a runtime fetch.
 
-In the charcoal dark theme, organization bitmap logos use a warm light backing, without
-filtering or recoloring the artwork. Warwick's SVG contains its own scheme-responsive
-crest and keeps a transparent backing so the white crest remains visible directly
-on the charcoal surface. See THEMES.md. Original asset files remain unmodified.
+Logo alpha was audited locally: HKUST, Tencent, Shopee and OPPO already have
+transparent backgrounds. No CSS backing is applied to them. HKUST(GZ)'s favicon
+embeds the shared blue/gold university crest on white; its entry now reuses the
+existing official transparent HKUST crest file. Both source files are retained.
+Warwick's SVG continues to switch its own black/white artwork with color-scheme.
+CAS's original PNG is opaque: a 46% circular CSS clip removes only the outside
+white corners while retaining the seal's white internal artwork.
+
+The original HKUST crest and OPPO icon are too dark on the blue-gray surface.
+Only these marks render as single-ink white in Dark using a scoped CSS filter;
+their shape/alpha and original files remain intact, and Light/print keep color.
+White renditions are supported by the organizations' own assets:
+[HKUST white SVG](https://brand.hkust.edu.hk/profiles/ust/modules/custom/hkust_signature_affiliate/assets/images/hkust_logo_small.svg)
+and [OPPO white navigation SVG](https://www.oppo.com/jimu/oppo-site-nav/resources/images/svg/brand-icon-en-light.svg),
+linked by their official websites. No filter is applied to Tencent, Shopee, CAS,
+Warwick, avatars or article images. See THEMES.md.

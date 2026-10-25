@@ -3,7 +3,7 @@
 The compact sun/moon button switches Light / Dark in one click. First visits
 follow the system automatically. After a manual click the choice is remembered
 across reloads and pages; there is no three-state menu. Light preserves the approved
-palette; Dark uses neutral charcoal surfaces with restrained sage accents.
+palette; Dark uses charcoal surfaces with a slight blue cast and restrained sage accents.
 
 ## Implementation
 
@@ -23,10 +23,20 @@ palette; Dark uses neutral charcoal surfaces with restrained sage accents.
 
 ## Images and print
 
-Organization bitmap logos have a warm light backing in Dark. Warwick's original
-responsive SVG retains a transparent backing and supplies its own black/white crest
-according to the active color-scheme. Original files, proportions and sizes remain
-unchanged; avatars and article images are never inverted.
+Organization marks use their native transparency, with no universal backing or
+blanket image filter. HKUST(GZ) reuses the official transparent shared university crest;
+CAS's circular seal is clipped only outside its circumference. Warwick's responsive
+SVG supplies its own black/white artwork. Original assets remain available for
+traceability; avatars and article images are unaffected. Only the dark-colored
+HKUST and OPPO marks render single-ink white in Dark for legibility, with original
+color retained in Light and print; their official sites provide white variants.
+See LOGO_SOURCES.md. Never apply this scoped filter to every image.
+
+Typography keeps the same sizes and weights in both themes. Check the actual
+contrast and legibility before changing font metrics; do not globally embolden
+all text merely because the surface is dark. The light-mode hierarchy/layout stays
+stable. [WCAG contrast guidance](https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html)
+sets 4.5:1 for ordinary text and notes that very thin strokes may need extra care.
 
 Print always forces light tokens on white paper, hides the theme button/navigation
 and wraps long code. No theme transitions, scrolling animations or new dependencies.
