@@ -25,7 +25,7 @@ page_class: home-page
     {% if profile.currently %}<p class="annotation current-note"><strong>Currently</strong> · {{ profile.currently | escape }}</p>{% endif %}
   </section>
   <section class="section" aria-labelledby="experience-title">
-    <div class="section-heading"><h2 id="experience-title">Experience</h2><span class="section-note">Selected experience</span></div>
+    <div class="section-heading"><h2 id="experience-title">Experience</h2></div>
     <ol class="timeline">{% for item in site.data.experience %}
       <li><span class="organization-mark"><img src="{{ item.logo | relative_url }}" alt="" aria-hidden="true" width="24" height="24"></span><div class="experience-main"><h3>{{ item.company | escape }}</h3><p>{{ item.role | escape }}</p></div><span class="dates">{{ item.dates | escape }}</span></li>
     {% endfor %}</ol>
