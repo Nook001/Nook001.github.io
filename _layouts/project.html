@@ -6,5 +6,5 @@ layout: default
   {% if page.sample %}<aside class="notice">Example project entry. Description, ownership, links and outcomes need review before publication.</aside>{% endif %}
   {% if page.source_url and page.source_url != '' %}<p><a href="{{ page.source_url | escape }}">Source code ↗</a></p>{% endif %}
   {% if page.project_url and page.project_url != '' %}<p><a href="{{ page.project_url | escape }}">View project ↗</a></p>{% endif %}
-  <div class="prose">{{ content }}</div>
+  {% include prose.html %}
 </article>

@@ -1,0 +1,5 @@
+{% assign article_lang = page.lang | default: site.lang %}
+{% if article_lang contains 'zh' %}{% assign table_label = '表格，可横向滚动' %}{% assign code_label = '代码，可横向滚动' %}{% else %}{% assign table_label = 'Table, scroll horizontally' %}{% assign code_label = 'Code, scroll horizontally' %}{% endif %}
+{% capture table_open %}<div class="table-scroll" role="region" aria-label="{{ table_label }}" tabindex="0"><table{% endcapture %}
+{% capture pre_open %}<pre tabindex="0" aria-label="{{ code_label }}"{% endcapture %}
+<div class="prose">{{ content | replace: '<table', table_open | replace: '</table>', '</table></div>' | replace: '<pre', pre_open }}</div>

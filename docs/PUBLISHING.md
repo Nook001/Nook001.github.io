@@ -1,42 +1,41 @@
-# 发布与 PR 工作流
+# 审核与发布
 
-## 当前状态
+## 固定边界
 
-用户已明确授权：学历改为 `HKUST · CSE` 和 `University of Warwick · CS ’27`，不公开 CV，完成后正式发布。本次可在检查通过后合并内容 PR 并手动部署。未来改动仍按 PR 和单独发布授权执行。
+远程为 `https://github.com/Nook001/Nook001.github.io.git`，仓库公开。
+Pages 发布源保持 **GitHub Actions**；不改回分支发布。
+过去曾发生首次推送自动开启 legacy 发布，已纠正；不能依赖首次 API 404 推断推送不会发布。
 
-此前首次推送意外触发过 GitHub 的 legacy 分支发布，现已改为 GitHub Actions 发布来源。保留手动触发配置，不恢复自动分支发布。
+每次发布需要用户明确授权当前版本。过去某次授权不是永久授权。
+本轮工程整理仅在本地修改，等待审核，不推送、不合并、不部署。
+CV 保持关闭；源文件与生成网页都必须经过隐私审阅。
 
-## 日常维护
+## 日常流程
 
-1. 检查工作区，创建 `content/...` 或 `site/...` 分支。
-2. 修改 Markdown/数据；运行 README 中三个检查，审阅预览。
-3. 用户授权后推送分支、创建 PR。PR 描述说明改动、事实来源、验证结果及待确认项。
-4. 检查通过并经审阅后合并（代理合并同样需要授权）。合并不等于授权发布。
-5. 用户明确要求发布当前版本后，执行下面的手动流程。
+1. 检查工作区，在本地 topic 分支修改，保留已有工作。
+2. 执行 README 的验证命令；按 VALIDATION.md 检查预览。审查所有拟提交文件，包括草稿和附件。
+3. 得到授权后推送并创建 PR，说明实际改动、事实来源、验证结果和剩余问题。
+4. 检查通过且用户授权合并后，合并已审阅的提交。合并不代表授权部署。
+5. 用户要求发布当前版本后，确认 main 指向审核过的合并提交，再执行手动发布。
 
-## 远程设置现状与发布准备
+验证工作流仅响应 main push 和目标为 main 的 PR；取消同一 PR/ref 的过期验证。
+它没有 Pages 写权限，也没有部署步骤。开发分支 push 不重复运行验证。
 
-- `Nook001/Nook001.github.io` 已存在，本地已连接该远程，初始 main 已推送。不要再次生成初始化提交或替换仓库历史。
-- 仓库为公开仓库，后续推送前检查所有源文件，不仅是生成网页。CV 的历史摘要页已从当前版本移除，原始 DOCX 从未提交；不改写既有 Git 历史。
-- 仓库 Settings → Pages → Source 已设为 **GitHub Actions**；保留该设置，不要改为 Deploy from a branch。
-- 对 `用户名.github.io` 仓库，不要把首次 API 404 当作“推送绝不会发布”的保证。首次推送后复查 Pages 配置和工作流记录；如平台自动启用分支发布，先停止意外发布，再继续内容维护。
-- 建议给 main 设置 PR 保护和 `Validate site / validate` 必须通过的规则；给 `github-pages` environment 限定 main，并在账号套餐允许时设置 required reviewers。不要假定这些保护已经存在。
-- 仓库中的部署文件只支持手动触发；不接受从 PR、push 或 workflow_run 自动部署的改动。
+## 手动部署
 
-## 手动发布
+在 GitHub Actions 打开 **Publish site (manual approval)**：选择 main，输入精确的 `PUBLISH`。
+工作流必须重新通过 `ruby scripts/check_content.rb --release`、生产构建和生成站点检查，
+再部署同一构建产物。输入不匹配或来源不是 main 时不能发布。
 
-先完成个人资料、教育措辞、经历日期及全部示例内容审阅。运行：
+保留既有 permissions、github-pages environment 和审批边界。不要为绕过失败或审批修改规则。
+分支保护和 environment required reviewers 的实际配置需单独核实，不能假定已启用，也不在本轮更改。
 
-```powershell
-ruby scripts/check_content.rb --release
-```
+发布后核实部署成功、首页与手机布局、项目页、当前文章/列表、RSS、sitemap 和 404。
+本轮删除文章后，旧 URL 预计返回 404；若用户希望保留入口，先确定替代内容或重定向目标。
+回滚同样需要授权，使用可审阅的回滚提交，不改写历史。
 
-该检查必须通过。用户已确认简化学历措辞；CV 留空是明确的隐私偏好，不是待补资料。检查会阻止恢复 CV 入口或公开页面。不能为通过检查编造内容或直接删除标记。
+## 草稿与产物
 
-用户明确授权后，在 GitHub Actions 打开 **Publish site (manual approval)**，选择 main，输入 PUBLISH。工作流重新检查内容、生产构建与本地链接，再上传并部署同一产物。main 之外或输入错误不会发布。若设置了 environment 审批，完成该审批后才会部署。
-
-成功后验证主页、手机布局、项目、文章、RSS、404 与下载链接。发布失败先查构建/审批证据，不为绕过审批修改代码。回滚也需明确授权，可将已审阅的回滚 PR 合入 main 后重新手动发布。
-
-## 原生兼容性
-
-使用 GitHub Pages 支持的 Jekyll 3.10 及 feed/seo/sitemap 插件；Actions 只是让构建验证和人工发布分开。没有 React、Next.js、Tailwind 或自定义 Jekyll 插件。不要添加 `.nojekyll`。GitHub Pages 版本表和官方文档链接见 README。
+`_drafts/` 的源文件仍公开；私人内容放 ignored/excluded 的 `private-drafts/` 或仓库外。
+不得上传草稿预览、`work/` 中的测试站点或其他本地截图。部署仅使用正式生产 `_site/`。
+技术栈和依赖安装见 README；不添加 `.nojekyll` 或自定义 Jekyll 插件。

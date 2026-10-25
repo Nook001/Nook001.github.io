@@ -6,10 +6,6 @@ sample: true
 published: false
 ---
 
-## Problem
-
-## Decision
-
-## Evidence
-
-## What I learned
+<!-- Start writing here. Choose headings to suit the article; do not repeat the title as h1.
+Use lang: zh-CN for Chinese. See docs/CONTENT_GUIDE.md for code, tables and images.
+This template is safe to commit only after removing any private material. -->
