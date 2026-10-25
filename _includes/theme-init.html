@@ -1,0 +1,9 @@
+<script>
+  // Run before the stylesheet so a saved choice applies to the first paint.
+  try {
+    const theme = localStorage.getItem("nook-theme");
+    if (theme === "light" || theme === "dark") {
+      document.documentElement.dataset.theme = theme;
+    }
+  } catch (_) { /* Storage unavailable: CSS still follows the system. */ }
+</script>

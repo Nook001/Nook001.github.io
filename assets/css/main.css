@@ -1,15 +1,166 @@
+/* Cool charcoal surfaces with a slight blue cast and restrained sage accents. */
 :root {
-  --paper:#f8f7f3;
-  --ink:#22382e;
-  --body:#3f4c44;
-  --secondary:#526157;
-  --muted:#687169;
-  --line:#dcded5;
-  --accent:#486344;
-  --card:#fdfcf9;
-  --code-bg:#efeee8;
-  --timeline-line:#c4cbbf;
+  color-scheme:light dark;
+  --paper-light:#f8f7f3;
+  --paper-dark:#25282c;
+  --paper:var(--paper-light);
+  --ink-light:#22382e;
+  --ink-dark:#eeeae1;
+  --ink:var(--ink-light);
+  --body-light:#3f4c44;
+  --body-dark:#d4d6d1;
+  --body:var(--body-light);
+  --secondary-light:#526157;
+  --secondary-dark:#bfc2bb;
+  --secondary:var(--secondary-light);
+  --muted-light:#687169;
+  --muted-dark:#a4aaa1;
+  --muted:var(--muted-light);
+  --line-light:#dcded5;
+  --line-dark:#474e56;
+  --line:var(--line-light);
+  --accent-light:#486344;
+  --accent-dark:#aec59a;
+  --accent:var(--accent-light);
+  --card-light:#fdfcf9;
+  --card-dark:#2c3035;
+  --card:var(--card-light);
+  --code-bg-light:#efeee8;
+  --code-bg-dark:#30353b;
+  --code-bg:var(--code-bg-light);
+  --timeline-line-light:#c4cbbf;
+  --timeline-line-dark:#626d76;
+  --timeline-line:var(--timeline-line-light);
+  --timeline-node-light:#667260;
+  --timeline-node-dark:#b0baaa;
+  --timeline-node:var(--timeline-node-light);
+  --control-line-light:#7c8b75;
+  --control-line-dark:#8b9399;
+  --control-line:var(--control-line-light);
+  --notice-bg-light:#eeefe7;
+  --notice-bg-dark:#333932;
+  --notice-bg:var(--notice-bg-light);
+  --notice-text-light:#4b5346;
+  --notice-text-dark:#d0d6c8;
+  --notice-text:var(--notice-text-light);
+  --code-comment-light:#61695e;
+  --code-comment-dark:#a5b29a;
+  --code-comment:var(--code-comment-light);
+  --code-keyword-light:#664678;
+  --code-keyword-dark:#cfb7d6;
+  --code-keyword:var(--code-keyword-light);
+  --code-string-light:#3b623e;
+  --code-string-dark:#b8cfa6;
+  --code-string:var(--code-string-light);
+  --code-number-light:#85512c;
+  --code-number-dark:#d8bb8f;
+  --code-number:var(--code-number-light);
+  --code-name-light:#315d74;
+  --code-name-dark:#accad0;
+  --code-name:var(--code-name-light);
+  --code-deleted-light:#8b3838;
+  --code-deleted-dark:#e2b1a5;
+  --code-deleted:var(--code-deleted-light);
+  --code-deleted-bg-light:#f4e8e3;
+  --code-deleted-bg-dark:#3b2927;
+  --code-deleted-bg:var(--code-deleted-bg-light);
+  --code-added-light:#355739;
+  --code-added-dark:#b7d2a6;
+  --code-added:var(--code-added-light);
+  --code-added-bg-light:#e7eee0;
+  --code-added-bg-dark:#253c2b;
+  --code-added-bg:var(--code-added-bg-light);
   --timeline-width:340px;
+}
+
+:root[data-theme="light"] { color-scheme:light; }
+:root[data-theme="dark"] { color-scheme:dark; }
+
+/* Modern engines choose from each pair using the active color-scheme. */
+@supports (color:light-dark(white, black)) {
+  :root {
+    --paper:light-dark(var(--paper-light), var(--paper-dark));
+    --ink:light-dark(var(--ink-light), var(--ink-dark));
+    --body:light-dark(var(--body-light), var(--body-dark));
+    --secondary:light-dark(var(--secondary-light), var(--secondary-dark));
+    --muted:light-dark(var(--muted-light), var(--muted-dark));
+    --line:light-dark(var(--line-light), var(--line-dark));
+    --accent:light-dark(var(--accent-light), var(--accent-dark));
+    --card:light-dark(var(--card-light), var(--card-dark));
+    --code-bg:light-dark(var(--code-bg-light), var(--code-bg-dark));
+    --timeline-line:light-dark(var(--timeline-line-light), var(--timeline-line-dark));
+    --timeline-node:light-dark(var(--timeline-node-light), var(--timeline-node-dark));
+    --control-line:light-dark(var(--control-line-light), var(--control-line-dark));
+    --notice-bg:light-dark(var(--notice-bg-light), var(--notice-bg-dark));
+    --notice-text:light-dark(var(--notice-text-light), var(--notice-text-dark));
+    --code-comment:light-dark(var(--code-comment-light), var(--code-comment-dark));
+    --code-keyword:light-dark(var(--code-keyword-light), var(--code-keyword-dark));
+    --code-string:light-dark(var(--code-string-light), var(--code-string-dark));
+    --code-number:light-dark(var(--code-number-light), var(--code-number-dark));
+    --code-name:light-dark(var(--code-name-light), var(--code-name-dark));
+    --code-deleted:light-dark(var(--code-deleted-light), var(--code-deleted-dark));
+    --code-deleted-bg:light-dark(var(--code-deleted-bg-light), var(--code-deleted-bg-dark));
+    --code-added:light-dark(var(--code-added-light), var(--code-added-dark));
+    --code-added-bg:light-dark(var(--code-added-bg-light), var(--code-added-bg-dark));
+  }
+}
+
+/* Older engines: same palette, system preference and explicit overrides. */
+@supports not (color:light-dark(white, black)) {
+  @media screen and (prefers-color-scheme:dark) {
+    :root:not([data-theme="light"]) {
+      --paper:var(--paper-dark);
+      --ink:var(--ink-dark);
+      --body:var(--body-dark);
+      --secondary:var(--secondary-dark);
+      --muted:var(--muted-dark);
+      --line:var(--line-dark);
+      --accent:var(--accent-dark);
+      --card:var(--card-dark);
+      --code-bg:var(--code-bg-dark);
+      --timeline-line:var(--timeline-line-dark);
+      --timeline-node:var(--timeline-node-dark);
+      --control-line:var(--control-line-dark);
+      --notice-bg:var(--notice-bg-dark);
+      --notice-text:var(--notice-text-dark);
+      --code-comment:var(--code-comment-dark);
+      --code-keyword:var(--code-keyword-dark);
+      --code-string:var(--code-string-dark);
+      --code-number:var(--code-number-dark);
+      --code-name:var(--code-name-dark);
+      --code-deleted:var(--code-deleted-dark);
+      --code-deleted-bg:var(--code-deleted-bg-dark);
+      --code-added:var(--code-added-dark);
+      --code-added-bg:var(--code-added-bg-dark);
+    }
+  }
+  @media screen {
+    :root[data-theme="dark"] {
+      --paper:var(--paper-dark);
+      --ink:var(--ink-dark);
+      --body:var(--body-dark);
+      --secondary:var(--secondary-dark);
+      --muted:var(--muted-dark);
+      --line:var(--line-dark);
+      --accent:var(--accent-dark);
+      --card:var(--card-dark);
+      --code-bg:var(--code-bg-dark);
+      --timeline-line:var(--timeline-line-dark);
+      --timeline-node:var(--timeline-node-dark);
+      --control-line:var(--control-line-dark);
+      --notice-bg:var(--notice-bg-dark);
+      --notice-text:var(--notice-text-dark);
+      --code-comment:var(--code-comment-dark);
+      --code-keyword:var(--code-keyword-dark);
+      --code-string:var(--code-string-dark);
+      --code-number:var(--code-number-dark);
+      --code-name:var(--code-name-dark);
+      --code-deleted:var(--code-deleted-dark);
+      --code-deleted-bg:var(--code-deleted-bg-dark);
+      --code-added:var(--code-added-dark);
+      --code-added-bg:var(--code-added-bg-dark);
+    }
+  }
 }
 
 * {
@@ -62,6 +213,48 @@ img {
   padding:27px 0;
   border-bottom:1px solid var(--line);
 }
+
+/* Native controls inherit the active scheme; the compact header stays one row. */
+.header-tools {
+  display:flex;
+  align-items:center;
+  gap:18px;
+}
+button, input, select, textarea {
+  font:inherit;
+  color:var(--body);
+  accent-color:var(--accent);
+}
+button, input:not([type="checkbox"]):not([type="radio"]), select, textarea {
+  max-width:100%;
+  min-width:0;
+  padding:6px 8px;
+  border:1px solid var(--control-line);
+  border-radius:4px;
+  background:var(--card);
+}
+input::placeholder, textarea::placeholder { color:var(--muted); opacity:1; }
+fieldset { min-width:0; border:1px solid var(--line); }
+:is(button,input,select,textarea):focus-visible {
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+}
+.theme-toggle {
+  flex-shrink:0;
+  width:32px;
+  height:32px;
+  padding:6px;
+  color:var(--secondary);
+  cursor:pointer;
+}
+.theme-toggle:not([hidden]) { display:grid; place-items:center; }
+.theme-toggle:hover { color:var(--accent); }
+.theme-toggle svg { width:18px; height:18px; }
+.theme-toggle[aria-pressed="false"] .theme-icon-sun,
+.theme-toggle[aria-pressed="true"] .theme-icon-moon { display:none; }
+/* The CAS seal is circular; clip only the outer white square, preserving
+   the original white details inside the seal. Other marks keep native alpha. */
+.organization-mark img[src$="/cas.png"] { clip-path:circle(46%); }
 
 .wordmark {
   font:700 27px/1 Georgia,serif;
@@ -347,7 +540,6 @@ h2 {
 
 /* Timeline geometry: event-y anchors the node to the company heading. */
 .timeline {
-  --timeline-node:#667260;
   --event-y:25px;
   --rail-extension:36px;
   list-style:none;
@@ -816,24 +1008,24 @@ h2 {
 
 /* Rouge tokens: restrained hues on the existing light code surface. */
 .highlight :is(.c,.ch,.cd,.cm,.cp,.cpf,.c1,.cs) {
-  color: #61695e;
+  color: var(--code-comment);
   font-style: italic;
 }
 
 .highlight :is(.k,.kc,.kd,.kn,.kp,.kr,.kt,.ow) {
-  color: #664678;
+  color: var(--code-keyword);
 }
 
 .highlight :is(.s,.sa,.sb,.sc,.dl,.sd,.s2,.se,.sh,.si,.sx,.sr,.s1,.ss) {
-  color: #3b623e;
+  color: var(--code-string);
 }
 
 .highlight :is(.m,.mb,.mf,.mh,.mi,.il,.mo,.no,.na) {
-  color: #85512c;
+  color: var(--code-number);
 }
 
 .highlight :is(.nb,.nc,.nd,.ne,.nf,.fm,.nn,.nt,.nv,.vc,.vg,.vi,.vm) {
-  color: #315d74;
+  color: var(--code-name);
 }
 
 .highlight :is(.o,.p) {
@@ -841,13 +1033,13 @@ h2 {
 }
 
 .highlight :is(.err,.gd) {
-  color: #8b3838;
-  background: #f4e8e3;
+  color: var(--code-deleted);
+  background: var(--code-deleted-bg);
 }
 
 .highlight .gi {
-  color: #355739;
-  background: #e7eee0;
+  color: var(--code-added);
+  background: var(--code-added-bg);
 }
 
 .highlight :is(.ge,.ges) {
@@ -863,9 +1055,9 @@ h2 {
   line-height:1.7;
   padding:15px 18px;
   border-left:2px solid var(--accent);
-  background:#eeefe7;
+  background:var(--notice-bg);
   margin-bottom:28px;
-  color:#4b5346;
+  color:var(--notice-text);
 }
 
 .skip-link {
@@ -958,6 +1150,7 @@ h2 {
 }
 
 @media(max-width:420px) {
+  .header-tools { gap:10px; }
   .timeline {
     --event-y:44px;
   }
@@ -1034,6 +1227,11 @@ h2 {
 }
 
 @media print {
+  :root { color-scheme:light !important; --paper:#fff; --card:#fff; }
+  .theme-toggle { display:none !important; }
+  .prose pre { white-space:pre-wrap; overflow-wrap:anywhere; overflow:visible; }
+  .prose .table-scroll { overflow:visible; }
+  .prose table { font-size:11px; overflow-wrap:anywhere; }
   .skip-link,nav,.site-footer {
     display:none;
   }

@@ -1,6 +1,6 @@
 # Current validation
 
-Snapshot: 25 October 2026, local branch `maintenance/blog-readiness`.
+Snapshot: 25 October 2026, local branch `site/warm-forest-dark`.
 No push, PR, merge, Pages-setting change or deployment was performed in this review.
 Earlier iteration records remain in Git history, outside the default reading path.
 
@@ -67,28 +67,45 @@ Fixture builds live under ignored `work/article-check-*/`; they are never deploy
 
 ## Browser and visual evidence
 
-- Homepage: all five widths passed with loaded logos/avatar, five entries and one
-  current node. Before/after geometry matched for cards, headings, empty publications
-  axis and project grid. Screenshot crops above Writing matched pixel-for-pixel.
-- English and Chinese article fixtures: all five widths passed without page overflow;
-  language is respectively en / zh-CN. Long links/inline code wrap, images fit, Rouge
-  colors apply, and long code/tables scroll independently. Native table display stays table.
-- Qingyin project detail: all five widths retain a single h1 and no page overflow.
-- Keyboard: homepage Tab exposes the skip link; Enter moves focus to main. Code and
-  table regions show a 2px focus outline and ArrowRight advances their scroll position.
-- Text: existing body/heading/muted text on paper/card remains >=4.5:1; new code token
-  colors on the code surface are >=4.9:1. Fine decorative rails are not text.
-- Before/after screenshots, measurements and a reading preview are retained in the
-  current chat outputs. The only homepage content removal is the explicitly requested
-  Qingyin playback-events article; no replacement example is published.
+- First visits without a stored choice follow the system. Browser checks passed
+  light/dark/light system changes, including the button's icon and pressed state.
+  A click chooses the opposite effective mode and persists across reloads and
+  Home / Projects / Writing navigation, overriding later system changes.
+- Header control is a 32x32px native sun/moon toggle, with a stable Dark mode label,
+  aria-pressed state, Tab/Enter/Space support and a 2px visible focus outline.
+  The three-state dropdown is removed; navigation stays one row at 320px.
+- Both themes passed at 1440, 768, 390 and 320px on the homepage and reading fixture.
+  No page overflow; logos/avatar loaded; reading tables retain native semantics.
+- Charcoal surfaces carry a subtle blue-gray cast. Semantic color pairs and the
+  light-dark()/media-query fallback architecture are unchanged. Forty contrast
+  pairs passed, with text >=4.72:1 and control/node boundaries >3:1.
+- The homepage's profile, cards, timeline, headings and empty publications rail
+  retain exact pre-theme geometry. Font sizes and weights are identical between themes; intended logo changes
+  are the only new light-theme visual edits.
+- Alpha audit: HKUST/Tencent/Shopee/OPPO already contain transparency; the added
+  universal CSS backing is removed. HKUST(GZ) reuses the transparent shared official
+  university crest. CAS is clipped to its circular seal, preserving internal white.
+  HKUST/OPPO retain their original colors in both themes. No logo, avatar or article
+  image receives a recoloring filter. Original files
+  remain intact, with provenance documented in docs/LOGO_SOURCES.md.
+- Sixteen isolated script cases passed: system detection, first-click direction,
+  manual preference priority, old preference compatibility, early restore,
+  blocked storage, tab sync, legacy media listener and history restoration.
+  The existing bundled JS runtime was used for local tests only, not a build dependency.
+- With JavaScript disabled, the button is hidden and CSS still follows the system.
+  Forced Dark prints white paper/light text and hides the button. No animation or
+  transition was added; the existing reduced-motion behavior remains unchanged.
+- Content/release/build/output/article/whitespace checks passed. No test article is
+  published. Current screenshots: blue-grey-light/dark-1440.png and -390.png in the
+  chat outputs; blue-grey-logo-preview.png shows the revised header and surfaces.
 
 ## Limits and follow-up
 
-- This branch's updated workflow has not run on a GitHub-hosted runner; local checks
-  and YAML/permission inspection passed. Remote verification awaits authorization.
-- Ruby dependencies emit base64/bigdecimal migration warnings for future Ruby 3.4;
-  the selected Ruby 3.3 build succeeds. No dependency upgrade is required this round.
-- The removed article's old URL will become 404 only after a separately authorized
-  deployment. No replacement destination was supplied, so no redirect is invented.
-- Publications remains deliberately empty. Hiding it would shift desktop balance and
-  remove the mobile empty gap; defer that visual decision until requested/real papers exist.
+- This theme branch is local only. No push, PR, merge, deployment or Pages change was
+  made; source resume, CV policy and confirmed personal/project content are unchanged.
+- Browser checks cover the current Chromium browser, responsive layout and keyboard
+  operation; a full screen-reader/physical-device or historical browser audit was not run.
+- Ruby dependencies still emit base64/bigdecimal migration warnings for future Ruby 3.4;
+  Ruby 3.3 builds succeed. No dependency update is needed for this feature.
+- See docs/THEMES.md for the color tokens, no-script/storage behavior and maintenance
+  checks. If storage is blocked, manual switching works on the current page but cannot persist.
