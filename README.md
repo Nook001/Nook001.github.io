@@ -58,6 +58,8 @@ Local organization marks identify education and experience. Deep green headings,
 
 Experience uses compact two-line cards along a single logo rail: company and role share the first line, with the date directly below and aligned left. Cards have a subtle tinted background, fine border and 12px gaps; no extra descriptions or interactive effects are required.
 
+The stylesheet URL includes a build timestamp so that a newly published page does not reuse cached CSS from a previous layout. All pages in one build share the same stylesheet version; no JavaScript is involved.
+
 ## References
 
 - [GitHub Pages dependency versions](https://pages.github.com/versions/)
