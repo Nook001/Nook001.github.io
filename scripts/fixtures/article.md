@@ -62,3 +62,14 @@ An unhighlighted block should use the same spacing and scroll behavior as highli
 ## Closing paragraph / 结尾
 
 The heading, date, description and body should read as separate levels. No table of contents, reading progress script or animation is necessary.
+
+## Form controls / 表单控件
+
+<fieldset>
+  <legend>Theme verification only</legend>
+  <p><label for="fixture-text">Text <input id="fixture-text" type="text" placeholder="Example input"></label></p>
+  <p><label for="fixture-select">Choice <select id="fixture-select"><option>First option</option><option>Second option</option></select></label></p>
+  <p><label for="fixture-notes">Notes <textarea id="fixture-notes" rows="2" placeholder="Example notes"></textarea></label></p>
+  <p><label><input type="checkbox"> Checkbox</label> <label><input type="radio" name="fixture-radio"> Radio</label></p>
+  <button type="button">Example button</button>
+</fieldset>

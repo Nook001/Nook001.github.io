@@ -6,13 +6,16 @@ unrelated work. This is Nook's personal homepage and technical blog.
 ## Architecture and design
 
 - Keep GitHub Pages-compatible Jekyll 3.10, Liquid, Markdown and native CSS. No new
-  framework, Node pipeline, remote font, analytics or JavaScript without a concrete need.
+  framework, Node pipeline, remote font or analytics. Theme persistence is the only
+  client script; avoid unrelated JavaScript interactions.
 - Content lives in `_data/`, `_posts/` and `_projects/`. Layouts/includes own structure;
   `assets/css/main.css` owns styles. Follow docs/CONTENT_GUIDE.md for field/ordering rules.
 - Preserve the homepage: sticky desktop profile left; About, Experience/Publications,
   project grid and compact Writing list right. Profile stacks below 900px; the paired
   sections stack below 700px. Keep article reading layouts separate.
 - Preserve the restrained palette, fonts, decorative heading icons and timeline geometry.
+  Light and Warm Forest Dark use semantic CSS variables; preserve both palettes and
+  Auto / Light / Dark behavior. See docs/THEMES.md for theme maintenance and testing.
   Publications' empty decorative rail is intentional; do not remove it or invent papers.
 - Preserve semantic headings, alt text, keyboard focus/skip link and contrast. No gratuitous
   animation, skill badges or placeholder claims.

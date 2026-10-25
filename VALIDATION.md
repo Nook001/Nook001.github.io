@@ -1,6 +1,6 @@
 # Current validation
 
-Snapshot: 25 October 2026, local branch `maintenance/blog-readiness`.
+Snapshot: 25 October 2026, local branch `site/warm-forest-dark`.
 No push, PR, merge, Pages-setting change or deployment was performed in this review.
 Earlier iteration records remain in Git history, outside the default reading path.
 
@@ -67,28 +67,43 @@ Fixture builds live under ignored `work/article-check-*/`; they are never deploy
 
 ## Browser and visual evidence
 
-- Homepage: all five widths passed with loaded logos/avatar, five entries and one
-  current node. Before/after geometry matched for cards, headings, empty publications
-  axis and project grid. Screenshot crops above Writing matched pixel-for-pixel.
-- English and Chinese article fixtures: all five widths passed without page overflow;
-  language is respectively en / zh-CN. Long links/inline code wrap, images fit, Rouge
-  colors apply, and long code/tables scroll independently. Native table display stays table.
-- Qingyin project detail: all five widths retain a single h1 and no page overflow.
-- Keyboard: homepage Tab exposes the skip link; Enter moves focus to main. Code and
-  table regions show a 2px focus outline and ArrowRight advances their scroll position.
-- Text: existing body/heading/muted text on paper/card remains >=4.5:1; new code token
-  colors on the code surface are >=4.9:1. Fine decorative rails are not text.
-- Before/after screenshots, measurements and a reading preview are retained in the
-  current chat outputs. The only homepage content removal is the explicitly requested
-  Qingyin playback-events article; no replacement example is published.
+- Auto / Light / Dark: all six combinations with light/dark system settings passed.
+  Auto follows live system changes without reload. All three choices survive Home /
+  Projects / Writing navigation and reload; a second open tab synchronizes immediately.
+- Header control: native select with accessible name, 64x32px footprint, Tab/arrow/Home/
+  End keyboard operation and 2px visible focus. Navigation remains one row at 320px.
+- Homepage: Light and Dark passed at 1440, 768, 390 and 320px. No page overflow;
+  all logos/avatar loaded. Profile, timeline cards, empty publications rail, section
+  headings and project cards retain their exact pre-change geometry. Light screenshots
+  below the header match the baseline pixel-for-pixel.
+- English/Chinese article fixtures: both themes passed at all four widths. Rouge code,
+  quotes, captions, tables and native form controls use the theme tokens. Code/tables
+  retain internal horizontal scrolling; images and long inline text fit the page.
+- Organization bitmaps have a light backing in Dark. Warwick's original responsive SVG
+  retains a transparent backing and supplies its own white crest; no artwork is inverted
+  or modified. Avatars and article images are unaffected.
+- CSS fallback: six preference/system combinations and light print output passed in
+  an isolated fixture with light-dark() disabled. This exercises the fallback rules in
+  the current browser; it is not a historical-browser engine certification.
+- With JavaScript disabled, the control stays hidden and CSS still follows the system.
+  Thirteen isolated script cases cover early restoration, invalid values, persistence,
+  Auto removing the stored override, blocked storage, tab sync and history restoration.
+  These used the already bundled JS runtime only for local checks, not a site/build dependency.
+- Forty contrast pairs passed. Text minimum is 4.72:1 across its actual surfaces;
+  new control boundaries and timeline node outlines exceed 3:1. Focus remains visible.
+- Forced Dark + print produces white paper, original light text/code colors, wrapped
+  long code and a hidden theme control. Reduced-motion emulation reports no transitions
+  or animations, with scroll-behavior:auto.
+- Screenshots and measurements are retained in the current chat outputs, including
+  theme-light/dark-1440.png and theme-light/dark-390.png. No test article is published.
 
 ## Limits and follow-up
 
-- This branch's updated workflow has not run on a GitHub-hosted runner; local checks
-  and YAML/permission inspection passed. Remote verification awaits authorization.
-- Ruby dependencies emit base64/bigdecimal migration warnings for future Ruby 3.4;
-  the selected Ruby 3.3 build succeeds. No dependency upgrade is required this round.
-- The removed article's old URL will become 404 only after a separately authorized
-  deployment. No replacement destination was supplied, so no redirect is invented.
-- Publications remains deliberately empty. Hiding it would shift desktop balance and
-  remove the mobile empty gap; defer that visual decision until requested/real papers exist.
+- This theme branch is local only. No push, PR, merge, deployment or Pages change was
+  made; source resume, CV policy and confirmed personal/project content are unchanged.
+- Browser checks cover the current Chromium browser, responsive layout and keyboard
+  operation; a full screen-reader/physical-device or historical browser audit was not run.
+- Ruby dependencies still emit base64/bigdecimal migration warnings for future Ruby 3.4;
+  Ruby 3.3 builds succeed. No dependency update is needed for this feature.
+- See docs/THEMES.md for the color tokens, no-script/storage behavior and maintenance
+  checks. If storage is blocked, manual switching works on the current page but cannot persist.

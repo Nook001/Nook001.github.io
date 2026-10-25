@@ -17,3 +17,8 @@ The marks identify entries in the owner's education and experience. They do not 
 Education uses small 20px marks (18px on narrow phones). Experience uses 24px marks inside the cards, separate from the timeline nodes. Adjacent text supplies each organization name, so the images have empty alt text and `aria-hidden="true"` to avoid repetitive screen-reader announcements. HKUST(GZ) is the newly confirmed current role above the existing four experiences; approved education wording is unchanged.
 
 Content validation checks each local source file, and the generated-site check verifies the image references. If an organization updates its assets, inspect its official site and replace the local file intentionally rather than adding a runtime fetch.
+
+In Warm Forest Dark, organization bitmap logos use a warm light backing, without
+filtering or recoloring the artwork. Warwick's SVG contains its own scheme-responsive
+crest and keeps a transparent backing so the white crest remains visible directly
+on the forest surface. See THEMES.md. Original asset files remain unmodified.
