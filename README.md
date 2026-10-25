@@ -51,7 +51,7 @@ Only the manual deployment workflow can publish this setup: main branch + exact 
 
 ## Design
 
-Warm off-white, restrained olive accents, system body fonts and a serif name/title. The site has no animation or JavaScript. At narrow widths, projects stack and the timeline stays in the supplied order. SEO includes page titles/descriptions, canonical URLs, sitemap and RSS. The canonical site URL is `https://nook001.github.io`.
+Warm off-white, restrained olive accents, system body fonts and a serif name/title. The homepage uses a sticky profile sidebar on desktop, with About, experience, projects and writing in the right column. Below 900px it becomes a single column; project cards also stack on phones. Short desktop viewports can scroll the profile itself so contact links stay reachable. Article and project-detail layouts retain their reading width. The site has no animation or JavaScript. SEO includes page titles/descriptions, canonical URLs, sitemap and RSS. The canonical site URL is `https://nook001.github.io`.
 
 ## References
 

@@ -3,7 +3,7 @@
 This is Yuanzhi Liu's personal homepage and technical blog. Keep Jekyll 3.10-compatible Liquid, Markdown and native CSS. No Node build, JS framework, external font or analytics is needed.
 
 - Read README.md and docs/CONTENT_GUIDE.md before editing content; inspect git status first. Preserve unrelated work.
-- Maintain the homepage hierarchy: portrait/name/education/brief greeting/contact links → Tencent, CAS, Shopee, OPPO timeline → project grid → compact writing list.
+- Maintain the homepage hierarchy: a sticky desktop profile sidebar (portrait/name/education/contact links), with About → Tencent, CAS, Shopee, OPPO timeline → project grid → compact writing list in the right column. Below 900px use one column. Keep article and project-detail reading layouts separate from the homepage.
 - Do not invent degree details, dates, job expansions (including SA), project ownership, metrics, source links or email addresses. Preserve visible placeholders until confirmed by the user.
 - Keep sample content labeled. Do not clear `sample` or `education_pending` simply to make release validation pass. Confirm claims first or remove unpublished examples with user agreement.
 - New content starts in `_drafts/` or with `published: false`. Draft review and publication are separate decisions.

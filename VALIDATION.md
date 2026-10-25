@@ -79,3 +79,13 @@ On 25 October 2026 the user approved official publication after two changes: sho
 - Release validation no longer requires a CV; it explicitly requires the CV link to remain empty unless the user later opts in.
 - Normal content validation, release content validation, production Jekyll build, generated-site checks and whitespace checks all passed locally. The output contains eight HTML pages, with no CV page or local CV links.
 - Merge and manual deployment are authorized for this reviewed version. The Actions deployment record provides the final published commit and deployment outcome; future releases still require authorization.
+
+## Sidebar homepage layout
+
+The user supplied a two-column reference and requested a fixed profile area on the left, with the substantive content on the right. After seeing the local preview, the user explicitly authorized publishing this layout once checks pass.
+
+- Homepage-only layout: a 260px desktop profile sidebar, with About, experience, selected projects and writing in the right column. The sidebar uses sticky positioning with a 36px top offset, keeping it in the document flow and clear of the footer.
+- At widths below 900px, the profile returns to the normal flow above the content. Mobile profile details sit beside the avatar. Project cards use three, two or one column according to available width. Article/project reading layouts retain their existing width.
+- Browser checks at 1440, 1024, 768, 390 and 320px showed no horizontal overflow. A 360px-high desktop viewport limits the sidebar height and allows its contents to scroll, keeping contact links reachable.
+- After a 360px page scroll at desktop width, the sidebar remained at y=36px. The mobile sidebar is static. Desktop and mobile screenshots are saved in this chat's outputs folder as sidebar-layout-desktop.png and sidebar-layout-mobile.png.
+- Existing content, approved education labels and the CV privacy preference remain intact. Production build, normal/release content checks, generated-site checks and Git whitespace checks are run for this release; no custom JavaScript or animation is introduced.
