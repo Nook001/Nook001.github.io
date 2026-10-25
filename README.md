@@ -56,7 +56,7 @@ Warm off-white, restrained olive accents, system body fonts and a serif name/tit
 
 Local organization marks identify education and experience. Deep green headings, softer body text and muted dates establish the text hierarchy; every text palette color has at least 4.5:1 contrast against the paper and card backgrounds. Project descriptions and experience roles use slightly larger type for readability. Asset origins are documented in `docs/LOGO_SOURCES.md`.
 
-Experience uses compact two-line cards along a single logo rail: company and role share the first line, with the date directly below and aligned left. Cards have a subtle tinted background, fine border and 12px gaps; no extra descriptions or interactive effects are required.
+Experience uses content-sized cards with a transparent background and fine border. Each logo sits inside the upper-left corner, beside the company/role and numeric YYYY-MM date range. Cards share the width needed by the longest entry, capped by the available space, with short connectors between them.
 
 The stylesheet URL includes a build timestamp so that a newly published page does not reuse cached CSS from a previous layout. All pages in one build share the same stylesheet version; no JavaScript is involved.
 
