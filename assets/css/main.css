@@ -1,50 +1,50 @@
-/* Warm Forest: light values preserve the approved palette. */
+/* Warm neutral dark: charcoal surfaces, with restrained sage accents. */
 :root {
   color-scheme:light dark;
   --paper-light:#f8f7f3;
-  --paper-dark:#18221d;
+  --paper-dark:#252626;
   --paper:var(--paper-light);
   --ink-light:#22382e;
-  --ink-dark:#eeeadd;
+  --ink-dark:#eeeae1;
   --ink:var(--ink-light);
   --body-light:#3f4c44;
-  --body-dark:#cbd3c7;
+  --body-dark:#d4d6d1;
   --body:var(--body-light);
   --secondary-light:#526157;
-  --secondary-dark:#b0bcab;
+  --secondary-dark:#bfc2bb;
   --secondary:var(--secondary-light);
   --muted-light:#687169;
-  --muted-dark:#97a78f;
+  --muted-dark:#a4aaa1;
   --muted:var(--muted-light);
   --line-light:#dcded5;
-  --line-dark:#465548;
+  --line-dark:#484c49;
   --line:var(--line-light);
   --accent-light:#486344;
   --accent-dark:#aec59a;
   --accent:var(--accent-light);
   --card-light:#fdfcf9;
-  --card-dark:#1e2b23;
+  --card-dark:#2c2e2d;
   --card:var(--card-light);
   --code-bg-light:#efeee8;
-  --code-bg-dark:#202d25;
+  --code-bg-dark:#303231;
   --code-bg:var(--code-bg-light);
   --timeline-line-light:#c4cbbf;
-  --timeline-line-dark:#53694f;
+  --timeline-line-dark:#626960;
   --timeline-line:var(--timeline-line-light);
   --timeline-node-light:#667260;
-  --timeline-node-dark:#a0b293;
+  --timeline-node-dark:#b0baaa;
   --timeline-node:var(--timeline-node-light);
   --control-line-light:#7c8b75;
-  --control-line-dark:#7e9277;
+  --control-line-dark:#8b9385;
   --control-line:var(--control-line-light);
   --logo-surface-light:transparent;
   --logo-surface-dark:#e8e7db;
   --logo-surface:var(--logo-surface-light);
   --notice-bg-light:#eeefe7;
-  --notice-bg-dark:#263629;
+  --notice-bg-dark:#333932;
   --notice-bg:var(--notice-bg-light);
   --notice-text-light:#4b5346;
-  --notice-text-dark:#c7d3bc;
+  --notice-text-dark:#d0d6c8;
   --notice-text:var(--notice-text-light);
   --code-comment-light:#61695e;
   --code-comment-dark:#a5b29a;
@@ -245,14 +245,19 @@ fieldset { min-width:0; border:1px solid var(--line); }
   outline:2px solid var(--accent);
   outline-offset:3px;
 }
-.theme-select {
+.theme-toggle {
   flex-shrink:0;
-  width:64px;
+  width:32px;
   height:32px;
-  padding:4px 2px 4px 6px;
-  font-size:12px;
-  line-height:1.2;
+  padding:6px;
+  color:var(--secondary);
+  cursor:pointer;
 }
+.theme-toggle:not([hidden]) { display:grid; place-items:center; }
+.theme-toggle:hover { color:var(--accent); }
+.theme-toggle svg { width:18px; height:18px; }
+.theme-toggle[aria-pressed="false"] .theme-icon-sun,
+.theme-toggle[aria-pressed="true"] .theme-icon-moon { display:none; }
 .education-row img, .organization-mark img {
   background:var(--logo-surface);
 }
@@ -1232,7 +1237,7 @@ h2 {
 
 @media print {
   :root { color-scheme:light !important; --paper:#fff; --card:#fff; }
-  .theme-select { display:none; }
+  .theme-toggle { display:none !important; }
   .prose pre { white-space:pre-wrap; overflow-wrap:anywhere; overflow:visible; }
   .prose .table-scroll { overflow:visible; }
   .prose table { font-size:11px; overflow-wrap:anywhere; }

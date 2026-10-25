@@ -14,8 +14,8 @@ unrelated work. This is Nook's personal homepage and technical blog.
   project grid and compact Writing list right. Profile stacks below 900px; the paired
   sections stack below 700px. Keep article reading layouts separate.
 - Preserve the restrained palette, fonts, decorative heading icons and timeline geometry.
-  Light and Warm Forest Dark use semantic CSS variables; preserve both palettes and
-  Auto / Light / Dark behavior. See docs/THEMES.md for theme maintenance and testing.
+  Light and neutral charcoal Dark use semantic CSS variables. First visits follow
+  the system; a single button toggles Light / Dark and remembers the choice. See docs/THEMES.md for theme maintenance and testing.
   Publications' empty decorative rail is intentional; do not remove it or invent papers.
 - Preserve semantic headings, alt text, keyboard focus/skip link and contrast. No gratuitous
   animation, skill badges or placeholder claims.

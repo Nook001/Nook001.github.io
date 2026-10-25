@@ -1,54 +1,44 @@
 # Color themes
 
-The header's native select offers Auto / Light / Dark. Auto is the default and
-tracks system changes live through CSS. Light preserves the approved palette;
-Warm Forest Dark uses warm off-white text, forest surfaces and muted sage accents.
-There are no theme/page transitions or animations, including under reduced motion.
+The compact sun/moon button switches Light / Dark in one click. First visits
+follow the system automatically. After a manual click the choice is remembered
+across reloads and pages; there is no three-state menu. Light preserves the approved
+palette; Dark uses neutral charcoal surfaces with restrained sage accents.
 
 ## Implementation
 
-- `assets/css/main.css`: each semantic color has one `-light` / `-dark` pair.
-  Existing component variables use `light-dark()` when supported. The explicit
-  `@supports not` fallback uses the same values, system media query and data attribute.
-- `<html data-theme="light|dark">` forces `color-scheme`. Auto removes the attribute.
-  Native controls and scrollbars inherit the scheme; print always forces light.
-- `_includes/theme-init.html`: a small synchronous inline script before the stylesheet
-  reads the saved choice before the first styled paint. Keep it early; do not defer it.
-- `assets/js/theme.js`: the deferred script exposes the native control, saves manual
-  choices as `nook-theme` in localStorage, removes the key for Auto, and synchronizes
-  other tabs and restored history pages. No cookies, network calls or dependencies.
-- Storage access is guarded. If blocked, CSS still follows the system and manual
-  changes work for the current page; persistence cannot be guaranteed. With JS disabled,
-  the select remains hidden and the site follows the system through CSS.
+- `assets/css/main.css` owns semantic light/dark color pairs, using `light-dark()`
+  with an explicit CSS media-query fallback for older engines.
+- No stored preference means no data-theme attribute, so CSS tracks the system live.
+  `assets/js/theme.js` also listens to the system preference to keep the button state
+  and icon correct. A click chooses the opposite of the currently effective theme.
+- Manual choices use the existing `nook-theme` localStorage key. The synchronous
+  `_includes/theme-init.html` restores that choice before the stylesheet. Keep it early.
+- The native button has a stable `Dark mode` accessible label and aria-pressed state;
+  its sun/moon artwork indicates the next action. Tab, Enter and Space work natively.
+- Other tabs and restored history pages synchronize. Clearing this site's preference
+  returns it to system-following behavior; no extra reset control or modifier gesture.
+- Storage access is guarded. Blocked storage still allows toggling on the current
+  page; with JavaScript disabled the button is hidden and CSS follows the system.
 
 ## Images and print
 
-Organization bitmap logos receive a warm light backing in dark mode. Original files,
-aspect ratios, sizes and adjacent accessible names remain unchanged; photos/avatars
-and article illustrations are never inverted. Warwick's official responsive SVG
-has internal light/dark artwork; it keeps a transparent backing so its white crest
-is visible directly on the forest surface. It follows the page's color-scheme,
-including forced Light/Dark. Recheck this when replacing that particular asset.
+Organization bitmap logos have a warm light backing in Dark. Warwick's original
+responsive SVG retains a transparent backing and supplies its own black/white crest
+according to the active color-scheme. Original files, proportions and sizes remain
+unchanged; avatars and article images are never inverted.
 
-Print uses light text tokens on white paper even after a forced dark choice; the
-selector/navigation are hidden and long code wraps. Do not let a screen fallback
-override print, or hardcode a dark text color into a reading component.
+Print always forces light tokens on white paper, hides the theme button/navigation
+and wraps long code. No theme transitions, scrolling animations or new dependencies.
 
-## Verify theme changes
+## Verify changes
 
-Run README's content/release/build/output/article checks. In the browser:
+Run README's checks. Confirm fresh visits follow both system schemes; a click
+reverses the effective theme, remembers it across pages/reloads, and takes priority
+over subsequent system changes. Check Tab/Enter/Space, a visible focus outline,
+1440/768/390/320px, article/code/table/form colors, logos, no-JS and light printing.
+Keep text contrast >=4.5:1 and the control boundary/focus distinguishable.
 
-1. Auto responds to both system schemes without reload. Light and Dark override
-   either system setting and survive reload, Home → Projects → Writing navigation.
-2. Returning to Auto removes the override; another open tab follows the preference.
-3. Check header and content at 1440, 768, 390 and 320px in both themes; compare the
-   light homepage content geometry/screenshots with the pre-change baseline.
-4. Check article code, tables, captions, quotes and native controls in both themes.
-5. Tab/arrow keys operate the selector with a visible focus outline. Text contrast
-   must be >=4.5:1; the control boundary/focus indicator must remain distinguishable.
-6. Check logos individually, print while Dark is selected, reduced motion and the
-   fallback palette. No fixture content may enter the production blog.
-
-Reference behavior: [light-dark()](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/light-dark),
-[color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/color-scheme),
-[localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).
+Reference: [light-dark()](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/color_value/light-dark),
+[system preference change event](https://developer.mozilla.org/en-US/docs/Web/API/MediaQueryList/change_event),
+[accessible toggle buttons](https://www.w3.org/WAI/ARIA/apg/patterns/button/).

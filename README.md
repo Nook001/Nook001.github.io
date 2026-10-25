@@ -2,9 +2,9 @@
 
 A lightweight personal homepage and technical blog for `Nook001/Nook001.github.io`.
 Jekyll 3.10, Liquid, Markdown and native CSS; no Node build or external runtime.
-A small local script persists the Auto / Light / Dark preference. CSS follows the
-system without JavaScript; the approved light palette and Warm Forest Dark share
-the same layout. See [theme maintenance](docs/THEMES.md).
+A compact theme button switches Light / Dark and remembers the choice. On a first
+visit, CSS follows the system automatically, including without JavaScript. The
+approved light palette and neutral charcoal dark palette share the same layout. See [theme maintenance](docs/THEMES.md).
 
 ## Install and preview
 

@@ -1,26 +1,41 @@
-// CSS handles system changes. JS only manages the explicit preference and control.
+// Follow the system until the visitor uses the one-click light/dark toggle.
 (() => {
   const root = document.documentElement;
-  const select = document.getElementById("theme-select");
+  const button = document.getElementById("theme-toggle");
   const key = "nook-theme";
-  if (!select) return;
+  if (!button) return;
+  const system = window.matchMedia("(prefers-color-scheme: dark)");
+  let preference;
+
+  function isDark() {
+    return preference === "dark" || (preference === "auto" && system.matches);
+  }
+
+  function updateButton() {
+    const dark = isDark();
+    button.setAttribute("aria-pressed", String(dark));
+    button.title = dark ? "Switch to light mode" : "Switch to dark mode";
+  }
 
   function apply(value) {
-    const theme = value === "light" || value === "dark" ? value : "auto";
-    if (theme === "auto") root.removeAttribute("data-theme");
-    else root.dataset.theme = theme;
-    select.value = theme;
+    preference = value === "light" || value === "dark" ? value : "auto";
+    if (preference === "auto") root.removeAttribute("data-theme");
+    else root.dataset.theme = preference;
+    updateButton();
   }
 
   apply(root.dataset.theme);
-  select.hidden = false;
-  select.addEventListener("change", () => {
-    apply(select.value);
+  button.hidden = false;
+  button.addEventListener("click", () => {
+    apply(isDark() ? "light" : "dark");
     try {
-      if (select.value === "auto") localStorage.removeItem(key);
-      else localStorage.setItem(key, select.value);
-    } catch (_) { /* The selection still works for this page. */ }
+      localStorage.setItem(key, preference);
+    } catch (_) { /* The toggle still works for this page. */ }
   });
+
+  // CSS updates the palette; keep the icon and accessible state in sync too.
+  if (system.addEventListener) system.addEventListener("change", updateButton);
+  else system.addListener(updateButton);
 
   window.addEventListener("storage", (event) => {
     if (event.key === key || event.key === null) apply(event.newValue);

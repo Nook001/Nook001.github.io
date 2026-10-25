@@ -67,35 +67,33 @@ Fixture builds live under ignored `work/article-check-*/`; they are never deploy
 
 ## Browser and visual evidence
 
-- Auto / Light / Dark: all six combinations with light/dark system settings passed.
-  Auto follows live system changes without reload. All three choices survive Home /
-  Projects / Writing navigation and reload; a second open tab synchronizes immediately.
-- Header control: native select with accessible name, 64x32px footprint, Tab/arrow/Home/
-  End keyboard operation and 2px visible focus. Navigation remains one row at 320px.
-- Homepage: Light and Dark passed at 1440, 768, 390 and 320px. No page overflow;
-  all logos/avatar loaded. Profile, timeline cards, empty publications rail, section
-  headings and project cards retain their exact pre-change geometry. Light screenshots
-  below the header match the baseline pixel-for-pixel.
-- English/Chinese article fixtures: both themes passed at all four widths. Rouge code,
-  quotes, captions, tables and native form controls use the theme tokens. Code/tables
-  retain internal horizontal scrolling; images and long inline text fit the page.
-- Organization bitmaps have a light backing in Dark. Warwick's original responsive SVG
-  retains a transparent backing and supplies its own white crest; no artwork is inverted
-  or modified. Avatars and article images are unaffected.
-- CSS fallback: six preference/system combinations and light print output passed in
-  an isolated fixture with light-dark() disabled. This exercises the fallback rules in
-  the current browser; it is not a historical-browser engine certification.
-- With JavaScript disabled, the control stays hidden and CSS still follows the system.
-  Thirteen isolated script cases cover early restoration, invalid values, persistence,
-  Auto removing the stored override, blocked storage, tab sync and history restoration.
-  These used the already bundled JS runtime only for local checks, not a site/build dependency.
-- Forty contrast pairs passed. Text minimum is 4.72:1 across its actual surfaces;
-  new control boundaries and timeline node outlines exceed 3:1. Focus remains visible.
-- Forced Dark + print produces white paper, original light text/code colors, wrapped
-  long code and a hidden theme control. Reduced-motion emulation reports no transitions
-  or animations, with scroll-behavior:auto.
-- Screenshots and measurements are retained in the current chat outputs, including
-  theme-light/dark-1440.png and theme-light/dark-390.png. No test article is published.
+- First visits without a stored choice follow the system. Browser checks passed
+  light/dark/light system changes, including the button's icon and pressed state.
+  A click chooses the opposite effective mode and persists across reloads and
+  Home / Projects / Writing navigation, overriding later system changes.
+- Header control is a 32x32px native sun/moon toggle, with a stable Dark mode label,
+  aria-pressed state, Tab/Enter/Space support and a 2px visible focus outline.
+  The three-state dropdown is removed; navigation stays one row at 320px.
+- Both themes passed at 1440, 768, 390 and 320px on the homepage and reading fixture.
+  No page overflow; logos/avatar loaded; reading tables retain native semantics.
+- Neutral charcoal replaces forest-green surfaces. Semantic color pairs and the
+  light-dark()/media-query fallback architecture are unchanged. Forty contrast
+  pairs passed, with text >=4.72:1 and control/node boundaries >3:1.
+- The homepage's profile, cards, timeline, headings and empty publications rail
+  retain exact pre-theme geometry. Light screenshots below the header remain
+  pixel-identical to the original baseline at all four required widths.
+- Organization bitmaps retain their light backing. Warwick's responsive SVG supplies
+  its white crest in Dark without image inversion. Asset files are unchanged.
+- Sixteen isolated script cases passed: system detection, first-click direction,
+  manual preference priority, old preference compatibility, early restore,
+  blocked storage, tab sync, legacy media listener and history restoration.
+  The existing bundled JS runtime was used for local tests only, not a build dependency.
+- With JavaScript disabled, the button is hidden and CSS still follows the system.
+  Forced Dark prints white paper/light text and hides the button. No animation or
+  transition was added; the existing reduced-motion behavior remains unchanged.
+- Content/release/build/output/article/whitespace checks passed. No test article is
+  published. Current screenshots: charcoal-light/dark-1440.png and -390.png in the
+  chat outputs; charcoal-dark-preview.png shows the revised header and surfaces.
 
 ## Limits and follow-up
 

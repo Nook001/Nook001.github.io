@@ -18,7 +18,7 @@ Education uses small 20px marks (18px on narrow phones). Experience uses 24px ma
 
 Content validation checks each local source file, and the generated-site check verifies the image references. If an organization updates its assets, inspect its official site and replace the local file intentionally rather than adding a runtime fetch.
 
-In Warm Forest Dark, organization bitmap logos use a warm light backing, without
+In the charcoal dark theme, organization bitmap logos use a warm light backing, without
 filtering or recoloring the artwork. Warwick's SVG contains its own scheme-responsive
 crest and keeps a transparent backing so the white crest remains visible directly
-on the forest surface. See THEMES.md. Original asset files remain unmodified.
+on the charcoal surface. See THEMES.md. Original asset files remain unmodified.
