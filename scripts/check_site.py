@@ -11,7 +11,7 @@ class Page(HTMLParser):
     def __init__(self, path):
         super().__init__(convert_charrefs=True)
         self.ids, self.links, self.h1, self.title, self.canonical = set(), [], 0, False, False
-        self.main, self.lang, self.viewport = False, False, False
+        self.main, self.lang, self.viewport = False, None, False
         self.feed(path.read_text(encoding='utf-8'))
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -21,7 +21,7 @@ class Page(HTMLParser):
         self.h1 += tag == 'h1'
         self.title |= tag == 'title'
         self.main |= tag == 'main'
-        self.lang |= tag == 'html' and bool(a.get('lang'))
+        if tag == 'html': self.lang = a.get('lang')
         self.viewport |= tag == 'meta' and a.get('name') == 'viewport'
         self.canonical |= tag == 'link' and a.get('rel') == 'canonical'
         if tag == 'img':
@@ -48,8 +48,13 @@ for path, page in pages.items():
             assert unquote(url.fragment) in pages[target].ids, f'{path}: missing fragment: {link}'
 for file in ('sitemap.xml', 'feed.xml'):
     ET.parse(root / file)
-for forbidden in ('README.md', 'AGENTS.md', 'Gemfile', 'Gemfile.lock', 'docs', 'scripts', 'templates', '_drafts'):
+for forbidden in ('README.md', 'AGENTS.md', 'VALIDATION.md', 'Gemfile', 'Gemfile.lock', 'docs', 'scripts', 'templates', '_drafts', 'private-drafts', 'work', 'outputs', 'vendor'):
     assert not (root / forbidden).exists(), f'Development file leaked: {forbidden}'
-assert not (root / 'first-technical-note.html').exists(), 'Draft leaked'
+# Derive draft slugs instead of permanently naming one starter note.
+source = Path(__file__).resolve().parent.parent
+for draft in (source / '_drafts').rglob('*.md'):
+    assert not any(path.stem == draft.stem or path.parent.name == draft.stem
+                   for path in pages), f'Draft slug leaked: {draft.name}'
 assert not (root / 'cv.html').exists() and not (root / 'cv').exists(), 'CV must not be published'
+assert not list(root.rglob('*.docx')), 'Private Word document leaked'
 print(f'PASS: {len(pages)} HTML pages; local links/fragments, semantics, XML and output exclusions.')

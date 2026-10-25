@@ -6,7 +6,7 @@ Checked on 25 October 2026. This document is excluded from the generated website
 
 The user-supplied Chinese CV supports the professional email address, Warwick study dates and expected graduation, the HKUST Computer Engineering joint programme dates, the four selected internship date ranges and role summaries, and the brief current research interest.
 
-The site uses the user's established English name, Yuanzhi Liu. The user subsequently approved the concise labels “HKUST · CSE” and “University of Warwick · CS ’27” and explicitly requested CV removal before release. The original CV is not committed, and the derived CV page is removed from the current source and generated site. Phone number, GPA, university rankings, internal customer details and numerical performance claims are not included in the website.
+The user subsequently requested Nook as the public display name; the original resume name is not used as the site's current display name. The user subsequently approved the concise labels “HKUST · CSE” and “University of Warwick · CS ’27” and explicitly requested CV removal before release. The original CV is not committed, and the derived CV page is removed from the current source and generated site. Phone number, GPA, university rankings, internal customer details and numerical performance claims are not included in the website.
 
 ## Profile
 
@@ -19,10 +19,21 @@ The site uses the user's established English name, Yuanzhi Liu. The user subsequ
 - **MyWarwickPlus:** local README and `TimetableRepository.kt`; [public repository](https://github.com/Nook001/MyWarwickPlus). These support Kotlin/Compose, timetables/coursework/messages, official sign-in, on-device caching, reminders and widgets. The summary preserves the project's independence from the university.
 - **Qingyin:** [public README](https://github.com/Nook001/QingyinPlayer), [workspace dependencies](https://github.com/Nook001/QingyinPlayer/blob/main/Cargo.toml), and [playback controller and tests](https://github.com/Nook001/QingyinPlayer/blob/main/crates/ui_bridge/src/playback.rs). These support Rust/Qt/GStreamer/SQLite, local-library features and generation-based stale-event handling. MPRIS is explicitly described as not connected yet.
 
+## Experience confirmations
+
+The user explicitly confirmed HKUST(GZ) Research Assistant from September 2026 to
+Present, Tencent as Solution Architect, and the occupation labels Backend Engineer
+and Android Engineer for Shopee and OPPO. CAS remains Distributed Systems; no
+unconfirmed formal job title has been added. Display order is maintained in YAML.
+
 ## Writing
 
-The short playback-events post is newly drafted from Qingyin's public implementation and tests. It does not claim a new benchmark or newly completed project. The generic example post remains in `_drafts/`, excluded from production output. These drafts are still visible in repository source, which is intentional for the non-private starter examples.
+At the user's explicit request in this engineering review, the Qingyin playback-events
+article is removed from the current source. No replacement technical claim is added.
+The starter drafts contain non-private illustrative text and remain visible in public
+repository source, while production builds exclude them. Private drafts belong in
+ignored/excluded private-drafts/ or outside the repository.
 
 ## Review boundary
 
-The user requested completion of missing content, reviewed the result and then explicitly authorized official publication after the education and CV changes. `education_pending` is false for the approved labels. Content/build checks validate structure and links; future publications still require explicit authorization.
+The user requested completion of missing content, reviewed the result and then explicitly authorized official publication after the education and CV changes. `education_pending` is false for the approved labels. Content/build checks validate structure and links; future publications still require explicit authorization. This engineering review is local only and does not authorize another deployment.
