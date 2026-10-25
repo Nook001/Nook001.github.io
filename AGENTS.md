@@ -17,6 +17,7 @@ unrelated work. This is Nook's personal homepage and technical blog.
   Light and neutral charcoal Dark use semantic CSS variables. First visits follow
   the system; a single button toggles Light / Dark and remembers the choice. See docs/THEMES.md for theme maintenance and testing.
   Publications' empty decorative rail is intentional; do not remove it or invent papers.
+- Keep organization logos in their original colors; do not add CSS recoloring filters.
 - Preserve semantic headings, alt text, keyboard focus/skip link and contrast. No gratuitous
   animation, skill badges or placeholder claims.
 

@@ -26,11 +26,7 @@ Warwick's SVG continues to switch its own black/white artwork with color-scheme.
 CAS's original PNG is opaque: a 46% circular CSS clip removes only the outside
 white corners while retaining the seal's white internal artwork.
 
-The original HKUST crest and OPPO icon are too dark on the blue-gray surface.
-Only these marks render as single-ink white in Dark using a scoped CSS filter;
-their shape/alpha and original files remain intact, and Light/print keep color.
-White renditions are supported by the organizations' own assets:
-[HKUST white SVG](https://brand.hkust.edu.hk/profiles/ust/modules/custom/hkust_signature_affiliate/assets/images/hkust_logo_small.svg)
-and [OPPO white navigation SVG](https://www.oppo.com/jimu/oppo-site-nav/resources/images/svg/brand-icon-en-light.svg),
-linked by their official websites. No filter is applied to Tencent, Shopee, CAS,
-Warwick, avatars or article images. See THEMES.md.
+At the user's request, HKUST and OPPO keep their original blue/gold and green
+colors in both themes. No CSS color filter or backing is applied to any logo,
+avatar or article image. Warwick retains its original scheme-responsive SVG.
+Do not reintroduce a white rendition without an explicit user request.

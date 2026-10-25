@@ -27,10 +27,9 @@ Organization marks use their native transparency, with no universal backing or
 blanket image filter. HKUST(GZ) reuses the official transparent shared university crest;
 CAS's circular seal is clipped only outside its circumference. Warwick's responsive
 SVG supplies its own black/white artwork. Original assets remain available for
-traceability; avatars and article images are unaffected. Only the dark-colored
-HKUST and OPPO marks render single-ink white in Dark for legibility, with original
-color retained in Light and print; their official sites provide white variants.
-See LOGO_SOURCES.md. Never apply this scoped filter to every image.
+traceability; avatars and article images are unaffected. HKUST and OPPO keep their
+original colors in both themes, as requested by the user. Do not recolor logos
+with CSS filters. See LOGO_SOURCES.md.
 
 Typography keeps the same sizes and weights in both themes. Check the actual
 contrast and legibility before changing font metrics; do not globally embolden

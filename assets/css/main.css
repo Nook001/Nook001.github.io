@@ -256,18 +256,6 @@ fieldset { min-width:0; border:1px solid var(--line); }
    the original white details inside the seal. Other marks keep native alpha. */
 .organization-mark img[src$="/cas.png"] { clip-path:circle(46%); }
 
-/* Only these dark blue/green marks need a single-ink white rendition. Both
-   organizations supply white branding; preserve every other image's colors. */
-.education-row img[src$="/hkust.ico"],
-.organization-mark img[src$="/hkust.ico"],
-.organization-mark img[src$="/oppo.ico"] { filter:var(--single-ink-mark, none); }
-@media screen and (prefers-color-scheme:dark) {
-  :root:not([data-theme="light"]) { --single-ink-mark:brightness(0) invert(1); }
-}
-@media screen {
-  :root[data-theme="dark"] { --single-ink-mark:brightness(0) invert(1); }
-}
-
 .wordmark {
   font:700 27px/1 Georgia,serif;
   text-decoration:none;

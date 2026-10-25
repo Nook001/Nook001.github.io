@@ -85,8 +85,8 @@ Fixture builds live under ignored `work/article-check-*/`; they are never deploy
 - Alpha audit: HKUST/Tencent/Shopee/OPPO already contain transparency; the added
   universal CSS backing is removed. HKUST(GZ) reuses the transparent shared official
   university crest. CAS is clipped to its circular seal, preserving internal white.
-  Only HKUST/OPPO use a scoped white rendition in Dark; Light/print preserve color.
-  Tencent/Shopee/CAS/Warwick/avatar/article images receive no filter. Original files
+  HKUST/OPPO retain their original colors in both themes. No logo, avatar or article
+  image receives a recoloring filter. Original files
   remain intact, with provenance documented in docs/LOGO_SOURCES.md.
 - Sixteen isolated script cases passed: system detection, first-click direction,
   manual preference priority, old preference compatibility, early restore,
