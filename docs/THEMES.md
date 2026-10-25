@@ -39,7 +39,7 @@ core border token. Checked text pairs, including syntax colors, meet 4.5:1.
 
 ## Header and surfaces
 
-The full-width sticky header uses the reference's 85% background tint and 10px
+The full-width sticky header uses a 70% background tint (more transparent than the reference, as requested) and 10px
 backdrop blur, including the WebKit prefix. Browsers without backdrop filtering
 receive an opaque background. The inner header is 52px high plus its border.
 The desktop profile starts at 84px, leaving about 31px below the header; mobile

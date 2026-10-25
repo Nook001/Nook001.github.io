@@ -44,8 +44,8 @@
   --control-line-light:#8C8C83;
   --control-line-dark:#696963;
   --control-line:var(--control-line-light);
-  --header-tint-light:rgba(250,250,247,0.85);
-  --header-tint-dark:rgba(17,17,16,0.85);
+  --header-tint-light:rgba(250,250,247,0.70);
+  --header-tint-dark:rgba(17,17,16,0.70);
   --header-tint:var(--header-tint-light);
   --card-highlight-light:rgba(255,255,255,0.8);
   --card-highlight-dark:rgba(255,255,255,0.03);

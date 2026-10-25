@@ -1,7 +1,8 @@
 # Current validation
 
 Snapshot: 25 October 2026, local branch `site/reference-palette-refinement`.
-No push, PR, merge, Pages-setting change or deployment was performed in this review.
+The user authorized pushing, merging and deploying this version after requesting a
+more transparent header. Pages settings and workflow permissions remain unchanged.
 Earlier iteration records remain in Git history, outside the default reading path.
 
 ## Commands
@@ -77,7 +78,7 @@ Fixture builds live under ignored `work/article-check-*/`; they are never deploy
   cards retain their previous dimensions at all five widths. Font family, size,
   weight and line height remain unchanged. Only the compact header changes the
   main content's vertical starting position (previous header ~88px, now ~53px).
-- Sticky header uses the exact reference tint (85%) and 10px blur. At desktop
+- Sticky header uses a 70% background tint and 10px blur. At desktop
   scroll, its bottom is ~53px and the profile starts at 84px: ~31px clearance.
   At a 360px-tall viewport, profile scrolling keeps the Email link reachable.
 - Project hover and keyboard focus produce the accent border without movement;
@@ -107,8 +108,8 @@ Fixture builds live under ignored `work/article-check-*/`; they are never deploy
 
 ## Limits and follow-up
 
-- This theme branch is local only. No push, PR, merge, deployment or Pages change was
-  made; source resume, CV policy, logo artwork and confirmed personal/project content are unchanged.
+- Release follows the existing PR checks and manual main deployment workflow.
+  Source resume, CV policy, logo artwork and confirmed personal/project content are unchanged.
 - Browser checks cover the current Chromium browser, responsive layout and keyboard
   operation; a full screen-reader/physical-device or historical browser audit was not run.
 - Ruby dependencies still emit base64/bigdecimal migration warnings for future Ruby 3.4;
