@@ -51,4 +51,5 @@ for file in ('sitemap.xml', 'feed.xml'):
 for forbidden in ('README.md', 'AGENTS.md', 'Gemfile', 'Gemfile.lock', 'docs', 'scripts', 'templates', '_drafts'):
     assert not (root / forbidden).exists(), f'Development file leaked: {forbidden}'
 assert not (root / 'first-technical-note.html').exists(), 'Draft leaked'
+assert not (root / 'cv.html').exists() and not (root / 'cv').exists(), 'CV must not be published'
 print(f'PASS: {len(pages)} HTML pages; local links/fragments, semantics, XML and output exclusions.')

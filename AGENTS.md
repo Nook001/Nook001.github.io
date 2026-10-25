@@ -12,3 +12,5 @@ This is Yuanzhi Liu's personal homepage and technical blog. Keep Jekyll 3.10-com
 - Use a topic branch and PR for ongoing changes once a remote exists. Do not push, create a remote/repository, merge, enable Pages, change deployment protections or run deployment without explicit user authorization. Local commits are allowed; never change global Git identity.
 - PR validation must never deploy. Deployment stays manual on main, with release content checks. Do not add push-triggered deployment or bypass the release checks.
 - Never publish docs, templates, drafts, validation records, credentials or private personal data. Keep development files in the Jekyll exclude list.
+- The user approved the education labels `HKUST · CSE` and `University of Warwick · CS ’27`. Do not restore expected-graduation wording or expand these labels without a request.
+- CV publication is disabled for privacy. Keep `profile.cv` empty, omit its homepage entry, and do not add a public CV page or file unless explicitly requested. Release and output checks enforce this preference.

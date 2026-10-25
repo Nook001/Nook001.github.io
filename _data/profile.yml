@@ -1,12 +1,14 @@
 name: Yuanzhi Liu
 greeting: "Hi, I’m Yuanzhi. Welcome to my corner of the web."
 education:
-  - "HKUST · Joint degree"
-  - "University of Warwick · BSc Computer Science"
-education_pending: true
+  - "HKUST · CSE"
+  - "University of Warwick · CS ’27"
+education_pending: false
 # Empty values render as visible, non-clickable placeholders. Never guess URLs.
-github: ""
-email: ""
+github: "https://github.com/Nook001"
+email: "nook_lyz@outlook.com"
+# Do not link or publish a CV unless the user explicitly requests it.
 cv: ""
-avatar: /assets/images/avatar-placeholder.svg
-avatar_alt: "YL monogram — portrait placeholder"
+avatar: /assets/images/github-avatar.png
+avatar_alt: "Nook001’s GitHub avatar"
+currently: "Exploring observability and evaluation for coding agents."
