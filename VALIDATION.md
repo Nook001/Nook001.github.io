@@ -1,8 +1,8 @@
 # Current validation
 
-Snapshot: 25 October 2026, local branch `site/reference-palette-refinement`.
-The user authorized pushing, merging and deploying this version after requesting a
-more transparent header. Pages settings and workflow permissions remain unchanged.
+Snapshot: 26 October 2026, local branch `site/sidebar-illustration`.
+This sidebar illustration is a local preview only; no push, merge or deployment
+is authorized for this change. Pages settings and workflows remain unchanged.
 Earlier iteration records remain in Git history, outside the default reading path.
 
 ## Commands
@@ -68,14 +68,26 @@ Fixture builds live under ignored `work/article-check-*/`; they are never deploy
 
 ## Browser and visual evidence
 
+- Current addition: the user-supplied transparent illustration sits 28px below
+  contact links, with no background, border, filter or animation. At 1440px it
+  renders at 254 x 169px; at 1024px, 224 x 149px. Both themes were visually inspected.
+  At 768/390/320px it is hidden, keeping the compact profile and reading order.
+  All five widths pass without horizontal overflow. Desktop scrolling keeps the
+  profile at 84px below the header; short-screen internal scrolling remains intact.
+  Print hides the decorative image. The production build and article regression
+  suite pass. Screenshots: sidebar-illustration-light.png and
+  sidebar-illustration-dark.png in the current chat outputs.
+
+Preserved theme behavior and earlier verification:
+
 - Reference source: v587su/v587su.github.io at
   `8c406ea2e273a5037a671a75a7035aa55c1a0353`; live computed colors match the
   source. All fourteen requested core palette values are preserved exactly.
 - Homepage and isolated article passed Light / Dark at 1440, 1024, 768, 390 and
   320 CSS px without whole-page horizontal overflow. Code and tables keep their
   own scroll containers. Images and logos load; no image recoloring was added.
-- Homepage profile, headings, timeline cards, empty publications rail and project
-  cards retain their previous dimensions at all five widths. Font family, size,
+- Headings, timeline cards, empty publications rail and project cards retain
+  their previous dimensions. The desktop profile grows to include the illustration. Font family, size,
   weight and line height remain unchanged. Only the compact header changes the
   main content's vertical starting position (previous header ~88px, now ~53px).
 - Sticky header uses a 70% background tint and 10px blur. At desktop
@@ -108,7 +120,8 @@ Fixture builds live under ignored `work/article-check-*/`; they are never deploy
 
 ## Limits and follow-up
 
-- Release follows the existing PR checks and manual main deployment workflow.
+- This change remains local; release requires current user authorization and the
+  existing PR checks and manual main deployment workflow.
   Source resume, CV policy, logo artwork and confirmed personal/project content are unchanged.
 - Browser checks cover the current Chromium browser, responsive layout and keyboard
   operation; a full screen-reader/physical-device or historical browser audit was not run.

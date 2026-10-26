@@ -17,6 +17,7 @@ page_class: home-page
       <li>{% if profile.email != '' %}<a href="mailto:{{ profile.email | escape }}">Email ↗</a>{% else %}<span class="pending">Email <small>address pending</small></span>{% endif %}</li>
       {% if profile.cv and profile.cv != '' %}<li><a href="{{ profile.cv | relative_url }}">CV ↗</a></li>{% endif %}
     </ul>
+    <img class="sidebar-illustration" src="{{ '/assets/images/sidebar-illustration.png' | relative_url }}" alt="" aria-hidden="true" width="1536" height="1024" decoding="async">
   </section>
   <div class="home-content">
   <section class="section about-section" aria-labelledby="about-title">

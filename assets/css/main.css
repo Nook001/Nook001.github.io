@@ -413,6 +413,13 @@ nav a[aria-current=page] {
   color:var(--accent);
 }
 
+.sidebar-illustration {
+  display:block;
+  width:100%;
+  height:auto;
+  margin-top:28px;
+}
+
 .home-content {
   min-width:0;
 }
@@ -1143,6 +1150,9 @@ h2 {
 }
 
 @media(max-width:900px) {
+  .sidebar-illustration {
+    display:none;
+  }
   .home-layout {
     grid-template-columns:1fr;
     gap:34px;
@@ -1285,6 +1295,7 @@ h2 {
 }
 
 @media print {
+  .sidebar-illustration { display:none; }
   .site-header { position:static; background:transparent; -webkit-backdrop-filter:none; backdrop-filter:none; }
   .project-card { box-shadow:none; }
   :root { color-scheme:light !important; --paper:#fff; --card:#fff; }

@@ -16,6 +16,15 @@
 - Publications 的标题和空轴是当前有意保留的设计。没有论文时不生成示例条目。
   增加真实论文前先审核事实与呈现方式，不预建不需要的数据系统。
 
+## Sidebar illustration
+
+`assets/images/sidebar-illustration.png` is the original transparent PNG supplied
+by the user on 26 October 2026 (1536 x 1024); it is copied without recoloring or
+cropping. `index.html` places it below the contact links as decoration with empty
+alt text. `.sidebar-illustration` in the main CSS controls its size and 28px gap.
+It follows the existing sticky desktop profile and is hidden at <=900px and in
+print to keep compact reading layouts. No animation or extra script is needed.
+
 ## 两种草稿
 
 | 类型 | 位置 | 网站输出 | GitHub 源文件 |
