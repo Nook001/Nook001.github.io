@@ -1,7 +1,10 @@
 ---
 layout: default
 ---
-<article class="article">
+{% assign reading_lang = page.lang | default: site.lang %}
+<div class="reading-progress" data-reading-progress hidden aria-hidden="true"><span></span></div>
+<div class="reading-layout" data-reading-layout>
+<article class="article reading-article" data-reading-article>
   <header class="page-heading post-heading">
     <a class="eyebrow" href="{{ '/blog/' | relative_url }}">← Writing</a>
     <h1>{{ page.title | escape }}</h1>
@@ -11,3 +14,11 @@ layout: default
   {% if page.sample %}<aside class="notice">Example article for the new site. This is illustrative content, not a record of completed work.</aside>{% endif %}
   {% include prose.html %}
 </article>
+<aside class="reading-sidebar" data-reading-sidebar hidden>
+  <details class="reading-toc" data-reading-toc>
+    <summary aria-label="{% if reading_lang contains 'zh' %}文章目录{% else %}Table of contents{% endif %}"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 6h13M8 12h13M8 18h13M3 6h1M3 12h1M3 18h1"/></svg></summary>
+    <nav data-reading-links aria-label="{% if reading_lang contains 'zh' %}文章目录{% else %}Table of contents{% endif %}"></nav>
+  </details>
+</aside>
+</div>
+<script src="{{ '/assets/js/reading.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}" defer></script>
