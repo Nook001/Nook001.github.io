@@ -38,6 +38,7 @@ exclude:
   - AGENTS.md
   - docs
   - scripts
+  - sources
   - templates
   - vendor
   - Gemfile

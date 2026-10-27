@@ -413,6 +413,37 @@ nav a[aria-current=page] {
   color:var(--accent);
 }
 
+.sidebar-character {
+  position:relative;
+  width:100%;
+  aspect-ratio:680 / 570;
+  margin-top:28px;
+  overflow:hidden;
+}
+.sidebar-character canvas {
+  display:block;
+  position:absolute;
+  inset:0;
+  max-width:100%;
+  opacity:0;
+  pointer-events:none;
+}
+.sidebar-character[data-character-ready=true] canvas { opacity:1; }
+.character-bubble[hidden] { display:none; }
+.character-bubble {
+  position:absolute;
+  left:65%;
+  top:45%;
+  z-index:1;
+  padding:1px 5px;
+  border:1px solid var(--line);
+  border-radius:7px 7px 7px 0;
+  background:var(--paper);
+  color:var(--muted);
+  font-size:10px;
+  pointer-events:none;
+}
+
 .home-content {
   min-width:0;
 }
@@ -1143,6 +1174,9 @@ h2 {
 }
 
 @media(max-width:900px) {
+  .sidebar-character {
+    display:none;
+  }
   .home-layout {
     grid-template-columns:1fr;
     gap:34px;
@@ -1285,6 +1319,7 @@ h2 {
 }
 
 @media print {
+  .sidebar-character { display:none; }
   .site-header { position:static; background:transparent; -webkit-backdrop-filter:none; backdrop-filter:none; }
   .project-card { box-shadow:none; }
   :root { color-scheme:light !important; --paper:#fff; --card:#fff; }

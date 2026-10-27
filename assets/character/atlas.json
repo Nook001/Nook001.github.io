@@ -1,0 +1,373 @@
+{
+  "frames": {
+    "hair_back_crown": {
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 307,
+        "h": 453
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 6,
+        "w": 307,
+        "h": 453
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 462
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "hair_back_left": {
+      "frame": {
+        "x": 313,
+        "y": 2,
+        "w": 126,
+        "h": 243
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 7,
+        "y": 214,
+        "w": 126,
+        "h": 243
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 462
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "hair_back_right": {
+      "frame": {
+        "x": 443,
+        "y": 2,
+        "w": 132,
+        "h": 239
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 188,
+        "y": 214,
+        "w": 132,
+        "h": 239
+      },
+      "sourceSize": {
+        "w": 320,
+        "h": 462
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "outfit_with_arms": {
+      "frame": {
+        "x": 579,
+        "y": 2,
+        "w": 301,
+        "h": 258
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 0,
+        "w": 301,
+        "h": 258
+      },
+      "sourceSize": {
+        "w": 310,
+        "h": 264
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "face_open": {
+      "frame": {
+        "x": 2,
+        "y": 459,
+        "w": 188,
+        "h": 171
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 8,
+        "y": 8,
+        "w": 188,
+        "h": 171
+      },
+      "sourceSize": {
+        "w": 196,
+        "h": 187
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "face_closed": {
+      "frame": {
+        "x": 194,
+        "y": 459,
+        "w": 183,
+        "h": 171
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 8,
+        "w": 183,
+        "h": 171
+      },
+      "sourceSize": {
+        "w": 183,
+        "h": 187
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "glasses": {
+      "frame": {
+        "x": 381,
+        "y": 459,
+        "w": 232,
+        "h": 78
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 6,
+        "y": 9,
+        "w": 232,
+        "h": 78
+      },
+      "sourceSize": {
+        "w": 244,
+        "h": 99
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "hair_front_crown": {
+      "frame": {
+        "x": 617,
+        "y": 459,
+        "w": 331,
+        "h": 427
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 7,
+        "w": 331,
+        "h": 427
+      },
+      "sourceSize": {
+        "w": 337,
+        "h": 462
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "hair_front_left": {
+      "frame": {
+        "x": 2,
+        "y": 890,
+        "w": 129,
+        "h": 240
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 4,
+        "y": 214,
+        "w": 129,
+        "h": 240
+      },
+      "sourceSize": {
+        "w": 337,
+        "h": 462
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "hair_front_right": {
+      "frame": {
+        "x": 135,
+        "y": 890,
+        "w": 131,
+        "h": 235
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 206,
+        "y": 214,
+        "w": 131,
+        "h": 235
+      },
+      "sourceSize": {
+        "w": 337,
+        "h": 462
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "headband": {
+      "frame": {
+        "x": 270,
+        "y": 890,
+        "w": 284,
+        "h": 190
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 9,
+        "w": 284,
+        "h": 190
+      },
+      "sourceSize": {
+        "w": 288,
+        "h": 211
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "desk": {
+      "frame": {
+        "x": 2,
+        "y": 1134,
+        "w": 506,
+        "h": 84
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 5,
+        "y": 4,
+        "w": 506,
+        "h": 84
+      },
+      "sourceSize": {
+        "w": 512,
+        "h": 92
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "lamp": {
+      "frame": {
+        "x": 512,
+        "y": 1134,
+        "w": 182,
+        "h": 231
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 11,
+        "y": 7,
+        "w": 182,
+        "h": 231
+      },
+      "sourceSize": {
+        "w": 200,
+        "h": 244
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "laptop": {
+      "frame": {
+        "x": 2,
+        "y": 1369,
+        "w": 355,
+        "h": 168
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 2,
+        "y": 9,
+        "w": 355,
+        "h": 168
+      },
+      "sourceSize": {
+        "w": 363,
+        "h": 184
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "cup": {
+      "frame": {
+        "x": 361,
+        "y": 1369,
+        "w": 139,
+        "h": 92
+      },
+      "rotated": false,
+      "trimmed": true,
+      "spriteSourceSize": {
+        "x": 1,
+        "y": 11,
+        "w": 139,
+        "h": 92
+      },
+      "sourceSize": {
+        "w": 151,
+        "h": 109
+      },
+      "anchor": {
+        "x": 0,
+        "y": 0
+      }
+    }
+  },
+  "meta": {
+    "image": "atlas.webp",
+    "format": "RGBA8888",
+    "size": {
+      "w": 1024,
+      "h": 1539
+    },
+    "scale": "1"
+  }
+}

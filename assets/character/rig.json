@@ -1,0 +1,125 @@
+{
+  "units": "source pixels",
+  "origin": "neck",
+  "parts": {
+    "hair_back": {
+      "x": -164,
+      "y": -248,
+      "scale": 1
+    },
+    "outfit_with_arms": {
+      "x": -124,
+      "y": -4,
+      "scale": 0.8
+    },
+    "face_open": {
+      "x": -103,
+      "y": -190,
+      "width": 206,
+      "height": 190
+    },
+    "face_closed": {
+      "x": -103,
+      "y": -190,
+      "width": 206,
+      "height": 190
+    },
+    "hair_front": {
+      "x": -168,
+      "y": -248,
+      "scale": 1
+    },
+    "headband": {
+      "x": -133,
+      "y": -254,
+      "width": 266,
+      "height": 160
+    },
+    "glasses": {
+      "x": -104,
+      "y": -102,
+      "width": 208,
+      "height": 84
+    }
+  },
+  "springs": [
+    {
+      "name": "back_left",
+      "part": "hair_back_left",
+      "base": "hair_back",
+      "pivot": [
+        88,
+        218
+      ],
+      "frequency": 1.55,
+      "dampingRatio": 0.42,
+      "inertia": 0.75
+    },
+    {
+      "name": "back_right",
+      "part": "hair_back_right",
+      "base": "hair_back",
+      "pivot": [
+        232,
+        218
+      ],
+      "frequency": 1.8,
+      "dampingRatio": 0.48,
+      "inertia": 0.65
+    },
+    {
+      "name": "front_left",
+      "part": "hair_front_left",
+      "base": "hair_front",
+      "pivot": [
+        88,
+        218
+      ],
+      "frequency": 2.2,
+      "dampingRatio": 0.5,
+      "inertia": 0.55
+    },
+    {
+      "name": "front_right",
+      "part": "hair_front_right",
+      "base": "hair_front",
+      "pivot": [
+        249,
+        218
+      ],
+      "frequency": 2.0,
+      "dampingRatio": 0.46,
+      "inertia": 0.6
+    }
+  ],
+  "props": [
+    {
+      "part": "desk",
+      "x": -305,
+      "y": 440,
+      "width": 610,
+      "height": 110
+    },
+    {
+      "part": "lamp",
+      "x": -301,
+      "y": 258,
+      "width": 164,
+      "height": 200
+    },
+    {
+      "part": "laptop",
+      "x": -187,
+      "y": 302,
+      "width": 333,
+      "height": 169
+    },
+    {
+      "part": "cup",
+      "x": 167,
+      "y": 383,
+      "width": 125,
+      "height": 91
+    }
+  ]
+}

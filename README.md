@@ -1,7 +1,8 @@
 # Nook — personal website
 
 A lightweight personal homepage and technical blog for `Nook001/Nook001.github.io`.
-Jekyll 3.10, Liquid, Markdown and native CSS; no Node build or external runtime.
+Jekyll 3.10, Liquid, Markdown and native CSS; no Node build. The homepage optionally
+loads a local PixiJS character on desktop; no remote runtime or fallback illustration.
 A compact theme button switches Light / Dark and remembers the choice. On a first
 visit, CSS follows the system automatically, including without JavaScript. The
 reference-site warm-neutral light and dark palettes share the same layout. See [theme maintenance](docs/THEMES.md).
@@ -40,6 +41,9 @@ bundle exec ruby scripts/check_articles.rb
 This builds English/Chinese fixtures in ignored `work/`, tests rendering and draft
 isolation, and prints a separate review-site path. It never adds real blog posts.
 See [VALIDATION.md](VALIDATION.md) for browser acceptance and current results.
+The character's source, optional asset-generation steps and runtime tests are
+documented in [CHARACTER.md](docs/CHARACTER.md). Assets are prebuilt; normal Jekyll
+builds need neither Pillow nor Node.
 
 ## Edit content
 

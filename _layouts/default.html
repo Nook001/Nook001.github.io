@@ -10,6 +10,7 @@
   <link rel="icon" href="{{ '/assets/images/favicon.svg' | relative_url }}" type="image/svg+xml">
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}">
   <script src="{{ '/assets/js/theme.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}" defer></script>
+  {% if page.url == '/' %}<script type="module" src="{{ '/assets/js/sidebar-character.js' | relative_url }}?v={{ site.time | date: '%Y%m%d%H%M%S' }}"></script>{% endif %}
 </head>
 <body{% if page.page_class %} class="{{ page.page_class | escape }}"{% endif %}>
   <a class="skip-link" href="#main">Skip to content</a>

@@ -1,9 +1,9 @@
 # Current validation
 
-Snapshot: 25 October 2026, local branch `site/reference-palette-refinement`.
-The user authorized pushing, merging and deploying this version after requesting a
-more transparent header. Pages settings and workflow permissions remain unchanged.
-Earlier iteration records remain in Git history, outside the default reading path.
+Snapshot: 27 October 2026, local branch `site/sidebar-character-integration`.
+The user approved the integrated character for commit, push, merge and manual
+deployment after a deeper typing bow and complete removal of fallback artwork.
+Pages configuration and workflow permissions remain unchanged.
 
 ## Commands
 
@@ -19,100 +19,95 @@ bundle exec ruby scripts/check_articles.rb
 git diff --check
 ```
 
-The local retained Ruby runtime can be added to the current session PATH if needed:
+Optional production character math check, with an existing Node runtime:
+
+```powershell
+node scripts/check_character.mjs
+```
+
+The local retained Ruby can be added to the session PATH, without global changes:
 
 ```powershell
 $runtimeBin = 'C:\Users\Nook\Documents\Codex\2026-10-25\referenced-chatgpt-conversation-this-is-an\work\rubyinstaller-3.3.13-1-x64\bin'
 $env:PATH = $runtimeBin + ';' + $env:PATH
 ```
 
-No global PATH or Git identity change is required. New native gem installations need
-RubyInstaller with Devkit; the retained runtime is sufficient for the installed gems.
+## Current integration
 
-## Acceptance conditions
+- Static illustration below desktop contacts is replaced by the
+  approved transparent PixiJS rig. The reserved widget footprint is 680:570; at
+  1440px it is about 254x213px. Other homepage columns, timeline, fonts and facts
+  remain unchanged. Widget footprint is ~44px taller than the original static art.
+- Automatic playback with no character buttons or debug controls, as requested.
+  Typing is the base action with about 22-degree downward pitch. Short pointer-tracking glances occur after 6-8 active
+  seconds initially, then after 12-18 second rests; each lasts 2.4s before Typing.
+  The old pause preference is ignored. No random Idle rotation.
+- 15-frame lossless WebP atlas (~627KB), no fallback asset, pinned local PixiJS
+  8.22.0 (~841KB). Source PNG is preserved under excluded sources/; authoring scripts
+  and intermediate crops do not ship. No CDN, audio, analytics or Node build.
+- Three 9x9 head perspective meshes; four independent hair springs. Private ticker
+  capped at 30fps, fixed 120Hz physics; no custom shader or cloth system.
 
-- Normal and release gates pass without clearing unresolved review/privacy markers.
-- Production output contains no drafts, future/unpublished content, private draft
-  directory, source resume/CV, development docs/scripts/templates or fixture site.
-- Each generated page has a single h1, language/title/canonical/viewport and a main;
-  images have alt attributes; local links/fragments, feed and sitemap resolve.
-- New experience entries require only YAML edits. Dates use the documented format,
-  current is boolean and agrees with Present, and referenced local logos exist.
-- Review homepage and article at 1440, 1024, 768, 390 and 320 CSS px. No whole-page
-  horizontal overflow; long code/tables scroll within their own containers.
-- Preserve homepage timeline/columns/project-grid geometry, approved facts and
-  fonts. Keep the reference palette documented in docs/THEMES.md. Compare before/after screenshots for CSS changes.
-- Check skip link, keyboard focus, code/table keyboard scrolling, heading hierarchy,
-  meaningful image alternatives and text contrast. Browser checks do not substitute
-  for a full screen-reader/device audit.
-
-## Latest executed results
+## Executed checks
 
 | Check | Result |
 | --- | --- |
-| Normal content gate | PASS: five Markdown content files, profile and five schema-validated experiences |
-| Release content gate | PASS: education, contacts, CV privacy and review markers |
-| Production build with strict front matter and trace | PASS: Jekyll 3.10.0 / Ruby 3.3.13 |
-| Generated site | PASS: seven HTML pages; links/fragments, semantics, XML and exclusions |
-| Isolated article regression suite | PASS: two bilingual fixture pages; nine HTML pages in the separate test site |
-| Workflow configuration | Unchanged by this branch; validation and manual deployment policies retained |
-| Manual deployment workflow | Byte-for-byte unchanged from the starting commit |
-| Git whitespace check | PASS |
+| Content and release gates | PASS; 5 content files, profile and 5 experiences |
+| Strict production build | PASS; Jekyll 3.10 / Ruby 3.3.13 |
+| Generated website | PASS; 7 pages, local links/fragments, semantics/XML/exclusions |
+| Character release checks | PASS; frame bounds/non-overlap, rig references, asset hashes, pinned runtime/MIT notice, homepage-only script |
+| Article suite | PASS; bilingual fixtures, 9 pages, draft/privacy/content-gate regressions |
+| Production projection/spring tests | PASS; 2187 vertex samples, neutral identity, no flips, damped return, typing cycle |
+| Original source/hash | Preserved; source provenance and processing scripts included |
+| Git whitespace | PASS |
 
-The fixture suite verifies headings/lists/quotes, Rouge tokens, image/figure/caption,
-semantic table wrappers, language and home/blog/feed indexing. Drafts, future posts,
-private files and unpublished posts/projects are excluded. Gate regression cases
-accept an added organization and editorial ordering; reject invalid dates/current,
-missing logo, public CV, samples, pending reviews and force-tracked private drafts.
-Fixture builds live under ignored `work/article-check-*/`; they are never deployed.
+## Browser evidence
 
-## Browser and visual evidence
+- Chromium desktop: 32 rendered frames over 1.104s (~29fps), three meshes and actual
+  Typing head movement. Pointer movement enters Look; leaving restores the cycle.
+- Current controller has zero character buttons and plays despite the obsolete
+  nook-character-paused=true value. Full observed cycle: Typing -> Look at active
+  time 7.88s -> Typing at 10.28s. 339 frames over 11.507s (~29.5fps).
+- Canvas at 1440px/DPR1 uses 508x426 backing pixels for 254x213 CSS px; each
+  head layer uses 1024x1024 backing pixels, with no extra downloaded image bytes.
+  Atlas remains 627,418 bytes vs 935,270-byte equivalent optimized PNG (32.9% less).
+- Reduced Motion enabled during playback stops the real ticker, hides the canvas
+  and leaves the reserved slot empty. A fresh Reduced Motion load requests no
+  PixiJS, renderer or atlas; no canvas is created.
+- Fresh mobile load likewise requests no animation resources, creates no canvas
+  and keeps the existing compact stacked profile. Website is usable without JS; the slot is empty.
+- Blocked atlas requests and WebGL context loss stop/hide the character and leave
+  the reserved slot empty. There is no replacement artwork or placeholder.
+- Offscreen state from real IntersectionObserver clipping stops the ticker at a
+  360px-tall viewport. Email remains keyboard focused inside the visible sidebar;
+  sidebar top was 88px, Header bottom ~53px, with no overlap.
+- Hidden-document handler was tested with a temporary synthetic document.hidden
+  override and a visibilitychange event; the ticker stopped, and the override was
+  removed afterward. This is not a native background-tab/physical-browser audit.
+- Print hides the widget and keeps white paper. No new transition or page animation
+  was added; theme toggle behavior and original logo colors are retained.
+- Both themes at 1440/1024/768/390/320px: no horizontal overflow. Desktop screenshots
+  are sidebar-character-light/dark-1440.png; mobile evidence is
+  sidebar-character-light/dark-390.png in the current chat outputs. Runtime records
+  are sidebar-character-integration-checks.json and character-refinement-checks.json.
 
-- Reference source: v587su/v587su.github.io at
-  `8c406ea2e273a5037a671a75a7035aa55c1a0353`; live computed colors match the
-  source. All fourteen requested core palette values are preserved exactly.
-- Homepage and isolated article passed Light / Dark at 1440, 1024, 768, 390 and
-  320 CSS px without whole-page horizontal overflow. Code and tables keep their
-  own scroll containers. Images and logos load; no image recoloring was added.
-- Homepage profile, headings, timeline cards, empty publications rail and project
-  cards retain their previous dimensions at all five widths. Font family, size,
-  weight and line height remain unchanged. Only the compact header changes the
-  main content's vertical starting position (previous header ~88px, now ~53px).
-- Sticky header uses a 70% background tint and 10px blur. At desktop
-  scroll, its bottom is ~53px and the profile starts at 84px: ~31px clearance.
-  At a 360px-tall viewport, profile scrolling keeps the Email link reachable.
-- Project hover and keyboard focus produce the accent border without movement;
-  inset highlight and small shadow remain subtle. Tab focus and the skip link
-  were checked; the skip link sits above the sticky header and focuses main.
-- Fresh-origin visits follow Light / Dark / Light system changes and update the
-  button. One click chooses the opposite effective mode and persists through
-  reload and Projects navigation. Sixteen isolated toggle-script cases pass.
-- Forty-four text contrast pairs pass, minimum 4.63:1, including syntax colors.
-  Control borders use a separate accessibility token: 3.39:1 light / 3.22:1 dark
-  against the surface. Decorative borders keep the reference's original values.
-- Article screenshots were inspected for comments, keywords, strings, numbers,
-  names, diffs and quotation hierarchy. Table headers and form fields use the
-  secondary surface / surface tokens in both themes. Bilingual fixture checks pass.
-- With scripts disabled, the control is hidden and system light/dark still works.
-  A manually forced Dark page prints white paper/dark text, static header and
-  wrapping code. Reduced-motion inspection found no animations or transitions.
-- Actual visual comparison: warm-neutral backgrounds and muted text closely match
-  the reference. Cards are only slightly lifted from the dark page; brick/coral
-  accents remain localized. Header tint/blur match, while its shadow is restrained.
-  Nook's existing fonts and compact information layout are intentionally retained.
-- Review outputs include refinement-light/dark-desktop.png (1440x1100),
-  refinement-light/dark-mobile.png (390x844), corresponding reference screenshots,
-  article screenshots and visual-refinement-review.md in the current chat outputs.
-  Physical image dimensions were verified. The reference's mobile page itself
-  uses a wider CSS viewport; it was captured unchanged, not restyled for comparison.
+## Scope and limits
 
-## Limits and follow-up
+- Original art is frontal; small 2.5D perspective cannot reveal missing side views
+  or separately articulated fingers. Blink uses whole-face frames. Source edge
+  fringes can remain visible when enlarged. Production scale was visually checked.
+- Existing reference-site theme palette, 70% Header tint / 10px blur, and all personal
+  content are unchanged. CV remains disabled. Manual deployment workflow unchanged.
+- Current Chromium and simulated widths were checked; no complete screen-reader,
+  physical mobile GPU, Safari/Firefox or native background-tab audit was run.
+- Ruby base64/bigdecimal migration warnings for future Ruby 3.4 remain non-fatal.
+- See docs/CHARACTER.md for lifecycle/availability boundaries and reproducible asset steps.
 
-- Release follows the existing PR checks and manual main deployment workflow.
-  Source resume, CV policy, logo artwork and confirmed personal/project content are unchanged.
-- Browser checks cover the current Chromium browser, responsive layout and keyboard
-  operation; a full screen-reader/physical-device or historical browser audit was not run.
-- Ruby dependencies still emit base64/bigdecimal migration warnings for future Ruby 3.4;
-  Ruby 3.3 builds succeed. No dependency update is needed for this feature.
-- See docs/THEMES.md for the color tokens, no-script/storage behavior and maintenance
-  checks. If storage is blocked, manual switching works on the current page but cannot persist.
+
+Current release adjustment: Typing now targets about 22 degrees downward (26-degree
+safety cap), preserving its short look-up and periodic pointer glances. Browser
+observed 21.14 degrees during the approach. Character DOM contains zero images
+and zero buttons. Reduced Motion stops the ticker and makes canvas opacity zero;
+no substitute is displayed. Original desk art moved to excluded sources/ only.
+Homepage build revision now propagates through the runtime module imports, avoiding
+stale cached pose parameters. Screenshot: character-release-deeper-bow.png.

@@ -4,9 +4,11 @@ from pathlib import Path
 from urllib.parse import urlsplit, unquote
 import sys
 import xml.etree.ElementTree as ET
+from check_character_assets import check_character
 
 root = Path(sys.argv[1] if len(sys.argv) > 1 else '_site').resolve()
 assert root.is_dir(), f'Build output missing: {root}'
+check_character(root)
 class Page(HTMLParser):
     def __init__(self, path):
         super().__init__(convert_charrefs=True)
@@ -48,7 +50,7 @@ for path, page in pages.items():
             assert unquote(url.fragment) in pages[target].ids, f'{path}: missing fragment: {link}'
 for file in ('sitemap.xml', 'feed.xml'):
     ET.parse(root / file)
-for forbidden in ('README.md', 'AGENTS.md', 'VALIDATION.md', 'Gemfile', 'Gemfile.lock', 'docs', 'scripts', 'templates', '_drafts', 'private-drafts', 'work', 'outputs', 'vendor'):
+for forbidden in ('README.md', 'AGENTS.md', 'VALIDATION.md', 'Gemfile', 'Gemfile.lock', 'docs', 'scripts', 'sources', 'templates', '_drafts', 'private-drafts', 'work', 'outputs', 'vendor'):
     assert not (root / forbidden).exists(), f'Development file leaked: {forbidden}'
 # Derive draft slugs instead of permanently naming one starter note.
 source = Path(__file__).resolve().parent.parent

@@ -2,3 +2,4 @@
 *.sh text eol=lf
 *.yml text eol=lf
 *.css text eol=lf
+assets/vendor/pixi-8.22.0.min.js -text -diff

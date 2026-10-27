@@ -17,6 +17,9 @@ page_class: home-page
       <li>{% if profile.email != '' %}<a href="mailto:{{ profile.email | escape }}">Email ↗</a>{% else %}<span class="pending">Email <small>address pending</small></span>{% endif %}</li>
       {% if profile.cv and profile.cv != '' %}<li><a href="{{ profile.cv | relative_url }}">CV ↗</a></li>{% endif %}
     </ul>
+    <div class="sidebar-character" data-sidebar-character data-character-state="inactive">
+      <span class="character-bubble" data-character-bubble aria-hidden="true" hidden>咔哒</span>
+    </div>
   </section>
   <div class="home-content">
   <section class="section about-section" aria-labelledby="about-title">
