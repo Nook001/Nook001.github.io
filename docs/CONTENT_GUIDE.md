@@ -19,8 +19,10 @@
 ## Sidebar character
 
 The approved transparent character is placed below desktop contact links with a
-28px gap and a stable 680:570 footprint. Playback is automatic, without buttons.
-Typing bows to about 22 degrees, with periodic mouse glances and a return to typing.
+stable 680:570 footprint. On roomy desktop screens it docks 48px above the viewport
+bottom, with 28px minimum clearance below contacts; short screens keep normal flow.
+Playback is automatic, without buttons.
+Typing bows to about 22 degrees, until the pointer enters the widget or its 48px geometric halo; Look lasts until it leaves.
 At <=900px, during print or Reduced Motion, and when the runtime is unavailable,
 no character is shown. Do not add a fallback image or other placeholder.
 Original artwork is preserved under excluded `sources/character/`; no raw source

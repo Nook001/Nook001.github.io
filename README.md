@@ -23,6 +23,9 @@ add `--drafts`. Production output always excludes drafts and future posts.
 
 ## Validate
 
+For small edits, use focused checks; see AGENTS.md for the testing budget. Run the
+full commands below before publication or substantial changes, not after every edit.
+
 ```powershell
 ruby scripts/check_content.rb
 ruby scripts/check_content.rb --release
@@ -32,7 +35,7 @@ python scripts/check_site.py
 git diff --check
 ```
 
-For article/layout or validation changes, also run:
+For article rendering or article-validator changes, also run:
 
 ```powershell
 bundle exec ruby scripts/check_articles.rb
