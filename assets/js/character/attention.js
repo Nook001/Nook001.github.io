@@ -1,17 +1,10 @@
-// Animation time, not wall time: offscreen/background time never advances a glance.
-export function createAttention(random=Math.random){
-  return {nextAt:6+random()*2,until:0,glances:0};
-}
-export function attentionAction(state,time,pointerKnown,random=Math.random){
-  if(state.until){
-    if(pointerKnown&&time<state.until)return 'Look';
-    state.until=0;state.nextAt=time+12+random()*6;
-    return 'Typing';
-  }
-  if(time>=state.nextAt){
-    if(pointerKnown){state.until=time+2.4;state.glances++;return 'Look';}
-    state.nextAt=time+3;
-  }
-  return 'Typing';
+// The whole widget is the interaction region; timing never cancels a hover.
+export function attentionAction(pointerInside){return pointerInside?'Look':'Typing';}
+export function pointerTarget(clientX,clientY,rect,padding=0){
+  if(!rect.width||!rect.height)return {inside:false,x:0,y:0};
+  const x=(clientX-rect.left)/rect.width*2-1,y=(clientY-rect.top)/rect.height*2-1;
+  return {inside:clientX>=rect.left-padding&&clientX<=rect.left+rect.width+padding&&
+    clientY>=rect.top-padding&&clientY<=rect.top+rect.height+padding,
+    x:Math.min(1,Math.max(-1,x)),y:Math.min(1,Math.max(-1,y))};
 }
 export function renderScale(dpr){return Math.min(3,Math.max(2,Number(dpr)||1));}

@@ -1,9 +1,9 @@
 # Current validation
 
-Snapshot: 27 October 2026, local branch `site/sidebar-character-integration`.
-The user approved the integrated character for commit, push, merge and manual
-deployment after a deeper typing bow and complete removal of fallback artwork.
-Pages configuration and workflow permissions remain unchanged.
+Snapshot: 27 October 2026, local branch `site/character-hover-look`.
+The user approved committing, pushing, merging and deploying the hover-follow
+revision on `site/character-hover-look`, with a 48px interaction halo and 48px
+bottom clearance. No fallback artwork or buttons are introduced.
 
 ## Commands
 
@@ -37,10 +37,10 @@ $env:PATH = $runtimeBin + ';' + $env:PATH
 - Static illustration below desktop contacts is replaced by the
   approved transparent PixiJS rig. The reserved widget footprint is 680:570; at
   1440px it is about 254x213px. Other homepage columns, timeline, fonts and facts
-  remain unchanged. Widget footprint is ~44px taller than the original static art.
+  remain unchanged. Widget dimensions are unchanged by the hover/placement update.
 - Automatic playback with no character buttons or debug controls, as requested.
-  Typing is the base action with about 22-degree downward pitch. Short pointer-tracking glances occur after 6-8 active
-  seconds initially, then after 12-18 second rests; each lasts 2.4s before Typing.
+  Typing stays at about 22 degrees downward. Entering the widget or its 32px geometric halo selects continuous Look.
+  The visible box maps to full -1..1 pointer coordinates, clamped outside its edges.
   The old pause preference is ignored. No random Idle rotation.
 - 15-frame lossless WebP atlas (~627KB), no fallback asset, pinned local PixiJS
   8.22.0 (~841KB). Source PNG is preserved under excluded sources/; authoring scripts
@@ -65,9 +65,15 @@ $env:PATH = $runtimeBin + ';' + $env:PATH
 
 - Chromium desktop: 32 rendered frames over 1.104s (~29fps), three meshes and actual
   Typing head movement. Pointer movement enters Look; leaving restores the cycle.
-- Current controller has zero character buttons and plays despite the obsolete
-  nook-character-paused=true value. Full observed cycle: Typing -> Look at active
-  time 7.88s -> Typing at 10.28s. 339 frames over 11.507s (~29.5fps).
+- Current controller has zero character buttons and plays automatically. Mouse
+  entry targets Look immediately, including before or after any previous timer
+  interval. Browser held Look continuously for 4.2s; typing bubble stayed hidden.
+  Upper-left produced about -9.6 degree yaw / -6 degree pitch; lower-right moved
+  yaw above +8.7 degrees. This uses actual pointer events, not a mock timer.
+- Leaving cleared pointerKnown and returned to Typing, smoothly reaching >21-degree
+  downward pitch. Another 8.5s observation remained Typing at 21.30-22.70 degrees,
+  with no periodic head raise. Test evidence: character-hover-checks.json and
+  character-hover-follow.png in the current chat outputs.
 - Canvas at 1440px/DPR1 uses 508x426 backing pixels for 254x213 CSS px; each
   head layer uses 1024x1024 backing pixels, with no extra downloaded image bytes.
   Atlas remains 627,418 bytes vs 935,270-byte equivalent optimized PNG (32.9% less).
@@ -103,11 +109,13 @@ $env:PATH = $runtimeBin + ';' + $env:PATH
 - Ruby base64/bigdecimal migration warnings for future Ruby 3.4 remain non-fatal.
 - See docs/CHARACTER.md for lifecycle/availability boundaries and reproducible asset steps.
 
+## Current placement / interaction refinement
 
-Current release adjustment: Typing now targets about 22 degrees downward (26-degree
-safety cap), preserving its short look-up and periodic pointer glances. Browser
-observed 21.14 degrees during the approach. Character DOM contains zero images
-and zero buttons. Reduced Motion stops the ticker and makes canvas opacity zero;
-no substitute is displayed. Original desk art moved to excluded sources/ only.
-Homepage build revision now propagates through the runtime module imports, avoiding
-stale cached pose parameters. Screenshot: character-release-deeper-bow.png.
+- Interaction halo expanded to 48px on all sides, using coordinates only. No DOM
+  enlargement, overlay or intercepted clicks. Widget and sidebar widths stay intact.
+- Desktop docking now leaves 48px above the viewport bottom (24px higher than the
+  prior preview), or above the footer when visible. Short-height contact clearance
+  and normal-flow behavior are retained.
+- Only a focused local placement/halo browser check is needed for these parameter
+  edits; no new unit tests or repeated viewport matrix. Existing required release
+  checks run once before publication; CI and manual deployment keep their gates.

@@ -420,6 +420,14 @@ nav a[aria-current=page] {
   margin-top:28px;
   overflow:hidden;
 }
+/* Independent viewport docking keeps the profile and content columns their size. */
+.sidebar-character[data-character-docked=true] {
+  position:fixed;
+  left:var(--character-left);
+  bottom:var(--character-bottom,48px);
+  width:var(--character-width);
+  margin-top:0;
+}
 .sidebar-character canvas {
   display:block;
   position:absolute;

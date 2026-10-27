@@ -15,13 +15,14 @@ remain unchanged. The widget is about 254x213px at a 1440px viewport.
 - PixiJS 8.22.0 is vendored locally; there is no CDN request, Node build, framework,
   audio, tracking or network interaction beyond fetching local static assets.
 - Transparent canvas, original character colors, three 9x9 perspective meshes and
-  four damped hair groups. Typing is the base action, with about 22-degree downward pitch, small nods and
-  occasional glance upward. No random Idle/action rotation and no debug sliders.
+  four damped hair groups. Typing holds about 22 degrees downward, with small nods
+  and blink; no periodic head raise, random action rotation or debug sliders.
 - Pointer coordinates are kept only in memory on this page, never transmitted.
-  First mouse glance starts after 6-8 active animation seconds, lasts 2.4 seconds,
-  then returns to Typing. Subsequent rest gaps are 12-18 seconds. During a glance
-  the character follows the current pointer across the page, without head-snapping
-  on every mouse event. An unknown or departed pointer leaves the character typing.
+  Entering the widget or its 48px geometric halo targets Look and stops typing
+  motion and bubbles. The visible rectangle still maps to -1..1, clamped at the
+  edges. No padding/overlay enlarges the DOM box or intercepts links. Look continues
+  for as long as the pointer remains inside the expanded region;
+  leaving smoothly restores Typing. Blur/cancel or scrolling out also clears Look.
 - The private ticker is capped at 30fps. CPU projection and fixed 120Hz spring
   integration are retained from the approved prototype; no custom shader.
 - Per the user's latest request, playback is automatic with no character buttons.
@@ -34,6 +35,17 @@ remain unchanged. The widget is about 254x213px at a 1440px viewport.
   no alternate image or placeholder; failure leaves the slot empty and does not
   block site content or expose an error panel.
   The footprint is reserved before loading to avoid moving surrounding content.
+
+## Placement
+
+On desktop with enough vertical room, the same-size widget docks independently
+48px above the viewport bottom, aligned to the profile column's measured left and
+inner width. It is fixed without adding height or width to the sticky profile.
+When the footer enters view, it stays 48px above the footer instead. If that would
+leave less than 28px below contacts, or the profile is internally scrolled on a
+short screen, it returns to its existing normal flow. No contact link is covered.
+Resize and captured scroll events keep placement and pointer coordinates aligned.
+At mobile widths the widget remains hidden, as before.
 
 ## Render clarity and compression
 
@@ -94,7 +106,7 @@ production projection/spring modules, neutral identity and mesh orientation.
 Node is an optional test tool, not a production or Jekyll build requirement.
 
 Browser checks: both themes at 1440/1024/768/390/320px; automatic playback even with
-an obsolete stored pause value, no character buttons, periodic pointer tracking
+an obsolete stored pause value, no character buttons, continuous widget-hover tracking
 and return to Typing, offscreen/background stop, Reduced Motion cold
 visit and changes, mobile cold no-download, no-JS, blocked atlas and WebGL failure (empty slot, no replacement),
 short-height sidebar accessibility and light print. Inspect actual geometry and

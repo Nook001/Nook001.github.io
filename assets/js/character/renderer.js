@@ -1,7 +1,7 @@
 // Carry the homepage build revision through the module graph, avoiding stale poses.
 const revision=new URL(import.meta.url).searchParams.get('v')||'1';
 const localModule=name=>import(new URL(`${name}?v=${encodeURIComponent(revision)}`,import.meta.url).href);
-const [{springStep,clamp,STEP},{projectHead,poseTarget},{createAttention,attentionAction,renderScale}]=
+const [{springStep,clamp,STEP},{projectHead,poseTarget},{attentionAction,pointerTarget,renderScale}]=
   await Promise.all([localModule('./spring.js'),localModule('./head-pose.js'),localModule('./attention.js')]);
 
 // Approved prototype rig, without its debug UI. All drawing stays transparent.
@@ -23,7 +23,6 @@ export async function createCharacter(host,{assetBase,maxFPS=30,onBubble=()=>{}}
     app.stage.addChild(root);root.addChild(model);
     const state={time:0,accumulator:0,head:0,yaw:0,pitch:0,frames:0,action:'Typing',
       pointerKnown:false,px:0,py:0,nextBlink:2.8,blinkEnd:0,nextClick:1.5,bubbleEnd:0};
-    const attention=createAttention();
     function sprite(name,parent,x,y,width,height){
       const s=new P.Sprite(sheet.textures[name]);s.anchor.set(0);s.position.set(x,y);
       if(width!==undefined){s.width=width;s.height=height;}parent.addChild(s);return s;
@@ -75,7 +74,7 @@ export async function createCharacter(host,{assetBase,maxFPS=30,onBubble=()=>{}}
       state.accumulator+=Math.min(ticker.deltaMS/1000,.05);
       while(state.accumulator>=STEP){
         state.accumulator-=STEP;state.time+=STEP;
-        state.action=attentionAction(attention,state.time,state.pointerKnown);
+        state.action=attentionAction(state.pointerKnown);
         const target=poseTarget(state.action,state.time,{yaw:0,pitch:0,roll:0},state.action==='Look',state.px,state.py);
         state.head+=(target.roll-state.head)*(1-Math.exp(-STEP*9));
         state.yaw+=(target.yaw-state.yaw)*(1-Math.exp(-STEP*7));
@@ -101,11 +100,12 @@ export async function createCharacter(host,{assetBase,maxFPS=30,onBubble=()=>{}}
     return {
       play(){if(!destroyed){state.accumulator=0;app.start();}},
       pause(){if(!destroyed){state.accumulator=0;app.stop();onBubble(false);}},
-      look(x,y){state.pointerKnown=true;state.px=clamp(x,-1,1);state.py=clamp(y,-1,1);},
+      lookAt(clientX,clientY){const p=pointerTarget(clientX,clientY,host.getBoundingClientRect(),48);
+        state.pointerKnown=p.inside;state.px=p.x;state.py=p.y;},
       clearLook(){state.pointerKnown=false;},resize,
       getState(){return Object.freeze({running:app.ticker.started,frames:state.frames,action:state.action,
         yaw:state.yaw,pitch:state.pitch,time:state.time,meshLayers:layers.length,pointerKnown:state.pointerKnown,
-        glances:attention.glances,nextGlance:attention.nextAt,glanceUntil:attention.until,
+        pointer:[state.px,state.py],
         resolution:app.renderer.resolution,headTexturePixels:512*2});},
       destroy(){if(destroyed)return;destroyed=true;app.stop();onBubble(false);
         for(const l of layers){l.capture.destroy({children:true});l.texture.destroy(true);}

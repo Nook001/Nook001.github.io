@@ -26,7 +26,8 @@ unrelated work. This is Nook's personal homepage and technical blog.
   `scripts/`, and runtime files under `assets/`. Never ship debug controls or work/.
   Respect Reduced Motion, hidden/offscreen state and mobile no-load. The user
   explicitly removed the character pause button: do not reintroduce controls or
-  read the obsolete pause preference. Typing is the base; mouse glances are brief.
+  read the obsolete pause preference. Typing stays bowed; hovering the widget or its 48px geometry-only halo continuously tracks the pointer.
+  Leaving returns to typing. Do not reintroduce timed head raises or look windows.
 - Preserve semantic headings, alt text, keyboard focus/skip link and contrast. No gratuitous
   animation, skill badges or placeholder claims.
 
@@ -45,10 +46,16 @@ unrelated work. This is Nook's personal homepage and technical blog.
 
 ## Checks and delivery
 
-- Run all README validation commands, including the release gate; report actual results.
-  Run `bundle exec ruby scripts/check_articles.rb` for article/CSS/checker changes.
-- For UI changes compare before/after screenshots and inspect responsive widths from
-  VALIDATION.md. Distinguish static validation from browser/assistive-technology testing.
+- Validation resources are limited. A simple feature may have at most two meaningful
+  unit tests. Do not add tests for wording, prose or very basic/native behavior;
+  avoid redundant boundary cases and assertions that merely mirror implementation.
+- Small changes need only focused checks for the affected behavior. For simple UI
+  edits use a targeted visual check, not an automatic full viewport/test matrix.
+  Do not repeat passing checks without a new failure or material reason.
+- Run the full README checks and release gate before publication or substantial
+  cross-cutting changes. Run the article suite only when article rendering or its
+  validators change, not for every CSS edit. Report only actually executed checks.
+- Distinguish static validation from browser/assistive-technology testing.
 - Keep VALIDATION.md as a current snapshot, not a growing history of every CSS change.
 
 ## Git and publication

@@ -19,9 +19,8 @@ export function poseTarget(action,t,manual,dragging,px,py){
     pitch+=(dragging?py:Math.sin(t*.41)*.5)*10;
     roll+=(dragging?px:Math.sin(t*.65))*.9;
   }else if(action==='Typing'){
-    const cycle=t%8,lookUp=cycle>5.5?Math.sin((cycle-5.5)/2.5*Math.PI):0;
-    pitch+=22-lookUp*20+Math.sin(t*3.4)*.8;
-    yaw+=Math.sin(t*.8)*2.4+lookUp*2;
+    pitch+=22+Math.sin(t*3.4)*.8;
+    yaw+=Math.sin(t*.8)*2.4;
     roll+=Math.sin(t*1.6)*.45;
   }
   return {yaw:clamp(yaw,-14,14)*rad,pitch:clamp(pitch,-10,26)*rad,roll:clamp(roll,-8,8)*rad};
