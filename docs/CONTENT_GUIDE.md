@@ -16,14 +16,15 @@
 - Publications 的标题和空轴是当前有意保留的设计。没有论文时不生成示例条目。
   增加真实论文前先审核事实与呈现方式，不预建不需要的数据系统。
 
-## Sidebar illustration
+## Sidebar character
 
-`assets/images/sidebar-illustration.png` is the original transparent PNG supplied
-by the user on 26 October 2026 (1536 x 1024); it is copied without recoloring or
-cropping. `index.html` places it below the contact links as decoration with empty
-alt text. `.sidebar-illustration` in the main CSS controls its size and 28px gap.
-It follows the existing sticky desktop profile and is hidden at <=900px and in
-print to keep compact reading layouts. No animation or extra script is needed.
+The approved transparent character is placed below desktop contact links with a
+28px gap and a stable 680:570 footprint. Playback is automatic, without buttons.
+Typing bows to about 22 degrees, with periodic mouse glances and a return to typing.
+At <=900px, during print or Reduced Motion, and when the runtime is unavailable,
+no character is shown. Do not add a fallback image or other placeholder.
+Original artwork is preserved under excluded `sources/character/`; no raw source
+or debug UI ships. See CHARACTER.md for runtime assets and regeneration.
 
 ## 两种草稿
 

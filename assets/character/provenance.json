@@ -1,0 +1,226 @@
+{
+  "version": 1,
+  "source": {
+    "file": "maid-sprite-sheet.png",
+    "width": 1448,
+    "height": 1086,
+    "sha256": "cadf9dcb616e3b8e33301328ebdbcc50b4566a58102fe14b18932f6a2ffaa964"
+  },
+  "parts": {
+    "hair_back_crown": {
+      "derivedFrom": "hair_back",
+      "rootOverlapPx": 12
+    },
+    "hair_back_left": {
+      "derivedFrom": "hair_back",
+      "maskPolygon": [
+        [
+          0,
+          214
+        ],
+        [
+          105,
+          214
+        ],
+        [
+          132,
+          285
+        ],
+        [
+          128,
+          462
+        ],
+        [
+          0,
+          462
+        ]
+      ],
+      "pivotPx": [
+        88,
+        218
+      ],
+      "limitation": "rotation-only group; root motion capped; not a separated painted strand"
+    },
+    "hair_back_right": {
+      "derivedFrom": "hair_back",
+      "maskPolygon": [
+        [
+          215,
+          214
+        ],
+        [
+          320,
+          214
+        ],
+        [
+          320,
+          462
+        ],
+        [
+          192,
+          462
+        ],
+        [
+          188,
+          285
+        ]
+      ],
+      "pivotPx": [
+        232,
+        218
+      ],
+      "limitation": "rotation-only group; root motion capped; not a separated painted strand"
+    },
+    "outfit_with_arms": {
+      "sourceRect": {
+        "x": 637,
+        "y": 260,
+        "w": 310,
+        "h": 264
+      },
+      "method": "calibrated ROI + alpha largest connected component + 1px original edge"
+    },
+    "face_open": {
+      "sourceRect": {
+        "x": 17,
+        "y": 505,
+        "w": 196,
+        "h": 187
+      },
+      "method": "calibrated ROI + alpha largest connected component + 1px original edge"
+    },
+    "face_closed": {
+      "sourceRect": {
+        "x": 211,
+        "y": 505,
+        "w": 183,
+        "h": 187
+      },
+      "method": "calibrated ROI + alpha largest connected component + 1px original edge"
+    },
+    "glasses": {
+      "sourceRect": {
+        "x": 1204,
+        "y": 162,
+        "w": 244,
+        "h": 99
+      },
+      "method": "calibrated ROI + alpha largest connected component + 1px original edge"
+    },
+    "hair_front_crown": {
+      "derivedFrom": "hair_front",
+      "rootOverlapPx": 12
+    },
+    "hair_front_left": {
+      "derivedFrom": "hair_front",
+      "maskPolygon": [
+        [
+          0,
+          214
+        ],
+        [
+          105,
+          214
+        ],
+        [
+          132,
+          285
+        ],
+        [
+          128,
+          462
+        ],
+        [
+          0,
+          462
+        ]
+      ],
+      "pivotPx": [
+        88,
+        218
+      ],
+      "limitation": "rotation-only group; root motion capped; not a separated painted strand"
+    },
+    "hair_front_right": {
+      "derivedFrom": "hair_front",
+      "maskPolygon": [
+        [
+          232,
+          214
+        ],
+        [
+          337,
+          214
+        ],
+        [
+          337,
+          462
+        ],
+        [
+          209,
+          462
+        ],
+        [
+          205,
+          285
+        ]
+      ],
+      "pivotPx": [
+        249,
+        218
+      ],
+      "limitation": "rotation-only group; root motion capped; not a separated painted strand"
+    },
+    "headband": {
+      "sourceRect": {
+        "x": 920,
+        "y": 52,
+        "w": 288,
+        "h": 211
+      },
+      "method": "calibrated ROI + alpha largest connected component + 1px original edge"
+    },
+    "desk": {
+      "sourceRect": {
+        "x": 3,
+        "y": 950,
+        "w": 512,
+        "h": 92
+      },
+      "method": "calibrated ROI + alpha largest connected component + 1px original edge"
+    },
+    "lamp": {
+      "sourceRect": {
+        "x": 12,
+        "y": 702,
+        "w": 200,
+        "h": 244
+      },
+      "method": "calibrated ROI + alpha largest connected component + 1px original edge"
+    },
+    "laptop": {
+      "sourceRect": {
+        "x": 209,
+        "y": 761,
+        "w": 363,
+        "h": 184
+      },
+      "method": "calibrated ROI + alpha largest connected component + 1px original edge"
+    },
+    "cup": {
+      "sourceRect": {
+        "x": 550,
+        "y": 824,
+        "w": 151,
+        "h": 109
+      },
+      "method": "calibrated ROI + alpha largest connected component + 1px original edge"
+    }
+  },
+  "atlas": "15 approved parts, transparent trim, original sourceSize/origin retained; lossless WebP",
+  "files": {
+    "atlas.json": "777b6e593ce8c09fb341495b58775bb77e0ffc58a12aaa14d88fa150b7a88223",
+    "atlas.webp": "47321dde01878c6617d5d8496272c0ebebd9e2d8a8d87931467d836c64b619b1",
+    "rig.json": "2070a6303407c05b5c89c76e30888a525f188b140f52926db590316eaf72b013"
+  }
+}
