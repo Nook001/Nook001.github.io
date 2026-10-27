@@ -184,7 +184,7 @@ Pixel Watch 的首次配对需要能正常运行 Pixel Watch App、Google Play s
 
 这正是 Android Emulator 能够发挥作用的地方。
 
-Android Emulator 可以运行包含系统服务和 Google Play 组件的 Android 镜像。
+Android Emulator 不只是模拟手机界面，还能运行包含系统服务与 Google Play 组件的 Android 镜像。
 
 因此，我们可以选择带有 Google Play 的 Android 系统镜像，无需修改手机 ROM，就能创建独立的配对环境。
 
@@ -315,7 +315,7 @@ Last read was 00:01s ago
 | Android Emulator | 36.x |
 | Android 系统镜像 | Android 15 / Google Play / x86_64 |
 | Python | 3.12 |
-| Bumble | Python 包 |
+| Bumble | 已安装 |
 | 蓝牙控制器 | Intel BE201，USB `8087:0037` |
 | 虚拟设备 | 4 核 / 4 GB |
 
