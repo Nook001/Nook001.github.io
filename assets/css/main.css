@@ -902,6 +902,68 @@ h2 {
   font-size:14px;
 }
 
+/* Article-only reading tools; project details keep their existing layout. */
+.reading-article { width:100%; }
+.reading-article .post-heading { padding-bottom:36px; border-bottom:1px solid var(--line); margin-bottom:36px; }
+.reading-article .post-heading h1 { font-size:clamp(28px,3vw,38px); line-height:1.35; letter-spacing:-.025em; margin:16px 0; }
+.reading-article .post-heading time { color:var(--muted); font-variant-numeric:tabular-nums; }
+.reading-article .prose { font-size:17px; line-height:1.85; }
+.reading-article .prose h2 { color:var(--accent); font-size:26px; margin:48px 0 20px; letter-spacing:-.015em; }
+.reading-article .prose h3 { font-size:21px; margin:32px 0 16px; }
+.reading-article .prose h4 { font-size:18px; }
+.reading-article .prose :is(h2,h3,h4,h5,h6) { scroll-margin-top:28px; }
+.reading-article .prose strong { color:var(--ink); font-weight:650; }
+.reading-article .prose li::marker { color:var(--accent); }
+.reading-article .prose blockquote { padding:16px 20px; border-radius:0 6px 6px 0; background:var(--card); line-height:1.8; font-size:16px; }
+.reading-article .prose th { background:var(--code-bg); }
+.reading-article .prose tbody tr:nth-child(even) { background:var(--card); }
+.reading-article .prose :not(pre) > code { border:1px solid var(--line); padding:1px 5px; }
+.reading-progress { position:fixed; top:var(--reading-header,64px); left:0; width:100%; height:2px; z-index:30; pointer-events:none; }
+.reading-progress span { display:block; height:100%; background:var(--accent); transform:scaleX(0); transform-origin:left; }
+.reading-sidebar { min-width:0; margin-bottom:32px; }
+.reading-toc { border:1px solid var(--line); border-radius:6px; padding:16px 18px; }
+.reading-toc summary { color:var(--secondary); cursor:pointer; list-style:none; width:32px; height:32px; display:grid; place-items:center; }
+.reading-toc summary::-webkit-details-marker { display:none; }
+.reading-toc nav { display:block; font-size:13px; margin-top:16px; }
+.reading-toc ul { list-style:none; padding:0; margin:0; }
+.reading-toc li { margin:0; }
+.reading-toc a { display:block; color:var(--secondary); text-decoration:none; line-height:1.6; overflow-wrap:anywhere; }
+.reading-toc nav a { padding:7px 0 7px 12px; border-left:2px solid var(--line); }
+.reading-toc .toc-subsection a { padding-left:24px; font-size:12px; }
+.reading-toc a:hover { color:var(--accent); }
+.reading-toc a[aria-current] { color:var(--accent); border-left-color:var(--accent); font-weight:600; }
+.reading-code { margin-bottom:24px; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:var(--code-bg); }
+.code-toolbar { display:flex; align-items:center; gap:12px; min-height:38px; padding:4px 14px; border-bottom:1px solid var(--line); font:12px/1.5 Consolas,monospace; color:var(--secondary); }
+.code-toolbar > span:first-child { margin-right:auto; }
+.code-toolbar button { background:var(--card); border:1px solid var(--line); border-radius:4px; color:var(--secondary); padding:3px 9px; cursor:pointer; font:inherit; }
+.code-toolbar button:hover { color:var(--accent); border-color:var(--accent); }
+.reading-article .prose .reading-code pre { margin:0; border:0; border-radius:0; }
+@media (min-width:1100px) {
+  .reading-layout.has-toc { display:grid; grid-template-columns:minmax(0,720px) 220px; gap:clamp(36px,5vw,72px); justify-content:center; align-items:start; }
+  .reading-layout.has-toc .reading-article { margin:0 0 55px; }
+  .reading-sidebar { position:sticky; top:calc(var(--reading-header,72px) + 32px); }
+  .reading-toc { padding:0; border:0; border-radius:0; }
+  .reading-toc summary { display:none; }
+  .reading-toc nav { margin-top:0; max-height:calc(100dvh - var(--reading-header,72px) - 64px); overflow-y:auto; scrollbar-width:none; }
+  .reading-toc nav::-webkit-scrollbar { display:none; }
+}
+@media (max-width:1099px) {
+  .reading-layout { display:flex; flex-direction:column; }
+  .reading-sidebar { width:100%; max-width:720px; margin:0 auto 28px; }
+}
+@media (max-width:600px) {
+  .reading-article .prose { font-size:16px; line-height:1.85; }
+  .reading-article .prose h2 { font-size:23px; }
+  .reading-article .prose h3 { font-size:19px; }
+  .reading-article .prose blockquote { padding:14px 16px; }
+}
+@media print {
+  .reading-sidebar,.reading-progress,.code-toolbar { display:none !important; }
+  .reading-layout.has-toc,.reading-layout { display:block; }
+  .reading-article .prose h2 { color:var(--ink); }
+  .reading-code { overflow:visible; }
+}
+
 .article {
   max-width:720px;
   margin:0 auto 55px;
