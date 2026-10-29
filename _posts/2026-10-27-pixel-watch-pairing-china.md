@@ -16,13 +16,13 @@ published: true
 为了弄清原因，我反编译了 Pixel Watch App，并分析了底层服务的日志和代码，发现两个主要障碍：
 **应用/系统层的兼容性问题** 和 **服务端的校验限制**
 
-一种直观的办法是买一台二手非国行 Android 手机配对让成本显然太高了。
+一种直观的办法是买一台二手非国行 Android 手机配对，但成本显然太高了。
 
 **既然问题出在国行 Android 的系统环境上，那么我们能不能直接构建一套国际版 Android 环境来完成配对？**
 
 沿着这个思路，我最终找到了一种利用 **Android Emulator（安卓模拟器）** 的方案：让 Emulator 模拟手机完成手表配对，并通过电脑的实体蓝牙控制器与真实手表通信。
 
-最终，我成功完成了完美的 Pixel Watch 初始化配对，并建立了 Wearable 服务连接与数据通信，启用了手表的全量功能。
+最终，我成功实现 Pixel Watch 完美配对，并建立了 Wearable 服务连接与数据通信，启用了手表的全量功能。
 
 本文将介绍整个问题的定位与解决过程，包括：
 
@@ -158,39 +158,33 @@ UNSUPPORTED_PLATFORM
 
 它们都不是修改网络或系统语言就能消除的问题。
 
-既然问题集中在国行 ROM 的 Android 运行环境，那么是否真的有必要继续修改这台手机？
-
-**如果能够提供另一套正常运行 Google 服务的 Android 系统，让它代替国行手机完成配对，就有机会避开这些限制。**
-
 ---
 
 ## 2. Android 模拟器方案
 
-### 2.1 更换配对环境
+### 2.1 搭建系统环境
 
-在确认国行 ROM 存在应用初始化和 Google Play services 平台检查两层限制后，我开始考虑另一种解决思路。
+既然问题来自国行ROM系统环境，那么是否真的有必要继续修改这台手机？
 
-既然限制来自手机的 Android 系统环境，那么我们是否真的需要修改这台手机？
+**如果能够提供另一套正常运行 Google 服务的 Android 系统，让它代替国行手机完成配对，就有机会避开这些限制。**
 
-Pixel Watch 的首次配对需要能正常运行 Pixel Watch App、Google Play services 和 Android 蓝牙协议栈的环境。如果在电脑上构建这样一套 Android 系统，并接入真实蓝牙硬件，就可以尝试让它代替国行手机完成初始化。
+Android Emulator 可以提供国际版ROM和服务组件。因此，我们可以利用带有 Google Play 的 Android 系统镜像，构建一个国际版的软件环境。
 
-这正是 Android Emulator 能够发挥作用的地方。
+不过，并非所有系统镜像都适合 Pixel Watch 配对。我们需要选择官方提供的使用正式发布密钥签名的系统镜像，并确保 Google 账号能够正常登录。
 
-Android Emulator 不只是模拟手机界面，还能运行包含系统服务与 Google Play 组件的 Android 镜像。
+在实验中，我最初使用的 Android 17 开发版镜像就存在认证及登录问题。因此推荐选择稳定版本的 Android 15 Google Play 镜像。
 
-因此，我们可以选择带有 Google Play 的 Android 系统镜像，无需修改手机 ROM，就能创建独立的配对环境。
+这样，我们便能在不修改原始手机 ROM 的情况下，构建一套完整的配对环境。
 
-不过，这里还有一个关键问题：
+### 2.2 蓝牙硬件桥接
+
+软件/系统层的问题解决了，不过，这里还有一个关键问题：
 
 **Android Emulator 如何与真实的 Pixel Watch 进行蓝牙通信？**
 
-### 2.2 蓝牙桥接
-
-关键是将 Android Emulator 的蓝牙通信与电脑的物理蓝牙控制器连接起来。
-
 Android 通过 HCI（Host Controller Interface）与蓝牙控制器通信。
 
-如果将模拟器的 HCI 数据流转发给真实蓝牙硬件，就可以让模拟器通过物理蓝牙与 Pixel Watch 配对、通信。
+如果将模拟器的 HCI 数据流转发给真实蓝牙硬件，就可以实现物理蓝牙与 Pixel Watch 配对、通信。
 
 这里使用的是 Google 开源的 [Bumble](https://github.com/google/bumble) 项目。
 
@@ -257,13 +251,9 @@ Pixel Watch 初始化还需要与 Google Play services 和网络服务交互，�
 
 ### 2.4 配对结果
 
-我最初使用 Android 17 开发版镜像实验，并成功走完了 Pixel Watch 的初始化流程。在保存的设置日志中，可以看到最终的 `ExitSetupStep` 和 `FINISHED` 状态。
+在这套环境下，我成功走完了 Pixel Watch 的初始化流程。在保存的设置日志中，可以看到最终的 `ExitSetupStep` 和 `FINISHED` 状态。
 
-不过，开发版镜像在 Google 服务认证及登录方面也出现过问题。
-
-为了获得更稳定的环境，我后来转向了 **Android 15 Google Play 镜像**。
-
-在这套环境中，我多次验证了蓝牙初始化、模拟器网络及 Pixel Watch 的 Wearable 服务连接。
+我多次验证了蓝牙初始化、模拟器网络及 Pixel Watch 的 Wearable 服务连接。
 
 例如，实际的服务状态中可以看到：
 
@@ -277,9 +267,7 @@ Last read was 00:01s ago
 
 至此，原先在国行手机上失败的初始化配对，已通过另一套 Android 环境完成。
 
-不过需要强调的是，**这个方案并没有修改或修复 vivo 原有的系统限制**。手表的配对主机是 Android Emulator，而不是原来的国行手机。二者不能混为一谈。
-
-另外，电脑上的蓝牙控制器需要交给桥接程序使用。在我的 Windows 环境中，需要将 Intel 蓝牙驱动切换到 WinUSB，必要时处理固件初始化。
+不过需要强调的是，另外，蓝牙硬件要独占给桥接程序使用。在我的 Windows 环境中，需要将 Intel 蓝牙驱动切换到 WinUSB，必要时处理固件初始化。
 
 这部分可以通过 PowerShell 脚本管理。
 
