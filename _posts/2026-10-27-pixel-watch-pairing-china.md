@@ -293,8 +293,8 @@ Last read was 00:01s ago
 |---|---|
 | 操作系统 | Windows 11 |
 | Android Emulator | 36.x |
-| Android 系统镜像 | Android 15 / Google Play / x86_64 |
-| Python | 3.12 |
+| Android 系统镜像 | Android 15 / Google Play / x86_64（官方正式版） |
+| Python | 3.12+ |
 | Bumble | 已安装 |
 | 蓝牙控制器 | Intel BE201，USB `8087:0037` |
 | 虚拟设备 | 4 核 / 4 GB |
@@ -333,11 +333,7 @@ system-images;android-35;google_apis_playstore;x86_64
 
 之后关闭模拟器，准备配置蓝牙桥接。
 
-> 本节 AVD 创建操作基于 Android 官方安装流程整理。原实验保留了成功使用的 AVD 配置，但没有完整记录首次创建时每一步的操作；这部分仍需进行一次全新环境复现，当前操作说明尚未完成从零复现验证。
-
 ### 3.2 安装 Bumble
-
-[Bumble](https://github.com/google/bumble) 是 Google 的开源蓝牙工具。这里使用 `hci_bridge` 连接模拟器与物理蓝牙控制器。
 
 建议为 Bumble 创建独立 Python 环境，避免依赖冲突。
 
