@@ -2,6 +2,9 @@
 
 内容用 Markdown/YAML 维护，模板和 CSS 负责排版。新增条目不需要改主页或索引。
 
+首页模块标题统一使用 `_includes/section-heading.html`，传入 `id`、`icon` 和 `title`；
+带列表入口时再传 `url` 与 `link_label`。首页 Writing 位于 Projects 之前。
+
 ## 个人资料与经历
 
 - `_data/profile.yml`：姓名、学历、头像及 alt、联系链接、简短问候/Currently。
@@ -9,6 +12,9 @@
 - CV 默认不公开，`cv` 保持空值；不添加 CV 入口、占位提示或文件。原始简历不入库。
 - 学历条目使用 `label`、`logo`。经历使用 `company`、`role`、`logo`、`dates`，可选布尔值 `current`。
 - 经历严格按 YAML 数组顺序显示，通常由新到旧；重叠任职不自动排序。不再限制公司名单或条数。
+- 经历可选 `department`：显示在公司名称下方、岗位上方。页面使用英文；未确认官方英文名时使用描述性译名，不宣称其为官方名称。
+- 首页 Links 由 `_data/links.yml` 数组维护：`name`、`url` 和可选的 `description`，按数组顺序显示。
+  关系描述需本人确认，不能将欣赏或关注的人物自动标为导师或合作者。
 - 日期格式为 `Apr 2026 - Aug 2026`。持续任职用 `Sep 2026 - Present`，同时设置
   `current: true`；结束的任职省略 current 或设为 false。日期未知可暂留 `dates: ""`，发布检查会阻止。
 - Logo 使用 `/assets/images/organizations/` 中的本地文件，来源写入 LOGO_SOURCES.md。

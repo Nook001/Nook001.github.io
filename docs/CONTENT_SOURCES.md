@@ -26,6 +26,17 @@ Present, Tencent as Solution Architect, and the occupation labels Backend Engine
 and Android Engineer for Shopee and OPPO. CAS remains Distributed Systems; no
 unconfirmed formal job title has been added. Display order is maintained in YAML.
 
+## Departments and supervisor links
+
+On 31 October 2026 the user confirmed HKUST(GZ) — MAYU Lab, Tencent — CSIG,
+CAS — Institute of Software, Shopee — Digital Bank, and OPPO — 互联网服务生态部.
+At the user's request the English page displays OPPO's department as
+"Internet Services & Ecosystem", a descriptive translation of 互联网服务生态部,
+not a verified official English organization name.
+The user identified https://v587su.github.io/ as their RA supervisor's homepage;
+the homepage confirms the name Zhensu Sun and the MAYU Lab association. The Links
+entry records that user-confirmed relationship, without adding a current faculty title.
+
 ## Writing
 
 At the user's explicit request in this engineering review, the Qingyin playback-events

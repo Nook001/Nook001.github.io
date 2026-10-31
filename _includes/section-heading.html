@@ -1,0 +1,4 @@
+<div class="section-heading">
+  <h2 id="{{ include.id | escape }}">{% include section-icon.html name=include.icon %}{{ include.title | escape }}</h2>
+  {% if include.url %}<a href="{{ include.url | relative_url }}">{{ include.link_label | escape }}</a>{% endif %}
+</div>
