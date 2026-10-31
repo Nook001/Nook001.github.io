@@ -5,7 +5,7 @@ The five homepage headings use Lucide SVGs from the official repository at revis
 - About: `user-round`
 - Experience: `briefcase-business`
 - Publications: `book-open`
-- Selected projects: `blocks`
+- Projects: `blocks`
 - Writing: `pen-line`
 
 Source: https://github.com/lucide-icons/lucide/tree/7faf87628a1ad6175975bc595344337ce14a7db4/icons
