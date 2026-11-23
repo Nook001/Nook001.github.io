@@ -1,6 +1,8 @@
 name: Nook
 greeting: "Hi, I’m Nook. Welcome to my corner of the web."
 education:
+  - label: "HKUST · PhD (incoming)"
+    logo: /assets/images/organizations/hkust.ico
   - label: "HKUST · CSE"
     logo: /assets/images/organizations/hkust.ico
   - label: "University of Warwick · CS ’27"

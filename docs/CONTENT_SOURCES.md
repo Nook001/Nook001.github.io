@@ -8,6 +8,8 @@ The user-supplied Chinese CV supports the professional email address, Warwick st
 
 The user subsequently requested Nook as the public display name; the original resume name is not used as the site's current display name. The user subsequently approved the concise labels “HKUST · CSE” and “University of Warwick · CS ’27” and explicitly requested CV removal before release. The original CV is not committed, and the derived CV page is removed from the current source and generated site. Phone number, GPA, university rankings, internal customer details and numerical performance claims are not included in the website.
 
+On 23 November 2026 the user asked to add an incoming HKUST PhD to the education list, shown as “HKUST · PhD (incoming)” with no further programme details.
+
 ## Profile
 
 - [GitHub account](https://github.com/Nook001): verified account URL and account avatar. The illustration is a GitHub avatar, not a claimed portrait photograph.
